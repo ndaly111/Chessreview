@@ -1,7 +1,7 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-13T01:14:54.119450+00:00",
+  "generated": "2026-05-13T01:25:42.152859+00:00",
   "n_games": 50,
   "scores": {
     "tactics": {
@@ -36,6 +36,17 @@
       "score": 4,
       "explain": "Castled in 58% of games. 9/50 losses ended in checkmate (18%). Below 60% castling rate is a problem."
     }
+  },
+  "action_plan": {
+    "focus_metric": "castle_rate",
+    "focus_label": "Castle by move 10 in every game",
+    "focus_current": "58%",
+    "focus_goal": "90%",
+    "castle_rate": 58.0,
+    "throw_rate": 62.16216216216216,
+    "bullet_n": 12,
+    "true_strength_low": 433,
+    "true_strength_high": 514
   },
   "trends": [
     {
