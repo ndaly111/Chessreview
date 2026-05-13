@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-13T15:48:53.857979+00:00",
-  "n_games": 52,
+  "generated": "2026-05-13T23:14:54.213025+00:00",
+  "n_games": 53,
   "scores": {
     "tactics": {
       "score": 69,
-      "explain": "150 blunders (2.9/game) and 100 missed gifts from opponents (1.9/game). Top blunder motif: positional."
+      "explain": "153 blunders (2.9/game) and 103 missed gifts from opponents (1.9/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 62,
@@ -14,27 +14,27 @@
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 293. 73 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 288. 74 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 529. 59 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 507. 59 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
       "score": 58,
-      "explain": "28% of your blunders happened with <=30s left (42/150). >40% means you're burning time too early."
+      "explain": "27% of your blunders happened with <=30s left (42/153). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 41,
-      "explain": "You reached a winning position (+2.00) in 39/52 games and converted 16 of them. Throw rate: 59%."
+      "score": 42,
+      "explain": "You reached a winning position (+2.00) in 40/53 games and converted 17 of them. Throw rate: 58%."
     },
     "defense": {
-      "score": 30,
-      "explain": "You were down -2.00 or worse at some point in 42 games and recovered to win/draw in 13 of them (30%)."
+      "score": 32,
+      "explain": "You were down -2.00 or worse at some point in 43 games and recovered to win/draw in 14 of them (32%)."
     },
     "king_safety": {
-      "score": 7,
-      "explain": "Castled in 60% of games. 9/52 losses ended in checkmate (17%). Below 60% castling rate is a problem."
+      "score": 9,
+      "explain": "Castled in 60% of games. 9/53 losses ended in checkmate (17%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "60%",
     "focus_goal": "90%",
-    "castle_rate": 59.61538461538461,
-    "throw_rate": 58.97435897435897,
+    "castle_rate": 60.37735849056604,
+    "throw_rate": 57.5,
     "bullet_n": 12,
-    "true_strength_low": 448,
-    "true_strength_high": 529
+    "true_strength_low": 456,
+    "true_strength_high": 537
   },
   "trends": [
     {
@@ -75,11 +75,11 @@
     },
     {
       "start_ts": 1778285605,
-      "n": 19,
-      "win_rate": 21.05263157894737,
-      "rating": 404.2631578947368,
-      "blunders_per_game": 2.8421052631578947,
-      "throw_rate": 73.33333333333333
+      "n": 20,
+      "win_rate": 25.0,
+      "rating": 402.85,
+      "blunders_per_game": 2.85,
+      "throw_rate": 68.75
     }
   ],
   "openings": [
