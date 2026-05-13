@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chess Analysis -- lordnickolaz</title>
+  <style>
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+       margin: 0; padding: 0; background: #0f1419; color: #e6e6e6; }
+header { background: linear-gradient(135deg, #1a2332, #2d3748);
+         padding: 24px 32px; border-bottom: 2px solid #4a5568; }
+header h1 { margin: 0; font-size: 28px; letter-spacing: -0.5px; }
+header .sub { color: #a0aec0; margin-top: 4px; font-size: 14px; }
+nav { background: #1a202c; padding: 12px 32px; position: sticky; top: 0;
+      border-bottom: 1px solid #2d3748; z-index: 10; }
+nav a { color: #a0aec0; margin-right: 24px; text-decoration: none; font-size: 14px;
+        font-weight: 500; transition: color 0.15s; }
+nav a:hover { color: #63b3ed; }
+.container { max-width: 1280px; margin: 0 auto; padding: 32px; }
+section { margin-bottom: 56px; }
+h2 { font-size: 22px; margin: 0 0 18px; border-bottom: 1px solid #2d3748; padding-bottom: 8px; }
+h3 { font-size: 15px; color: #cbd5e0; margin: 0 0 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.skill-card { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 18px; }
+.skill-card .score { font-size: 42px; font-weight: 700; margin: 8px 0; line-height: 1; }
+.skill-card .explain { font-size: 13px; color: #a0aec0; line-height: 1.5; }
+.score-green  { color: #68d391; }
+.score-yellow { color: #f6e05e; }
+.score-orange { color: #f6ad55; }
+.score-red    { color: #fc8181; }
+.card { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #2d3748; }
+th { color: #a0aec0; font-weight: 500; text-transform: uppercase; font-size: 11px; letter-spacing: 0.6px; }
+tbody tr:hover { background: #232d3f; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.tag-win { background: #22543d; color: #9ae6b4; }
+.tag-loss { background: #5a2729; color: #feb2b2; }
+.tag-draw { background: #2c5282; color: #90cdf4; }
+.kpi { display: flex; gap: 24px; margin: 16px 0; }
+.kpi .item { flex: 1; background: #1a202c; padding: 16px; border-radius: 8px; border: 1px solid #2d3748; }
+.kpi .num { font-size: 28px; font-weight: 700; }
+.kpi .lbl { color: #a0aec0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+.puzzle { background: #1a202c; border: 1px solid #2d3748; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+.puzzle .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.puzzle .head .title { font-weight: 600; }
+.puzzle .head .loss { color: #fc8181; font-size: 13px; }
+.puzzle .meta { font-size: 13px; color: #a0aec0; margin-bottom: 8px; }
+.puzzle .fen { font-family: "SF Mono", Consolas, Monaco, monospace; font-size: 12px;
+               background: #0f1419; padding: 8px; border-radius: 4px; word-break: break-all; }
+.puzzle .links a { color: #63b3ed; margin-right: 16px; text-decoration: none; font-size: 13px; }
+.puzzle .links a:hover { text-decoration: underline; }
+.chart-container { background: #1a202c; padding: 20px; border-radius: 8px; margin-bottom: 16px;
+                   border: 1px solid #2d3748; }
+canvas { max-height: 320px; }
+.footer { color: #718096; font-size: 12px; padding: 32px; text-align: center; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Chess Analysis -- lordnickolaz</h1>
+    <div class="sub">Last 30 days -- 50 games -- generated 2026-05-13 00:56 UTC</div>
+  </header>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#skills">Skills</a>
+    <a href="#trends">Trends</a>
+    <a href="#openings">Openings</a>
+    <a href="#puzzles">Personal Puzzles</a>
+    <a href="#games">All Games</a>
+  </nav>
+  <div class="container">
+
+    <section id="overview">
+      <h2>Overview</h2>
+      
+    <div class="kpi">
+      <div class="item"><div class="lbl">Games</div><div class="num">50</div></div>
+      <div class="item"><div class="lbl">Win rate</div><div class="num">32%</div></div>
+      <div class="item"><div class="lbl">Rating</div><div class="num">437 -> 353</div></div>
+      <div class="item"><div class="lbl">Throw rate</div><div class="num">62%</div></div>
+    </div>
+      <div class="chart-container">
+        <canvas id="radarChart"></canvas>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skill Scorecard</h2>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <h3>Tactics</h3>
+          <div class="score score-green">70</div>
+          <div class="explain">139 blunders (2.8/game) and 92 missed gifts from opponents (1.8/game). Top blunder motif: positional.</div>
+        </div>
+        <div class="skill-card">
+          <h3>Opening</h3>
+          <div class="score score-yellow">62</div>
+          <div class="explain">Average centipawn loss in opening (moves 1-10): 57. Lower is better; 30+ = repertoire problems.</div>
+        </div>
+        <div class="skill-card">
+          <h3>Middlegame</h3>
+          <div class="score score-red">0</div>
+          <div class="explain">Avg cp loss in middlegame (moves 11-25): 290. 71 blunders in this phase.</div>
+        </div>
+        <div class="skill-card">
+          <h3>Endgame</h3>
+          <div class="score score-red">0</div>
+          <div class="explain">Avg cp loss in endgame (move 26+): 512. 50 blunders. Endgame conversion is where most rating leaks.</div>
+        </div>
+        <div class="skill-card">
+          <h3>Time Management</h3>
+          <div class="score score-yellow">57</div>
+          <div class="explain">28% of your blunders happened with <=30s left (39/139). >40% means you're burning time too early.</div>
+        </div>
+        <div class="skill-card">
+          <h3>Conversion</h3>
+          <div class="score score-orange">37</div>
+          <div class="explain">You reached a winning position (+2.00) in 37/50 games and converted 14 of them. Throw rate: 62%.</div>
+        </div>
+        <div class="skill-card">
+          <h3>Defense</h3>
+          <div class="score score-red">29</div>
+          <div class="explain">You were down -2.00 or worse at some point in 41 games and recovered to win/draw in 12 of them (29%).</div>
+        </div>
+        <div class="skill-card">
+          <h3>King Safety</h3>
+          <div class="score score-red">4</div>
+          <div class="explain">Castled in 58% of games. 9/50 losses ended in checkmate (18%). Below 60% castling rate is a problem.</div>
+        </div></div>
+    </section>
+
+    <section id="trends">
+      <h2>Trends (4 weeks)</h2>
+      <div class="chart-container"><canvas id="ratingChart"></canvas></div>
+      <div class="chart-container"><canvas id="blunderChart"></canvas></div>
+      <div class="chart-container"><canvas id="throwChart"></canvas></div>
+    </section>
+
+    <section id="openings">
+      <h2>Opening Repertoire</h2>
+      <div class="card">
+        <table>
+          <thead><tr>
+            <th>Opening</th><th>Games</th><th>Wins</th><th>WR</th>
+            <th>Eval @ move 10</th><th>First slip</th><th>W/B</th>
+          </tr></thead>
+          <tbody>
+        <tr>
+          <td>Queens Pawn Opening Accelerated London System</td>
+          <td>8</td>
+          <td>3</td>
+          <td>38%</td>
+          <td>+0.00</td>
+          <td>move 6</td>
+          <td>8/0</td>
+        </tr>
+        <tr>
+          <td>Queens Pawn Opening Zukertort Chigorin Variation 3.Bf4 Nf6 4.e3</td>
+          <td>3</td>
+          <td>0</td>
+          <td>0%</td>
+          <td>+0.00</td>
+          <td>move 8</td>
+          <td>3/0</td>
+        </tr>
+        <tr>
+          <td>Reti Opening 1...d5</td>
+          <td>2</td>
+          <td>1</td>
+          <td>50%</td>
+          <td>+0.00</td>
+          <td>move 2</td>
+          <td>2/0</td>
+        </tr>
+        <tr>
+          <td>Kings Pawn Opening Kings Knight Variation 2...Nc6</td>
+          <td>2</td>
+          <td>0</td>
+          <td>0%</td>
+          <td>-1.75</td>
+          <td>move 5</td>
+          <td>0/2</td>
+        </tr>
+        <tr>
+          <td>Van t Kruijs Opening 1...e5</td>
+          <td>2</td>
+          <td>1</td>
+          <td>50%</td>
+          <td>+0.29</td>
+          <td>move 6</td>
+          <td>0/2</td>
+        </tr>
+        <tr>
+          <td>Three Knights Opening 3...Bc5</td>
+          <td>2</td>
+          <td>1</td>
+          <td>50%</td>
+          <td>-3.58</td>
+          <td>move 5</td>
+          <td>0/2</td>
+        </tr>
+        <tr>
+          <td>Queens Pawn Opening Accelerated London System 2...e6 3.e3 Bd6 4.Bg3</td>
+          <td>2</td>
+          <td>2</td>
+          <td>100%</td>
+          <td>+0.00</td>
+          <td>move 9</td>
+          <td>2/0</td>
+        </tr>
+        <tr>
+          <td>Kings Pawn Opening 1...e5</td>
+          <td>2</td>
+          <td>0</td>
+          <td>0%</td>
+          <td>+0.95</td>
+          <td>move 4</td>
+          <td>0/2</td>
+        </tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="puzzles">
+      <h2>Personal Puzzles (30 worst blunders to drill)</h2>
+      <p style="color:#a0aec0;font-size:14px;">Click "Open on lichess" for an interactive board with engine analysis. Your job: find the best move from the FEN.</p>
+      
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Rios8396  --  move 23...  --  positional</div>
+            <div class="loss">-104.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Rc1</strong>
+            (+4.53 -> -99.99)
+            -- best was <strong>h6</strong>
+            -- Colle System Anti Colle Variation 4.c4 e6 5.Nc3
+          </div>
+          <div class="fen">2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K b - - 1 23</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K%20b%20-%20-%201%2023" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K%20b%20-%20-%201%2023" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167692237906" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs luisM91023  --  move 28...  --  positional</div>
+            <div class="loss">-103.6 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Qxh2</strong>
+            (+3.58 -> -99.99)
+            -- best was <strong>Rg8</strong>
+            -- Bishops Opening 2...Nc6
+          </div>
+          <div class="fen">r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q b - - 3 28</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q%20b%20-%20-%203%2028" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q%20b%20-%20-%203%2028" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167922685266" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Shahariar696  --  move 18.  --  positional</div>
+            <div class="loss">-102.7 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Kf1</strong>
+            (+2.68 -> -99.99)
+            -- best was <strong>Qg4+</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1 w - - 0 18</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1%20w%20-%20-%200%2018" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1%20w%20-%20-%200%2018" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167970389530" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Sabo_D7  --  move 13...  --  positional</div>
+            <div class="loss">-100.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Nxg3</strong>
+            (+0.47 -> -99.99)
+            -- best was <strong>O-O</strong>
+            -- Kings Pawn Opening 1...e5
+          </div>
+          <div class="fen">r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R b KQkq - 2 13</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R%20b%20KQkq%20-%202%2013" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R%20b%20KQkq%20-%202%2013" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168481457496" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs flipp3543  --  move 23.  --  positional</div>
+            <div class="loss">-99.2 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Ke2</strong>
+            (-0.77 -> -99.98)
+            -- best was <strong>Ke1</strong>
+            -- London System...4.e3 Bf5 5.c4 e6
+          </div>
+          <div class="fen">3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R w - - 2 23</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R%20w%20-%20-%202%2023" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R%20w%20-%20-%202%2023" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168481542908" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Emris_Merlin  --  move 33.  --  positional</div>
+            <div class="loss">-97.9 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Ne4</strong>
+            (-2.06 -> -99.98)
+            -- best was <strong>Rfe1</strong>
+            -- Queens Pawn Opening Zukertort Chigorin Variation 3
+          </div>
+          <div class="fen">7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2 w - - 8 33</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2%20w%20-%20-%208%2033" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2%20w%20-%20-%208%2033" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168565973018" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs PlayingPug22  --  move 23.  --  positional</div>
+            <div class="loss">-97.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Qxh8</strong>
+            (-2.49 -> -99.99)
+            -- best was <strong>Qxa7+</strong>
+            -- Reti Opening 1...d5
+          </div>
+          <div class="fen">1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2 w Q - 2 23</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2%20w%20Q%20-%202%2023" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2%20w%20Q%20-%202%2023" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167692110840" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs 420blazeitchessmasta  --  move 27...  --  positional</div>
+            <div class="loss">-97.4 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Qa2</strong>
+            (-2.56 -> -99.99)
+            -- best was <strong>Rb3</strong>
+            -- Three Knights Opening 3...Bc5
+          </div>
+          <div class="fen">5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4 b - - 2 27</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4%20b%20-%20-%202%2027" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4%20b%20-%20-%202%2027" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168296312436" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs hacker234892  --  move 43...  --  positional</div>
+            <div class="loss">-96.9 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Ka3</strong>
+            (-3.08 -> -99.96)
+            -- best was <strong>Kc4</strong>
+            -- Kings Pawn Opening Kings Knight Variation 2...Nc6
+          </div>
+          <div class="fen">1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8 b - - 4 43</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8%20b%20-%20-%204%2043" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8%20b%20-%20-%204%2043" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168340523238" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Gallotl666  --  move 37.  --  direct hang</div>
+            <div class="loss">-94.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Qf6+</strong>
+            (+99.97 -> +5.43)
+            -- best was <strong>Ne3</strong>
+            -- Queens Pawn Opening Mikenas Defense
+          </div>
+          <div class="fen">8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1 w - - 1 37</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1%20w%20-%20-%201%2037" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1%20w%20-%20-%201%2037" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs PlayingPug22  --  move 21.  --  positional</div>
+            <div class="loss">-93.7 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Rf1</strong>
+            (-6.26 -> -99.99)
+            -- best was <strong>h3</strong>
+            -- Reti Opening 1...d5
+          </div>
+          <div class="fen">4k2r/pQ4p1/2p3p1/4p3/3rPp2/P4P2/1PP3qP/R3K2R w KQk - 0 21</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=4k2r/pQ4p1/2p3p1/4p3/3rPp2/P4P2/1PP3qP/R3K2R%20w%20KQk%20-%200%2021" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=4k2r/pQ4p1/2p3p1/4p3/3rPp2/P4P2/1PP3qP/R3K2R%20w%20KQk%20-%200%2021" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167692110840" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs BloodLifex  --  move 18.  --  positional</div>
+            <div class="loss">-93.0 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Qf7+</strong>
+            (+99.99 -> +6.96)
+            -- best was <strong>Qe6#</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">r1bq4/2pk4/p1p3Q1/3p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3 w Q - 0 18</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=r1bq4/2pk4/p1p3Q1/3p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3%20w%20Q%20-%200%2018" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=r1bq4/2pk4/p1p3Q1/3p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3%20w%20Q%20-%200%2018" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167756876774" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Gallotl666  --  move 66.  --  positional</div>
+            <div class="loss">-92.9 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Ke8</strong>
+            (-7.04 -> -99.96)
+            -- best was <strong>Kf8</strong>
+            -- Queens Pawn Opening Mikenas Defense
+          </div>
+          <div class="fen">8/4K3/8/3qk3/8/8/8/8 w - - 10 66</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=8/4K3/8/3qk3/8/8/8/8%20w%20-%20-%2010%2066" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=8/4K3/8/3qk3/8/8/8/8%20w%20-%20-%2010%2066" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs BloodLifex  --  move 16.  --  positional</div>
+            <div class="loss">-92.2 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Bb5</strong>
+            (+99.99 -> +7.77)
+            -- best was <strong>Qe6#</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">r1bq4/pppk4/2n3Q1/3p2N1/3Pp3/P2BP1P1/1PP2PP1/RN2K3 w Q - 1 16</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=r1bq4/pppk4/2n3Q1/3p2N1/3Pp3/P2BP1P1/1PP2PP1/RN2K3%20w%20Q%20-%201%2016" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=r1bq4/pppk4/2n3Q1/3p2N1/3Pp3/P2BP1P1/1PP2PP1/RN2K3%20w%20Q%20-%201%2016" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167756876774" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs LassanB  --  move 37.  --  positional</div>
+            <div class="loss">-92.2 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Kf5</strong>
+            (+99.95 -> +7.75)
+            -- best was <strong>Bc3+</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">2Q5/6kp/7b/B7/4K3/P7/8/8 w - - 1 37</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=2Q5/6kp/7b/B7/4K3/P7/8/8%20w%20-%20-%201%2037" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=2Q5/6kp/7b/B7/4K3/P7/8/8%20w%20-%20-%201%2037" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168182645906" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs vedant0140  --  move 29.  --  positional</div>
+            <div class="loss">-92.0 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Qxb7</strong>
+            (-7.93 -> -99.97)
+            -- best was <strong>Qh2</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">8/ppp2rk1/6p1/n4q2/3P4/P1P1P3/3K1PQ1/8 w - - 1 29</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=8/ppp2rk1/6p1/n4q2/3P4/P1P1P3/3K1PQ1/8%20w%20-%20-%201%2029" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=8/ppp2rk1/6p1/n4q2/3P4/P1P1P3/3K1PQ1/8%20w%20-%20-%201%2029" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167737669480" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Gallotl666  --  move 35.  --  direct hang</div>
+            <div class="loss">-91.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>f5</strong>
+            (+99.98 -> +8.49)
+            -- best was <strong>Qf6+</strong>
+            -- Queens Pawn Opening Mikenas Defense
+          </div>
+          <div class="fen">5R2/6k1/p1p3p1/1p4Q1/5P2/7P/P5P1/3N2K1 w - - 5 35</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=5R2/6k1/p1p3p1/1p4Q1/5P2/7P/P5P1/3N2K1%20w%20-%20-%205%2035" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=5R2/6k1/p1p3p1/1p4Q1/5P2/7P/P5P1/3N2K1%20w%20-%20-%205%2035" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs papalopez813  --  move 37.  --  delayed tactic</div>
+            <div class="loss">-91.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Rg4</strong>
+            (+99.98 -> +8.53)
+            -- best was <strong>Rh7+</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">8/2p1k3/p3r3/1p4p1/7R/P1P1PQP1/1P4P1/2KR4 w - - 0 37</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=8/2p1k3/p3r3/1p4p1/7R/P1P1PQP1/1P4P1/2KR4%20w%20-%20-%200%2037" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=8/2p1k3/p3r3/1p4p1/7R/P1P1PQP1/1P4P1/2KR4%20w%20-%20-%200%2037" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168622719330" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs RDBEAST94  --  move 32.  --  positional</div>
+            <div class="loss">-90.8 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>h6</strong>
+            (+99.99 -> +9.14)
+            -- best was <strong>Qf4#</strong>
+            -- Queens Pawn Opening Accelerated London System 2...
+          </div>
+          <div class="fen">2b5/p7/8/2pp1nQP/2p1k3/2r1P3/P3BPP1/R4K2 w - - 1 32</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=2b5/p7/8/2pp1nQP/2p1k3/2r1P3/P3BPP1/R4K2%20w%20-%20-%201%2032" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=2b5/p7/8/2pp1nQP/2p1k3/2r1P3/P3BPP1/R4K2%20w%20-%20-%201%2032" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168143021030" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs pawndisastermaster  --  move 25.  --  positional</div>
+            <div class="loss">-90.7 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Rf1</strong>
+            (-9.24 -> -99.98)
+            -- best was <strong>g4</strong>
+            -- Queens Pawn Opening Zukertort Chigorin Variation 3
+          </div>
+          <div class="fen">2k3r1/ppp1pp2/8/4P3/P4b1p/7P/1P1r2P1/4R1K1 w - - 4 25</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=2k3r1/ppp1pp2/8/4P3/P4b1p/7P/1P1r2P1/4R1K1%20w%20-%20-%204%2025" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=2k3r1/ppp1pp2/8/4P3/P4b1p/7P/1P1r2P1/4R1K1%20w%20-%20-%204%2025" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168621487660" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Gallotl666  --  move 21.  --  positional</div>
+            <div class="loss">-90.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Qxh7+</strong>
+            (+99.91 -> +9.42)
+            -- best was <strong>exf8=Q+</strong>
+            -- Queens Pawn Opening Mikenas Defense
+          </div>
+          <div class="fen">r4b1Q/4Pk1p/p1p3p1/1p6/8/2N1P3/Pq3PPP/3R1RK1 w - - 1 21</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=r4b1Q/4Pk1p/p1p3p1/1p6/8/2N1P3/Pq3PPP/3R1RK1%20w%20-%20-%201%2021" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=r4b1Q/4Pk1p/p1p3p1/1p6/8/2N1P3/Pq3PPP/3R1RK1%20w%20-%20-%201%2021" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs papalopez813  --  move 25.  --  positional</div>
+            <div class="loss">-90.3 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Qd7</strong>
+            (+99.92 -> +9.63)
+            -- best was <strong>f4</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">r7/2p4R/p4kp1/1p2r3/3Qn3/P1P1P1P1/1P3PP1/2K2R2 w - - 0 25</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=r7/2p4R/p4kp1/1p2r3/3Qn3/P1P1P1P1/1P3PP1/2K2R2%20w%20-%20-%200%2025" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=r7/2p4R/p4kp1/1p2r3/3Qn3/P1P1P1P1/1P3PP1/2K2R2%20w%20-%20-%200%2025" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168622719330" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Gallotl666  --  move 20.  --  positional</div>
+            <div class="loss">-90.0 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>e7</strong>
+            (+99.96 -> +9.94)
+            -- best was <strong>Qxh7</strong>
+            -- Queens Pawn Opening Mikenas Defense
+          </div>
+          <div class="fen">r3kb1Q/7p/p1p1P1p1/1p6/8/2N1P3/Pq3PPP/3R1RK1 w q - 0 20</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=r3kb1Q/7p/p1p1P1p1/1p6/8/2N1P3/Pq3PPP/3R1RK1%20w%20q%20-%200%2020" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=r3kb1Q/7p/p1p1P1p1/1p6/8/2N1P3/Pq3PPP/3R1RK1%20w%20q%20-%200%2020" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Bhoror97  --  move 34...  --  positional</div>
+            <div class="loss">-90.0 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Kf5</strong>
+            (-9.93 -> -99.93)
+            -- best was <strong>hxg3+</strong>
+            -- Scotch Game 3...d6
+          </div>
+          <div class="fen">8/7R/6p1/8/5k1p/B1N2PPP/PPP2K2/8 b - - 0 34</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=8/7R/6p1/8/5k1p/B1N2PPP/PPP2K2/8%20b%20-%20-%200%2034" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=8/7R/6p1/8/5k1p/B1N2PPP/PPP2K2/8%20b%20-%20-%200%2034" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167692057672" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs BloodLifex  --  move 17.  --  positional</div>
+            <div class="loss">-89.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Bxc6+</strong>
+            (+99.99 -> +10.50)
+            -- best was <strong>Qe6#</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">r1bq4/1ppk4/p1n3Q1/1B1p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3 w Q - 0 17</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=r1bq4/1ppk4/p1n3Q1/1B1p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3%20w%20Q%20-%200%2017" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=r1bq4/1ppk4/p1n3Q1/1B1p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3%20w%20Q%20-%200%2017" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167756876774" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Gallotl666  --  move 27.  --  positional</div>
+            <div class="loss">-89.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>h3</strong>
+            (+99.96 -> +10.47)
+            -- best was <strong>Re8+</strong>
+            -- Queens Pawn Opening Mikenas Defense
+          </div>
+          <div class="fen">3R4/6Q1/p1p1k1p1/1p6/8/4P3/P1q2PPP/3N2K1 w - - 3 27</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=3R4/6Q1/p1p1k1p1/1p6/8/4P3/P1q2PPP/3N2K1%20w%20-%20-%203%2027" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=3R4/6Q1/p1p1k1p1/1p6/8/4P3/P1q2PPP/3N2K1%20w%20-%20-%203%2027" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs Bhoror97  --  move 37...  --  positional</div>
+            <div class="loss">-89.1 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Kf6</strong>
+            (-10.82 -> -99.93)
+            -- best was <strong>g5</strong>
+            -- Scotch Game 3...d6
+          </div>
+          <div class="fen">8/6R1/6p1/5k2/7P/B1N2P1P/PPP3K1/8 b - - 2 37</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=8/6R1/6p1/5k2/7P/B1N2P1P/PPP3K1/8%20b%20-%20-%202%2037" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=8/6R1/6p1/5k2/7P/B1N2P1P/PPP3K1/8%20b%20-%20-%202%2037" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167692057672" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs NaderOsman  --  move 28...  --  positional</div>
+            <div class="loss">-88.7 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>Bb8</strong>
+            (-11.29 -> -99.99)
+            -- best was <strong>Qxh2+</strong>
+            -- Kings Pawn Opening Kings Knight Variation 2...Nc6
+          </div>
+          <div class="fen">5rk1/b1q2b1p/5Q2/p1p5/2P3P1/P7/1B3P1P/3RR1K1 b - - 0 28</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=5rk1/b1q2b1p/5Q2/p1p5/2P3P1/P7/1B3P1P/3RR1K1%20b%20-%20-%200%2028" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=5rk1/b1q2b1p/5Q2/p1p5/2P3P1/P7/1B3P1P/3RR1K1%20b%20-%20-%200%2028" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/167970166846" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs papalopez813  --  move 33.  --  positional</div>
+            <div class="loss">-87.5 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>fxg5</strong>
+            (+99.94 -> +12.47)
+            -- best was <strong>g4+</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">Q7/2p5/p3r1p1/1p3kn1/5P2/P1P1P1P1/1P4P1/2KR3R w - - 1 33</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=Q7/2p5/p3r1p1/1p3kn1/5P2/P1P1P1P1/1P4P1/2KR3R%20w%20-%20-%201%2033" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=Q7/2p5/p3r1p1/1p3kn1/5P2/P1P1P1P1/1P4P1/2KR3R%20w%20-%20-%201%2033" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168622719330" target="_blank">Original game</a>
+          </div>
+        </div>
+        <div class="puzzle">
+          <div class="head">
+            <div class="title">vs papalopez813  --  move 32.  --  positional</div>
+            <div class="loss">-86.9 pawns</div>
+          </div>
+          <div class="meta">
+            You played <strong>f4+</strong>
+            (+99.93 -> +12.99)
+            -- best was <strong>Qh8+</strong>
+            -- Queens Pawn Opening Accelerated London System
+          </div>
+          <div class="fen">Q7/2p5/p3r1p1/1p2k1n1/8/P1P1P1P1/1P3PP1/2KR3R w - - 1 32</div>
+          <div class="links" style="margin-top: 10px;">
+            <a href="https://lichess.org/analysis?fen=Q7/2p5/p3r1p1/1p2k1n1/8/P1P1P1P1/1P3PP1/2KR3R%20w%20-%20-%201%2032" target="_blank">Open on lichess</a>
+            <a href="https://www.chess.com/analysis?fen=Q7/2p5/p3r1p1/1p2k1n1/8/P1P1P1P1/1P3PP1/2KR3R%20w%20-%20-%201%2032" target="_blank">Open on chess.com</a>
+            <a href="https://www.chess.com/game/live/168622719330" target="_blank">Original game</a>
+          </div>
+        </div>
+    </section>
+
+    <section id="games">
+      <h2>All Games (50)</h2>
+      <div class="card">
+        <table>
+          <thead><tr><th>Date</th><th>Side</th><th>Opponent</th><th>Rating</th><th>Result</th><th>Opening</th></tr></thead>
+          <tbody>
+        <tr>
+          <td>May 13</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168623316470" target="_blank" style="color:#63b3ed">prometheusle</a></td>
+          <td>366</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Giuoco Piano Game Four Knights Game</td>
+        </tr>
+        <tr>
+          <td>May 13</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168622719330" target="_blank" style="color:#63b3ed">papalopez813</a></td>
+          <td>384</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Accelerated London System</td>
+        </tr>
+        <tr>
+          <td>May 12</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168621709244" target="_blank" style="color:#63b3ed">hungsolo1969</a></td>
+          <td>384</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Accelerated London System</td>
+        </tr>
+        <tr>
+          <td>May 12</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168621633252" target="_blank" style="color:#63b3ed">pawndisastermaster</a></td>
+          <td>409</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Pirc Defense Maroczy Defense</td>
+        </tr>
+        <tr>
+          <td>May 12</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168621487660" target="_blank" style="color:#63b3ed">pawndisastermaster</a></td>
+          <td>401</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Queens Pawn Opening Zukertort Chigorin Variation 3</td>
+        </tr>
+        <tr>
+          <td>May 12</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168620579398" target="_blank" style="color:#63b3ed">TheSlipperyFish</a></td>
+          <td>377</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Three Knights Opening 3...Bc5</td>
+        </tr>
+        <tr>
+          <td>May 12</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168620261778" target="_blank" style="color:#63b3ed">Edson27</a></td>
+          <td>523</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Giuoco Piano Game...5.c3 Nf6 6.d3 h6 7.Nbd2</td>
+        </tr>
+        <tr>
+          <td>May 11</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168565973018" target="_blank" style="color:#63b3ed">Emris_Merlin</a></td>
+          <td>405</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Zukertort Chigorin Variation 3</td>
+        </tr>
+        <tr>
+          <td>May 11</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168565188284" target="_blank" style="color:#63b3ed">tim_1357</a></td>
+          <td>409</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Accelerated London System</td>
+        </tr>
+        <tr>
+          <td>May 10</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168523251862" target="_blank" style="color:#63b3ed">Gert2525</a></td>
+          <td>398</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Reti Opening Black Mustang Defense</td>
+        </tr>
+        <tr>
+          <td>May 10</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168523105244" target="_blank" style="color:#63b3ed">SUCESSFULLYWDOFF</a></td>
+          <td>425</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Giuoco Piano Game 4.O O d6</td>
+        </tr>
+        <tr>
+          <td>May 10</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168522954878" target="_blank" style="color:#63b3ed">kokokimo2030</a></td>
+          <td>423</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening 1...d6 2.Bf4</td>
+        </tr>
+        <tr>
+          <td>May 10</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168481686440" target="_blank" style="color:#63b3ed">lsaiahRosner</a></td>
+          <td>463</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Zukertort Chigorin Variation 3</td>
+        </tr>
+        <tr>
+          <td>May 10</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168481542908" target="_blank" style="color:#63b3ed">flipp3543</a></td>
+          <td>448</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>London System...4.e3 Bf5 5.c4 e6</td>
+        </tr>
+        <tr>
+          <td>May 10</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168481457496" target="_blank" style="color:#63b3ed">Sabo_D7</a></td>
+          <td>445</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Kings Pawn Opening 1...e5</td>
+        </tr>
+        <tr>
+          <td>May 09</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168438433354" target="_blank" style="color:#63b3ed">blueshouse</a></td>
+          <td>414</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Kings Pawn Opening Tayler Opening</td>
+        </tr>
+        <tr>
+          <td>May 09</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168438365670" target="_blank" style="color:#63b3ed">Lucifer_674</a></td>
+          <td>440</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Kings Pawn Opening 1...e5</td>
+        </tr>
+        <tr>
+          <td>May 08</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168434516558" target="_blank" style="color:#63b3ed">sebcott</a></td>
+          <td>448</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Queens Pawn Opening Accelerated London System 2...</td>
+        </tr>
+        <tr>
+          <td>May 08</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168430788190" target="_blank" style="color:#63b3ed">chris_mceathron2018</a></td>
+          <td>556</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Giuoco Piano Game Evans Gambit Declined</td>
+        </tr>
+        <tr>
+          <td>May 07</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168383669446" target="_blank" style="color:#63b3ed">TomasFernandezLucardi</a></td>
+          <td>514</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Queens Pawn Opening Accelerated London System 2...</td>
+        </tr>
+        <tr>
+          <td>May 07</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168368939092" target="_blank" style="color:#63b3ed">sharathPR597</a></td>
+          <td>573</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Van t Kruijs Opening 1...e5</td>
+        </tr>
+        <tr>
+          <td>May 07</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168361077732" target="_blank" style="color:#63b3ed">dhyey5337</a></td>
+          <td>593</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Accelerated London System 2...</td>
+        </tr>
+        <tr>
+          <td>May 07</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168344906372" target="_blank" style="color:#63b3ed">cimbombom01</a></td>
+          <td>465</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Horwitz Defense 2.Bf4</td>
+        </tr>
+        <tr>
+          <td>May 07</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168340523238" target="_blank" style="color:#63b3ed">hacker234892</a></td>
+          <td>456</td>
+          <td><span class="tag tag-draw">draw</span> </td>
+          <td>Kings Pawn Opening Kings Knight Variation 2...Nc6</td>
+        </tr>
+        <tr>
+          <td>May 07</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168340286054" target="_blank" style="color:#63b3ed">chesso111</a></td>
+          <td>441</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Italian Game</td>
+        </tr>
+        <tr>
+          <td>May 06</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168296625888" target="_blank" style="color:#63b3ed">Gallotl666</a></td>
+          <td>483</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Mikenas Defense</td>
+        </tr>
+        <tr>
+          <td>May 06</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168296585508" target="_blank" style="color:#63b3ed">Jeoimport</a></td>
+          <td>541</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Englund Gambit 2.dxe5</td>
+        </tr>
+        <tr>
+          <td>May 06</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168296312436" target="_blank" style="color:#63b3ed">420blazeitchessmasta</a></td>
+          <td>580</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Three Knights Opening 3...Bc5</td>
+        </tr>
+        <tr>
+          <td>May 06</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168296246620" target="_blank" style="color:#63b3ed">charly2601</a></td>
+          <td>621</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Kings Pawn Opening Leonardis Variation</td>
+        </tr>
+        <tr>
+          <td>May 06</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168294793048" target="_blank" style="color:#63b3ed">nour3mira</a></td>
+          <td>454</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Queens Pawn Opening Accelerated London System</td>
+        </tr>
+        <tr>
+          <td>May 03</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168182645906" target="_blank" style="color:#63b3ed">LassanB</a></td>
+          <td>444</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Queens Pawn Opening Accelerated London System</td>
+        </tr>
+        <tr>
+          <td>May 03</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/168182416492" target="_blank" style="color:#63b3ed">ikonisch</a></td>
+          <td>419</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Van t Kruijs Opening 1...e5</td>
+        </tr>
+        <tr>
+          <td>May 02</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/168143021030" target="_blank" style="color:#63b3ed">RDBEAST94</a></td>
+          <td>388</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Queens Pawn Opening Accelerated London System 2...</td>
+        </tr>
+        <tr>
+          <td>Apr 29</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/167970389530" target="_blank" style="color:#63b3ed">Shahariar696</a></td>
+          <td>407</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Accelerated London System</td>
+        </tr>
+        <tr>
+          <td>Apr 29</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167970166846" target="_blank" style="color:#63b3ed">NaderOsman</a></td>
+          <td>421</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Kings Pawn Opening Kings Knight Variation 2...Nc6</td>
+        </tr>
+        <tr>
+          <td>Apr 28</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167922685266" target="_blank" style="color:#63b3ed">luisM91023</a></td>
+          <td>434</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Bishops Opening 2...Nc6</td>
+        </tr>
+        <tr>
+          <td>Apr 24</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167778707186" target="_blank" style="color:#63b3ed">doshi25</a></td>
+          <td>420</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Queens Pawn Opening 1...d5 2.e3 Nf6</td>
+        </tr>
+        <tr>
+          <td>Apr 24</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/167756876774" target="_blank" style="color:#63b3ed">BloodLifex</a></td>
+          <td>431</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Queens Pawn Opening Accelerated London System</td>
+        </tr>
+        <tr>
+          <td>Apr 24</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167741452526" target="_blank" style="color:#63b3ed">zehngator</a></td>
+          <td>395</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Scotch Game</td>
+        </tr>
+        <tr>
+          <td>Apr 24</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/167737669480" target="_blank" style="color:#63b3ed">vedant0140</a></td>
+          <td>436</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Accelerated London System</td>
+        </tr>
+        <tr>
+          <td>Apr 23</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/167692731548" target="_blank" style="color:#63b3ed">yanzmbro</a></td>
+          <td>453</td>
+          <td><span class="tag tag-loss">loss</span> (threw)</td>
+          <td>Queens Pawn Opening Zukertort Chigorin Variation 3</td>
+        </tr>
+        <tr>
+          <td>Apr 23</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/167692473794" target="_blank" style="color:#63b3ed">cccibanpx</a></td>
+          <td>402</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Reti Opening 1...d5</td>
+        </tr>
+        <tr>
+          <td>Apr 23</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167692237906" target="_blank" style="color:#63b3ed">Rios8396</a></td>
+          <td>378</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Colle System Anti Colle Variation 4.c4 e6 5.Nc3</td>
+        </tr>
+        <tr>
+          <td>Apr 23</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/167692110840" target="_blank" style="color:#63b3ed">PlayingPug22</a></td>
+          <td>437</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Reti Opening 1...d5</td>
+        </tr>
+        <tr>
+          <td>Apr 23</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167692057672" target="_blank" style="color:#63b3ed">Bhoror97</a></td>
+          <td>601</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Scotch Game 3...d6</td>
+        </tr>
+        <tr>
+          <td>Apr 20</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/167553416768" target="_blank" style="color:#63b3ed">pjpjpjpjpjpjpjpjpjpjpj02</a></td>
+          <td>606</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Nimzowitsch Defense Declined 2...d5</td>
+        </tr>
+        <tr>
+          <td>Apr 20</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167553332232" target="_blank" style="color:#63b3ed">sir_mcChad</a></td>
+          <td>655</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Pirc Defense Maroczy Defense 3.dxe5 dxe5 4.Qxd8 Kx</td>
+        </tr>
+        <tr>
+          <td>Apr 19</td>
+          <td>W</td>
+          <td><a href="https://www.chess.com/game/live/167526046456" target="_blank" style="color:#63b3ed">arncprl</a></td>
+          <td>589</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Italian Game 3...d6</td>
+        </tr>
+        <tr>
+          <td>Apr 18</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167464682464" target="_blank" style="color:#63b3ed">kuyakuy1</a></td>
+          <td>469</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Bishops Opening Berlin Defense</td>
+        </tr>
+        <tr>
+          <td>Apr 18</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/167461424250" target="_blank" style="color:#63b3ed">gabekutner</a></td>
+          <td>441</td>
+          <td><span class="tag tag-loss">loss</span> </td>
+          <td>Ruy Lopez Opening Morphy Defense Neo Arkhangelsk V</td>
+        </tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="footer">Generated by chess_aim.py -- analysis depth 12 -- Stockfish 17</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script>
+    Chart.defaults.color = '#a0aec0';
+    Chart.defaults.borderColor = '#2d3748';
+
+    new Chart(document.getElementById('radarChart'), {
+      type: 'radar',
+      data: {
+        labels: ["Tactics", "Opening", "Middlegame", "Endgame", "Time Management", "Conversion", "Defense", "King Safety"],
+        datasets: [{
+          label: 'Skill score (0-100)',
+          data: [70, 62, 0, 0, 57, 37, 29, 4],
+          backgroundColor: 'rgba(99, 179, 237, 0.2)',
+          borderColor: '#63b3ed',
+          pointBackgroundColor: '#63b3ed',
+        }]
+      },
+      options: {
+        scales: { r: { min: 0, max: 100, ticks: { stepSize: 25, color: '#718096' },
+                        grid: { color: '#2d3748' }, angleLines: { color: '#2d3748' } } },
+        plugins: { legend: { display: false } },
+        responsive: true,
+      }
+    });
+
+    new Chart(document.getElementById('ratingChart'), {
+      type: 'line',
+      data: { labels: ["Apr 18", "Apr 25", "May 02", "May 09"],
+               datasets: [{ label: 'Rating', data: [478, 421, 488, 409],
+                              borderColor: '#63b3ed', backgroundColor: 'rgba(99,179,237,0.1)',
+                              tension: 0.3, fill: true }] },
+      options: { plugins: { title: { display: true, text: 'Rating over time' } },
+                  scales: { y: { beginAtZero: false } } }
+    });
+
+    new Chart(document.getElementById('blunderChart'), {
+      type: 'line',
+      data: { labels: ["Apr 18", "Apr 25", "May 02", "May 09"],
+               datasets: [{ label: 'Blunders / game', data: [2.29, 3.0, 3.44, 2.53],
+                              borderColor: '#fc8181', backgroundColor: 'rgba(252,129,129,0.1)',
+                              tension: 0.3, fill: true }] },
+      options: { plugins: { title: { display: true, text: 'Blunders per game (lower = better)' } } }
+    });
+
+    new Chart(document.getElementById('throwChart'), {
+      type: 'line',
+      data: { labels: ["Apr 18", "Apr 25", "May 02", "May 09"],
+               datasets: [{ label: 'Throw rate %', data: [28.6, 100.0, 50.0, 84.6],
+                              borderColor: '#f6ad55', backgroundColor: 'rgba(246,173,85,0.1)',
+                              tension: 0.3, fill: true }] },
+      options: { plugins: { title: { display: true, text: 'Throw rate over time (% of winning positions lost)' } },
+                  scales: { y: { min: 0, max: 100 } } }
+    });
+  </script>
+</body>
+</html>

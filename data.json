@@ -1,0 +1,318 @@
+{
+  "username": "lordnickolaz",
+  "window": "Last 30 days",
+  "generated": "2026-05-13T00:56:14.594820+00:00",
+  "n_games": 50,
+  "scores": {
+    "tactics": {
+      "score": 70,
+      "explain": "139 blunders (2.8/game) and 92 missed gifts from opponents (1.8/game). Top blunder motif: positional."
+    },
+    "opening": {
+      "score": 62,
+      "explain": "Average centipawn loss in opening (moves 1-10): 57. Lower is better; 30+ = repertoire problems."
+    },
+    "middlegame": {
+      "score": 0,
+      "explain": "Avg cp loss in middlegame (moves 11-25): 290. 71 blunders in this phase."
+    },
+    "endgame": {
+      "score": 0,
+      "explain": "Avg cp loss in endgame (move 26+): 512. 50 blunders. Endgame conversion is where most rating leaks."
+    },
+    "time_management": {
+      "score": 57,
+      "explain": "28% of your blunders happened with <=30s left (39/139). >40% means you're burning time too early."
+    },
+    "conversion": {
+      "score": 37,
+      "explain": "You reached a winning position (+2.00) in 37/50 games and converted 14 of them. Throw rate: 62%."
+    },
+    "defense": {
+      "score": 29,
+      "explain": "You were down -2.00 or worse at some point in 41 games and recovered to win/draw in 12 of them (29%)."
+    },
+    "king_safety": {
+      "score": 4,
+      "explain": "Castled in 58% of games. 9/50 losses ended in checkmate (18%). Below 60% castling rate is a problem."
+    }
+  },
+  "trends": [
+    {
+      "start_ts": 1776471205,
+      "n": 14,
+      "win_rate": 42.857142857142854,
+      "rating": 477.7857142857143,
+      "blunders_per_game": 2.2857142857142856,
+      "throw_rate": 28.571428571428573
+    },
+    {
+      "start_ts": 1777076005,
+      "n": 3,
+      "win_rate": 0.0,
+      "rating": 421.0,
+      "blunders_per_game": 3.0,
+      "throw_rate": 100.0
+    },
+    {
+      "start_ts": 1777680805,
+      "n": 16,
+      "win_rate": 50.0,
+      "rating": 488.4375,
+      "blunders_per_game": 3.4375,
+      "throw_rate": 50.0
+    },
+    {
+      "start_ts": 1778285605,
+      "n": 17,
+      "win_rate": 11.764705882352942,
+      "rating": 408.94117647058823,
+      "blunders_per_game": 2.5294117647058822,
+      "throw_rate": 84.61538461538461
+    }
+  ],
+  "openings": [
+    {
+      "name": "Queens Pawn Opening Accelerated London System",
+      "games": 8,
+      "wins": 3,
+      "win_rate": 37.5,
+      "avg_eval_at_move10": 0,
+      "first_slip_move": 6.25,
+      "as_white": 8,
+      "as_black": 0
+    },
+    {
+      "name": "Queens Pawn Opening Zukertort Chigorin Variation 3.Bf4 Nf6 4.e3",
+      "games": 3,
+      "wins": 0,
+      "win_rate": 0.0,
+      "avg_eval_at_move10": 0,
+      "first_slip_move": 8.0,
+      "as_white": 3,
+      "as_black": 0
+    },
+    {
+      "name": "Reti Opening 1...d5",
+      "games": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "avg_eval_at_move10": 0,
+      "first_slip_move": 2.0,
+      "as_white": 2,
+      "as_black": 0
+    },
+    {
+      "name": "Kings Pawn Opening Kings Knight Variation 2...Nc6",
+      "games": 2,
+      "wins": 0,
+      "win_rate": 0.0,
+      "avg_eval_at_move10": -175.5,
+      "first_slip_move": 5.0,
+      "as_white": 0,
+      "as_black": 2
+    },
+    {
+      "name": "Van t Kruijs Opening 1...e5",
+      "games": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "avg_eval_at_move10": 29.0,
+      "first_slip_move": 6.5,
+      "as_white": 0,
+      "as_black": 2
+    },
+    {
+      "name": "Three Knights Opening 3...Bc5",
+      "games": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "avg_eval_at_move10": -358.5,
+      "first_slip_move": 5.5,
+      "as_white": 0,
+      "as_black": 2
+    },
+    {
+      "name": "Queens Pawn Opening Accelerated London System 2...e6 3.e3 Bd6 4.Bg3",
+      "games": 2,
+      "wins": 2,
+      "win_rate": 100.0,
+      "avg_eval_at_move10": 0,
+      "first_slip_move": 9.0,
+      "as_white": 2,
+      "as_black": 0
+    },
+    {
+      "name": "Kings Pawn Opening 1...e5",
+      "games": 2,
+      "wins": 0,
+      "win_rate": 0.0,
+      "avg_eval_at_move10": 95.0,
+      "first_slip_move": 4.5,
+      "as_white": 0,
+      "as_black": 2
+    }
+  ],
+  "puzzles": [
+    {
+      "url": "https://www.chess.com/game/live/167692237906",
+      "opp": "Rios8396",
+      "ply": 45,
+      "move_played": "Rc1",
+      "best": "h6",
+      "eval_before": 453,
+      "eval_after": -9999,
+      "loss": 10452,
+      "fen": "2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K b - - 1 23",
+      "motif": "positional",
+      "user_color": "black",
+      "opening": "Colle System Anti Colle Variation 4.c4 e6 5.Nc3",
+      "lichess_url": "https://lichess.org/analysis?fen=2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K%20b%20-%20-%201%2023",
+      "chesscom_url": "https://www.chess.com/analysis?fen=2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K%20b%20-%20-%201%2023"
+    },
+    {
+      "url": "https://www.chess.com/game/live/167922685266",
+      "opp": "luisM91023",
+      "ply": 55,
+      "move_played": "Qxh2",
+      "best": "Rg8",
+      "eval_before": 358,
+      "eval_after": -9999,
+      "loss": 10357,
+      "fen": "r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q b - - 3 28",
+      "motif": "positional",
+      "user_color": "black",
+      "opening": "Bishops Opening 2...Nc6",
+      "lichess_url": "https://lichess.org/analysis?fen=r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q%20b%20-%20-%203%2028",
+      "chesscom_url": "https://www.chess.com/analysis?fen=r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q%20b%20-%20-%203%2028"
+    },
+    {
+      "url": "https://www.chess.com/game/live/167970389530",
+      "opp": "Shahariar696",
+      "ply": 34,
+      "move_played": "Kf1",
+      "best": "Qg4+",
+      "eval_before": 268,
+      "eval_after": -9999,
+      "loss": 10267,
+      "fen": "2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1 w - - 0 18",
+      "motif": "positional",
+      "user_color": "white",
+      "opening": "Queens Pawn Opening Accelerated London System",
+      "lichess_url": "https://lichess.org/analysis?fen=2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1%20w%20-%20-%200%2018",
+      "chesscom_url": "https://www.chess.com/analysis?fen=2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1%20w%20-%20-%200%2018"
+    },
+    {
+      "url": "https://www.chess.com/game/live/168481457496",
+      "opp": "Sabo_D7",
+      "ply": 25,
+      "move_played": "Nxg3",
+      "best": "O-O",
+      "eval_before": 47,
+      "eval_after": -9999,
+      "loss": 10046,
+      "fen": "r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R b KQkq - 2 13",
+      "motif": "positional",
+      "user_color": "black",
+      "opening": "Kings Pawn Opening 1...e5",
+      "lichess_url": "https://lichess.org/analysis?fen=r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R%20b%20KQkq%20-%202%2013",
+      "chesscom_url": "https://www.chess.com/analysis?fen=r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R%20b%20KQkq%20-%202%2013"
+    },
+    {
+      "url": "https://www.chess.com/game/live/168481542908",
+      "opp": "flipp3543",
+      "ply": 44,
+      "move_played": "Ke2",
+      "best": "Ke1",
+      "eval_before": -77,
+      "eval_after": -9998,
+      "loss": 9921,
+      "fen": "3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R w - - 2 23",
+      "motif": "positional",
+      "user_color": "white",
+      "opening": "London System...4.e3 Bf5 5.c4 e6",
+      "lichess_url": "https://lichess.org/analysis?fen=3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R%20w%20-%20-%202%2023",
+      "chesscom_url": "https://www.chess.com/analysis?fen=3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R%20w%20-%20-%202%2023"
+    },
+    {
+      "url": "https://www.chess.com/game/live/168565973018",
+      "opp": "Emris_Merlin",
+      "ply": 64,
+      "move_played": "Ne4",
+      "best": "Rfe1",
+      "eval_before": -206,
+      "eval_after": -9998,
+      "loss": 9792,
+      "fen": "7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2 w - - 8 33",
+      "motif": "positional",
+      "user_color": "white",
+      "opening": "Queens Pawn Opening Zukertort Chigorin Variation 3.Bf4 Nf6 4.e3",
+      "lichess_url": "https://lichess.org/analysis?fen=7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2%20w%20-%20-%208%2033",
+      "chesscom_url": "https://www.chess.com/analysis?fen=7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2%20w%20-%20-%208%2033"
+    },
+    {
+      "url": "https://www.chess.com/game/live/167692110840",
+      "opp": "PlayingPug22",
+      "ply": 44,
+      "move_played": "Qxh8",
+      "best": "Qxa7+",
+      "eval_before": -249,
+      "eval_after": -9999,
+      "loss": 9750,
+      "fen": "1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2 w Q - 2 23",
+      "motif": "positional",
+      "user_color": "white",
+      "opening": "Reti Opening 1...d5",
+      "lichess_url": "https://lichess.org/analysis?fen=1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2%20w%20Q%20-%202%2023",
+      "chesscom_url": "https://www.chess.com/analysis?fen=1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2%20w%20Q%20-%202%2023"
+    },
+    {
+      "url": "https://www.chess.com/game/live/168296312436",
+      "opp": "420blazeitchessmasta",
+      "ply": 53,
+      "move_played": "Qa2",
+      "best": "Rb3",
+      "eval_before": -256,
+      "eval_after": -9999,
+      "loss": 9743,
+      "fen": "5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4 b - - 2 27",
+      "motif": "positional",
+      "user_color": "black",
+      "opening": "Three Knights Opening 3...Bc5",
+      "lichess_url": "https://lichess.org/analysis?fen=5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4%20b%20-%20-%202%2027",
+      "chesscom_url": "https://www.chess.com/analysis?fen=5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4%20b%20-%20-%202%2027"
+    },
+    {
+      "url": "https://www.chess.com/game/live/168340523238",
+      "opp": "hacker234892",
+      "ply": 85,
+      "move_played": "Ka3",
+      "best": "Kc4",
+      "eval_before": -308,
+      "eval_after": -9996,
+      "loss": 9688,
+      "fen": "1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8 b - - 4 43",
+      "motif": "positional",
+      "user_color": "black",
+      "opening": "Kings Pawn Opening Kings Knight Variation 2...Nc6",
+      "lichess_url": "https://lichess.org/analysis?fen=1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8%20b%20-%20-%204%2043",
+      "chesscom_url": "https://www.chess.com/analysis?fen=1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8%20b%20-%20-%204%2043"
+    },
+    {
+      "url": "https://www.chess.com/game/live/168296625888",
+      "opp": "Gallotl666",
+      "ply": 72,
+      "move_played": "Qf6+",
+      "best": "Ne3",
+      "eval_before": 9997,
+      "eval_after": 543,
+      "loss": 9454,
+      "fen": "8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1 w - - 1 37",
+      "motif": "direct_hang",
+      "user_color": "white",
+      "opening": "Queens Pawn Opening Mikenas Defense",
+      "lichess_url": "https://lichess.org/analysis?fen=8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1%20w%20-%20-%201%2037",
+      "chesscom_url": "https://www.chess.com/analysis?fen=8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1%20w%20-%20-%201%2037"
+    }
+  ]
+}
