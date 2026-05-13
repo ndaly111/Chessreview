@@ -74,80 +74,860 @@ tbody tr:hover { background: #232d3f; }
                    border: 1px solid #2d3748; }
 canvas { max-height: 320px; }
 .footer { color: #718096; font-size: 12px; padding: 32px; text-align: center; }
+
+/* Hero / action plan */
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+@media (max-width: 720px) { .hero { grid-template-columns: 1fr; } }
+.diagnosis { background: linear-gradient(135deg, #1a2332, #2d3748); padding: 24px;
+             border-radius: 10px; border: 1px solid #4a5568; }
+.diag-label { font-size: 11px; letter-spacing: 1px; color: #a0aec0; font-weight: 600; }
+.diag-main { font-size: 22px; font-weight: 700; margin: 8px 0 14px; line-height: 1.3; }
+.diag-detail { font-size: 14px; line-height: 1.6; color: #cbd5e0; }
+.diag-detail b { color: #63b3ed; }
+.focus-card { background: linear-gradient(135deg, #2c5282, #3182ce); padding: 24px;
+              border-radius: 10px; color: white; }
+.focus-label { font-size: 11px; letter-spacing: 1px; opacity: 0.85; font-weight: 600; }
+.focus-title { font-size: 22px; font-weight: 700; margin: 8px 0 16px; line-height: 1.3; }
+.focus-numbers { display: flex; gap: 24px; margin: 12px 0 16px; }
+.focus-numbers > div { display: flex; flex-direction: column; }
+.focus-numbers .lbl { font-size: 10px; letter-spacing: 1px; opacity: 0.8; }
+.focus-numbers .val { font-size: 24px; font-weight: 700; }
+.focus-why { font-size: 13px; line-height: 1.5; opacity: 0.95; }
+.plan-grid { display: grid; gap: 12px; }
+.plan-item { display: grid; grid-template-columns: 40px 1fr; gap: 16px; background: #1a202c;
+             padding: 16px 20px; border-radius: 8px; border: 1px solid #2d3748; }
+.plan-num { width: 32px; height: 32px; background: #2c5282; color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; }
+.plan-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+.plan-detail { font-size: 13px; color: #a0aec0; line-height: 1.5; }
+.watch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.watch-item { background: #1a202c; padding: 14px 16px; border-radius: 8px; border: 1px solid #2d3748; }
+.watch-label { font-size: 11px; color: #a0aec0; letter-spacing: 0.5px; text-transform: uppercase; }
+.watch-current { font-size: 24px; font-weight: 700; margin: 4px 0; }
+.watch-goal { font-size: 12px; color: #68d391; }
+
+/* Recent games */
+.recent-list { display: grid; gap: 8px; }
+.recent-item { background: #1a202c; padding: 12px 16px; border-radius: 6px; border: 1px solid #2d3748; }
+.recent-head { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; font-size: 14px; }
+.recent-head a { color: #63b3ed; text-decoration: none; font-weight: 500; }
+.recent-meta { color: #718096; font-size: 12px; }
+.recent-body { font-size: 13px; color: #cbd5e0; }
 </style>
 </head>
 <body>
   <header>
     <h1>Chess Analysis -- lordnickolaz</h1>
-    <div class="sub">Last 30 days -- 50 games -- generated 2026-05-13 01:06 UTC</div>
+    <div class="sub">Last 30 days -- 50 games -- generated 2026-05-13 01:14 UTC</div>
   </header>
   <nav>
-    <a href="#overview">Overview</a>
-    <a href="#skills">Skills</a>
+    <a href="#plan">This Week</a>
+    <a href="#recent">Recent Games</a>
     <a href="#trends">Trends</a>
     <a href="#openings">Openings</a>
-    <a href="#puzzles">Personal Puzzles</a>
-    <a href="#games">All Games</a>
+    <a href="#puzzles">Drills</a>
+    <a href="#data">Full Data</a>
   </nav>
   <div class="container">
 
-    <section id="overview">
-      <h2>Overview</h2>
+    <section id="plan">
       
-    <div class="kpi">
-      <div class="item"><div class="lbl">Games</div><div class="num">50</div></div>
-      <div class="item"><div class="lbl">Win rate</div><div class="num">32%</div></div>
-      <div class="item"><div class="lbl">Rating</div><div class="num">437 -> 353</div></div>
-      <div class="item"><div class="lbl">Throw rate</div><div class="num">62%</div></div>
-    </div>
-      <div class="chart-container">
-        <canvas id="radarChart"></canvas>
+    <div class="hero">
+      <div class="diagnosis">
+        <div class="diag-label">DIAGNOSIS</div>
+        <div class="diag-main">You're a rusty player, not a 400-strength player.</div>
+        <div class="diag-detail">
+          Current rating: <b>353</b>. Estimated true strength: <b>~433-514</b>.
+          You reached winning positions in <b>37/50</b> games
+          (74%) -- that's not a low-rated player's
+          profile. You're throwing <b>23</b> of them away
+          (62% throw rate). Fix the conversion, the rating
+          comes back fast.
+        </div>
       </div>
+
+      <div class="focus-card">
+        <div class="focus-label">THIS WEEK -- ONE FOCUS</div>
+        <div class="focus-title">Castle by move 10 in every game</div>
+        <div class="focus-numbers">
+          <div><span class="lbl">Current</span><span class="val">58%</span></div>
+          <div><span class="lbl">Goal</span><span class="val">90%</span></div>
+        </div>
+        <div class="focus-why">You don't castle in 21/50 games. An uncastled king is your top loss pattern (48% of losses end on the kingside, 9 ended in mate). Castling is the most fixable habit you have.</div>
+      </div>
+    </div>
+
+      <h2 style="margin-top:32px;">Action Plan (do all of these)</h2>
+      <div class="plan-grid">
+        <div class="plan-item">
+          <div class="plan-num">1</div>
+          <div class="plan-body">
+            <div class="plan-title">Cut bullet entirely for 30 days</div>
+            <div class="plan-detail">You played 12 bullet games this period. Bullet trains the wrong reflex (move fast, don't think). Switch to 10+0 or 15+10 blitz minimum. Your real rating will surface fast.</div>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="plan-num">2</div>
+          <div class="plan-body">
+            <div class="plan-title">Pre-move checklist, every move</div>
+            <div class="plan-detail">(1) What is my opponent attacking? (2) Does my move hang anything? (3) Am I castled yet? Even three seconds. This single habit alone fixes most positional blunders.</div>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="plan-num">3</div>
+          <div class="plan-body">
+            <div class="plan-title">Pick TWO openings and play only those</div>
+            <div class="plan-detail">London System as White (you already do this well -- 38% as White vs 29% as Black). Caro-Kann as Black (1...c6 vs e4): designed for 'don't get tactically obliterated in the opening'. Drop the 1...e5 lines, they're 3/18.</div>
+          </div>
+        </div>
+        <div class="plan-item">
+          <div class="plan-num">4</div>
+          <div class="plan-body">
+            <div class="plan-title">When you're winning, switch to 'trade pieces' mode</div>
+            <div class="plan-detail">This is the single mental shift that fixes your 62% throw rate. The moment the eval bar says +3, stop trying to win harder. Look at every move and ask: does this trade pieces? Reach a simpler endgame.</div>
+          </div>
+        </div></div>
+
+      <h2 style="margin-top:32px;">Metrics to Watch (check back in 7 days)</h2>
+      <div class="watch-grid">
+        <div class="watch-item">
+          <div class="watch-label">Castle rate</div>
+          <div class="watch-current">58%</div>
+          <div class="watch-goal">target: 90%</div>
+        </div>
+        <div class="watch-item">
+          <div class="watch-label">Throw rate</div>
+          <div class="watch-current">62%</div>
+          <div class="watch-goal">target: below 30%</div>
+        </div>
+        <div class="watch-item">
+          <div class="watch-label">Bullet games</div>
+          <div class="watch-current">12</div>
+          <div class="watch-goal">target: 0</div>
+        </div>
+        <div class="watch-item">
+          <div class="watch-label">Missed gifts/game</div>
+          <div class="watch-current">1.8</div>
+          <div class="watch-goal">target: below 0.5</div>
+        </div></div>
     </section>
 
-    <section id="skills">
-      <h2>Skill Scorecard</h2>
-      <div class="skill-grid">
-        <div class="skill-card">
-          <h3>Tactics</h3>
-          <div class="score score-green">70</div>
-          <div class="explain">139 blunders (2.8/game) and 92 missed gifts from opponents (1.8/game). Top blunder motif: positional.</div>
+    <section id="recent">
+      <h2>Last 10 Games</h2>
+      <p style="color:#a0aec0;font-size:14px;">One-line summary per game. Click opponent name to open on chess.com.</p>
+      <div class="recent-list">
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168623316470" target="_blank">vs prometheusle</a>
+            <span class="recent-meta">blitz B</span>
+          </div>
+          <div class="recent-body">peaked +6.4, threw with 8... Nb4 -- castle move 9 -- 1 blunders</div>
         </div>
-        <div class="skill-card">
-          <h3>Opening</h3>
-          <div class="score score-yellow">62</div>
-          <div class="explain">Average centipawn loss in opening (moves 1-10): 57. Lower is better; 30+ = repertoire problems.</div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168622719330" target="_blank">vs papalopez813</a>
+            <span class="recent-meta">blitz W</span>
+          </div>
+          <div class="recent-body">peaked +100.0, threw with 37. Rg4 -- castle move 12 -- 6 blunders</div>
         </div>
-        <div class="skill-card">
-          <h3>Middlegame</h3>
-          <div class="score score-red">0</div>
-          <div class="explain">Avg cp loss in middlegame (moves 11-25): 290. 71 blunders in this phase.</div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168621709244" target="_blank">vs hungsolo1969</a>
+            <span class="recent-meta">blitz W</span>
+          </div>
+          <div class="recent-body">peaked +6.5, threw with 17. Kc2 -- never castled -- 8 blunders</div>
         </div>
-        <div class="skill-card">
-          <h3>Endgame</h3>
-          <div class="score score-red">0</div>
-          <div class="explain">Avg cp loss in endgame (move 26+): 512. 50 blunders. Endgame conversion is where most rating leaks.</div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168621633252" target="_blank">vs pawndisastermaster</a>
+            <span class="recent-meta">blitz B</span>
+          </div>
+          <div class="recent-body">never had advantage, 1 blunders -- never castled -- 1 blunders</div>
         </div>
-        <div class="skill-card">
-          <h3>Time Management</h3>
-          <div class="score score-yellow">57</div>
-          <div class="explain">28% of your blunders happened with <=30s left (39/139). >40% means you're burning time too early.</div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168621487660" target="_blank">vs pawndisastermaster</a>
+            <span class="recent-meta">blitz W</span>
+          </div>
+          <div class="recent-body">never had advantage, 2 blunders -- castle move 9 -- 2 blunders</div>
         </div>
-        <div class="skill-card">
-          <h3>Conversion</h3>
-          <div class="score score-orange">37</div>
-          <div class="explain">You reached a winning position (+2.00) in 37/50 games and converted 14 of them. Throw rate: 62%.</div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-win">win</span>
+            <a href="https://www.chess.com/game/live/168620579398" target="_blank">vs TheSlipperyFish</a>
+            <span class="recent-meta">blitz B</span>
+          </div>
+          <div class="recent-body">reached +8.4 and converted -- never castled -- 0 blunders</div>
         </div>
-        <div class="skill-card">
-          <h3>Defense</h3>
-          <div class="score score-red">29</div>
-          <div class="explain">You were down -2.00 or worse at some point in 41 games and recovered to win/draw in 12 of them (29%).</div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168620261778" target="_blank">vs Edson27</a>
+            <span class="recent-meta">bullet B</span>
+          </div>
+          <div class="recent-body">peaked +3.4, threw with 21... Qb6 -- castle move 11 -- 0 blunders</div>
         </div>
-        <div class="skill-card">
-          <h3>King Safety</h3>
-          <div class="score score-red">4</div>
-          <div class="explain">Castled in 58% of games. 9/50 losses ended in checkmate (18%). Below 60% castling rate is a problem.</div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168565973018" target="_blank">vs Emris_Merlin</a>
+            <span class="recent-meta">blitz W</span>
+          </div>
+          <div class="recent-body">peaked +7.0, threw with 33. Ne4 -- castle move 10 -- 5 blunders</div>
+        </div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168565188284" target="_blank">vs tim_1357</a>
+            <span class="recent-meta">blitz W</span>
+          </div>
+          <div class="recent-body">peaked +3.9, threw with 16. Rxa1 -- never castled -- 4 blunders</div>
+        </div>
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-loss">loss</span>
+            <a href="https://www.chess.com/game/live/168523251862" target="_blank">vs Gert2525</a>
+            <span class="recent-meta">blitz B</span>
+          </div>
+          <div class="recent-body">peaked +5.4, threw with 12... Qxg5 -- never castled -- 1 blunders</div>
         </div></div>
+    </section>
+
+    <section id="puzzles">
+      <h2>Drill Positions (24 clean training positions)</h2>
+      <p style="color:#a0aec0;font-size:14px;margin-bottom: 12px;">Positions where you had a playable game and threw it. (Mate-chaos blunders are filtered out -- they're noise, not training material.) Find the best move in your head, then click "Show solution".</p>
+      <button class="reveal-btn" onclick="toggleAllSolutions()" style="margin-bottom: 16px;">Toggle all solutions</button>
+      
+        <div class="puzzle" id="puzzle-0">
+          <div class="board">
+            <img class="position-img" src="positions/168296625888_108.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168296625888_108_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs Gallotl666  (White to move, move 55.)</div>
+              <div class="loss">-13.0 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Queens Pawn Opening Mikenas Defense</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">h5</span>
+              (+8.26 -> -4.77)
+              -- best was <span class="green">Qb1</span>
+            </div>
+            <div class="fen">8/8/8/8/1k5P/1p6/2Q4K/8 w - - 0 55</div>
+            <button class="reveal-btn" onclick="toggleSolution(0)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=8/8/8/8/1k5P/1p6/2Q4K/8%20w%20-%20-%200%2055" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=8/8/8/8/1k5P/1p6/2Q4K/8%20w%20-%20-%200%2055" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-1">
+          <div class="board">
+            <img class="position-img" src="positions/168623316470_15.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168623316470_15_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs prometheusle  (Black to move, move 8...)</div>
+              <div class="loss">-12.0 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Giuoco Piano Game Four Knights Game</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Nb4</span>
+              (+6.38 -> -5.65)
+              -- best was <span class="green">Qxg2</span>
+            </div>
+            <div class="fen">r1b1k2r/ppp2ppp/2n5/2bPp1q1/3P4/2N5/PPP2PPP/R1BQK2R b KQkq - 0 8</div>
+            <button class="reveal-btn" onclick="toggleSolution(1)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r1b1k2r/ppp2ppp/2n5/2bPp1q1/3P4/2N5/PPP2PPP/R1BQK2R%20b%20KQkq%20-%200%208" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r1b1k2r/ppp2ppp/2n5/2bPp1q1/3P4/2N5/PPP2PPP/R1BQK2R%20b%20KQkq%20-%200%208" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168623316470" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-2">
+          <div class="board">
+            <img class="position-img" src="positions/168296585508_14.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168296585508_14_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs Jeoimport  (White to move, move 8.)</div>
+              <div class="loss">-12.0 pawns</div>
+            </div>
+            <div class="meta">delayed tactic -- Englund Gambit 2.dxe5</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">g3</span>
+              (+7.34 -> -4.65)
+              -- best was <span class="green">Bxc1</span>
+            </div>
+            <div class="fen">rnb1k2r/ppp1Pppp/8/6B1/8/5N2/PPP1PKPP/RNq2B1R w kq - 2 8</div>
+            <button class="reveal-btn" onclick="toggleSolution(2)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=rnb1k2r/ppp1Pppp/8/6B1/8/5N2/PPP1PKPP/RNq2B1R%20w%20kq%20-%202%208" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=rnb1k2r/ppp1Pppp/8/6B1/8/5N2/PPP1PKPP/RNq2B1R%20w%20kq%20-%202%208" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168296585508" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-3">
+          <div class="board">
+            <img class="position-img" src="positions/167737669480_44.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/167737669480_44_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs vedant0140  (White to move, move 23.)</div>
+              <div class="loss">-11.3 pawns</div>
+            </div>
+            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Rh1+</span>
+              (+5.63 -> -5.71)
+              -- best was <span class="green">Qxf7+</span>
+            </div>
+            <div class="fen">r7/ppp2r1k/2n3p1/6q1/2QP4/P1P1P3/5P2/2KR4 w - - 0 23</div>
+            <button class="reveal-btn" onclick="toggleSolution(3)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r7/ppp2r1k/2n3p1/6q1/2QP4/P1P1P3/5P2/2KR4%20w%20-%20-%200%2023" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r7/ppp2r1k/2n3p1/6q1/2QP4/P1P1P3/5P2/2KR4%20w%20-%20-%200%2023" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/167737669480" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-4">
+          <div class="board">
+            <img class="position-img" src="positions/168296312436_49.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168296312436_49_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs 420blazeitchessmasta  (Black to move, move 25...)</div>
+              <div class="loss">-11.0 pawns</div>
+            </div>
+            <div class="meta">positional -- Three Knights Opening 3...Bc5</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">gxh6</span>
+              (+5.75 -> -5.25)
+              -- best was <span class="green">Qa2+</span>
+            </div>
+            <div class="fen">1r3rk1/5ppp/3p3P/p1pP4/2P5/3Q1PP1/3K4/q2R3R b - - 0 25</div>
+            <button class="reveal-btn" onclick="toggleSolution(4)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=1r3rk1/5ppp/3p3P/p1pP4/2P5/3Q1PP1/3K4/q2R3R%20b%20-%20-%200%2025" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=1r3rk1/5ppp/3p3P/p1pP4/2P5/3Q1PP1/3K4/q2R3R%20b%20-%20-%200%2025" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168296312436" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-5">
+          <div class="board">
+            <img class="position-img" src="positions/168621709244_32.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168621709244_32_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs hungsolo1969  (White to move, move 17.)</div>
+              <div class="loss">-10.6 pawns</div>
+            </div>
+            <div class="meta">delayed tactic -- Queens Pawn Opening Accelerated London System</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Kc2</span>
+              (+4.91 -> -5.69)
+              -- best was <span class="green">Bxf1</span>
+            </div>
+            <div class="fen">r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2 w q - 0 17</div>
+            <button class="reveal-btn" onclick="toggleSolution(5)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2%20w%20q%20-%200%2017" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2%20w%20q%20-%200%2017" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168621709244" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-6">
+          <div class="board">
+            <img class="position-img" src="positions/168340523238_7.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168340523238_7_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs hacker234892  (Black to move, move 4...)</div>
+              <div class="loss">-10.3 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Kings Pawn Opening Kings Knight Variation 2...Nc6</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">exd4</span>
+              (+4.78 -> -5.57)
+              -- best was <span class="green">Qh4</span>
+            </div>
+            <div class="fen">r1b1kbnr/pppp1ppp/2n5/4p1q1/3PP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4</div>
+            <button class="reveal-btn" onclick="toggleSolution(6)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r1b1kbnr/pppp1ppp/2n5/4p1q1/3PP3/8/PPP2PPP/RNBQKB1R%20b%20KQkq%20-%200%204" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r1b1kbnr/pppp1ppp/2n5/4p1q1/3PP3/8/PPP2PPP/RNBQKB1R%20b%20KQkq%20-%200%204" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168340523238" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-7">
+          <div class="board">
+            <img class="position-img" src="positions/168523105244_57.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168523105244_57_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs SUCESSFULLYWDOFF  (Black to move, move 29...)</div>
+              <div class="loss">-10.2 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Giuoco Piano Game 4.O O d6</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">c5</span>
+              (+4.08 -> -6.15)
+              -- best was <span class="green">Bxd4</span>
+            </div>
+            <div class="fen">8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7 b - - 1 29</div>
+            <button class="reveal-btn" onclick="toggleSolution(7)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7%20b%20-%20-%201%2029" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7%20b%20-%20-%201%2029" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168523105244" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-8">
+          <div class="board">
+            <img class="position-img" src="positions/168340523238_79.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168340523238_79_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs hacker234892  (Black to move, move 40...)</div>
+              <div class="loss">-10.2 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Kings Pawn Opening Kings Knight Variation 2...Nc6</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">b3</span>
+              (+7.91 -> -2.29)
+              -- best was <span class="green">Bb3</span>
+            </div>
+            <div class="fen">8/6P1/3p4/7p/1p6/3p4/k1bK4/8 b - - 0 40</div>
+            <button class="reveal-btn" onclick="toggleSolution(8)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=8/6P1/3p4/7p/1p6/3p4/k1bK4/8%20b%20-%20-%200%2040" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=8/6P1/3p4/7p/1p6/3p4/k1bK4/8%20b%20-%20-%200%2040" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168340523238" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-9">
+          <div class="board">
+            <img class="position-img" src="positions/168143021030_22.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168143021030_22_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs RDBEAST94  (White to move, move 12.)</div>
+              <div class="loss">-10.0 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Queens Pawn Opening Accelerated London System 2...</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Bd6</span>
+              (+6.02 -> -3.97)
+              -- best was <span class="green">Qd4</span>
+            </div>
+            <div class="fen">r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R w KQkq - 0 12</div>
+            <button class="reveal-btn" onclick="toggleSolution(9)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R%20w%20KQkq%20-%200%2012" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R%20w%20KQkq%20-%200%2012" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168143021030" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-10">
+          <div class="board">
+            <img class="position-img" src="positions/168434516558_72.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168434516558_72_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs sebcott  (White to move, move 37.)</div>
+              <div class="loss">-9.7 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Queens Pawn Opening Accelerated London System 2...</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Rf7</span>
+              (+6.89 -> -2.81)
+              -- best was <span class="green">a5</span>
+            </div>
+            <div class="fen">6k1/R6p/1K3P2/3bp3/P5p1/4P1P1/5P2/8 w - - 0 37</div>
+            <button class="reveal-btn" onclick="toggleSolution(10)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=6k1/R6p/1K3P2/3bp3/P5p1/4P1P1/5P2/8%20w%20-%20-%200%2037" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=6k1/R6p/1K3P2/3bp3/P5p1/4P1P1/5P2/8%20w%20-%20-%200%2037" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168434516558" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-11">
+          <div class="board">
+            <img class="position-img" src="positions/168523251862_23.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168523251862_23_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs Gert2525  (Black to move, move 12...)</div>
+              <div class="loss">-9.6 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Reti Opening Black Mustang Defense</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Qxg5</span>
+              (+5.00 -> -4.55)
+              -- best was <span class="green">Qe7</span>
+            </div>
+            <div class="fen">r2qk2r/ppp2p2/1bn1b2p/1N2p1PQ/8/3P4/PPP2PP1/R3KB1R b KQkq - 0 12</div>
+            <button class="reveal-btn" onclick="toggleSolution(11)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r2qk2r/ppp2p2/1bn1b2p/1N2p1PQ/8/3P4/PPP2PP1/R3KB1R%20b%20KQkq%20-%200%2012" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r2qk2r/ppp2p2/1bn1b2p/1N2p1PQ/8/3P4/PPP2PP1/R3KB1R%20b%20KQkq%20-%200%2012" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168523251862" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-12">
+          <div class="board">
+            <img class="position-img" src="positions/168438433354_65.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168438433354_65_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs blueshouse  (Black to move, move 33...)</div>
+              <div class="loss">-9.4 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Kings Pawn Opening Tayler Opening</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Qf7</span>
+              (+3.74 -> -5.65)
+              -- best was <span class="green">Qd6</span>
+            </div>
+            <div class="fen">1r6/bpp1q1k1/p4r1p/P2Bn3/7Q/3P4/5PPP/4RRK1 b - - 14 33</div>
+            <button class="reveal-btn" onclick="toggleSolution(12)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=1r6/bpp1q1k1/p4r1p/P2Bn3/7Q/3P4/5PPP/4RRK1%20b%20-%20-%2014%2033" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=1r6/bpp1q1k1/p4r1p/P2Bn3/7Q/3P4/5PPP/4RRK1%20b%20-%20-%2014%2033" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168438433354" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-13">
+          <div class="board">
+            <img class="position-img" src="positions/168565973018_100.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168565973018_100_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs Emris_Merlin  (White to move, move 51.)</div>
+              <div class="loss">-9.2 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Queens Pawn Opening Zukertort Chigorin Variation 3</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Kd2</span>
+              (+4.11 -> -5.14)
+              -- best was <span class="green">Rxf4</span>
+            </div>
+            <div class="fen">8/R7/P4pk1/8/5rp1/6r1/4K3/5R2 w - - 0 51</div>
+            <button class="reveal-btn" onclick="toggleSolution(13)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=8/R7/P4pk1/8/5rp1/6r1/4K3/5R2%20w%20-%20-%200%2051" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=8/R7/P4pk1/8/5rp1/6r1/4K3/5R2%20w%20-%20-%200%2051" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168565973018" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-14">
+          <div class="board">
+            <img class="position-img" src="positions/167970166846_37.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/167970166846_37_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs NaderOsman  (Black to move, move 19...)</div>
+              <div class="loss">-8.4 pawns</div>
+            </div>
+            <div class="meta">positional -- Kings Pawn Opening Kings Knight Variation 2...Nc6</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">f6</span>
+              (+3.19 -> -5.19)
+              -- best was <span class="green">Re8</span>
+            </div>
+            <div class="fen">3q1rk1/b1p2ppp/3p4/p4b1N/2P5/P7/1B1PQPPP/R3K2R b KQ - 4 19</div>
+            <button class="reveal-btn" onclick="toggleSolution(14)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=3q1rk1/b1p2ppp/3p4/p4b1N/2P5/P7/1B1PQPPP/R3K2R%20b%20KQ%20-%204%2019" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=3q1rk1/b1p2ppp/3p4/p4b1N/2P5/P7/1B1PQPPP/R3K2R%20b%20KQ%20-%204%2019" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/167970166846" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-15">
+          <div class="board">
+            <img class="position-img" src="positions/168368939092_47.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168368939092_47_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs sharathPR597  (Black to move, move 24...)</div>
+              <div class="loss">-8.1 pawns</div>
+            </div>
+            <div class="meta">positional -- Van t Kruijs Opening 1...e5</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Kf6</span>
+              (+2.85 -> -5.21)
+              -- best was <span class="green">Nxe7</span>
+            </div>
+            <div class="fen">r7/p1p1R1pp/1b4k1/1P3n2/5B2/P7/2P2PPP/3R2K1 b - - 1 24</div>
+            <button class="reveal-btn" onclick="toggleSolution(15)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r7/p1p1R1pp/1b4k1/1P3n2/5B2/P7/2P2PPP/3R2K1%20b%20-%20-%201%2024" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r7/p1p1R1pp/1b4k1/1P3n2/5B2/P7/2P2PPP/3R2K1%20b%20-%20-%201%2024" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168368939092" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-16">
+          <div class="board">
+            <img class="position-img" src="positions/167970166846_27.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/167970166846_27_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs NaderOsman  (Black to move, move 14...)</div>
+              <div class="loss">-8.0 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Kings Pawn Opening Kings Knight Variation 2...Nc6</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Bd7</span>
+              (+3.69 -> -4.29)
+              -- best was <span class="green">Kd8</span>
+            </div>
+            <div class="fen">r1b1k2r/b1p1qppp/2Qp4/p7/2P5/P2N4/1B1PnPPP/R3K2R b KQkq - 0 14</div>
+            <button class="reveal-btn" onclick="toggleSolution(16)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r1b1k2r/b1p1qppp/2Qp4/p7/2P5/P2N4/1B1PnPPP/R3K2R%20b%20KQkq%20-%200%2014" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r1b1k2r/b1p1qppp/2Qp4/p7/2P5/P2N4/1B1PnPPP/R3K2R%20b%20KQkq%20-%200%2014" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/167970166846" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-17">
+          <div class="board">
+            <img class="position-img" src="positions/168296312436_47.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168296312436_47_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs 420blazeitchessmasta  (Black to move, move 24...)</div>
+              <div class="loss">-7.8 pawns</div>
+            </div>
+            <div class="meta">positional -- Three Knights Opening 3...Bc5</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Rab8</span>
+              (+2.91 -> -4.88)
+              -- best was <span class="green">Qb2+</span>
+            </div>
+            <div class="fen">r4rk1/5ppp/3p4/p1pP3P/2P5/3Q1PP1/3K4/q2R3R b - - 2 24</div>
+            <button class="reveal-btn" onclick="toggleSolution(17)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r4rk1/5ppp/3p4/p1pP3P/2P5/3Q1PP1/3K4/q2R3R%20b%20-%20-%202%2024" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r4rk1/5ppp/3p4/p1pP3P/2P5/3Q1PP1/3K4/q2R3R%20b%20-%20-%202%2024" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168296312436" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-18">
+          <div class="board">
+            <img class="position-img" src="positions/168481686440_44.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168481686440_44_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs lsaiahRosner  (White to move, move 23.)</div>
+              <div class="loss">-7.7 pawns</div>
+            </div>
+            <div class="meta">positional -- Queens Pawn Opening Zukertort Chigorin Variation 3</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">cxd4</span>
+              (+2.97 -> -4.77)
+              -- best was <span class="green">Qg6+</span>
+            </div>
+            <div class="fen">r2q2k1/pb2pr1n/5p1B/1p6/3p2pP/2P1P3/P1Q1KPP1/R5R1 w - - 0 23</div>
+            <button class="reveal-btn" onclick="toggleSolution(18)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r2q2k1/pb2pr1n/5p1B/1p6/3p2pP/2P1P3/P1Q1KPP1/R5R1%20w%20-%20-%200%2023" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r2q2k1/pb2pr1n/5p1B/1p6/3p2pP/2P1P3/P1Q1KPP1/R5R1%20w%20-%20-%200%2023" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168481686440" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-19">
+          <div class="board">
+            <img class="position-img" src="positions/168621709244_26.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168621709244_26_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs hungsolo1969  (White to move, move 14.)</div>
+              <div class="loss">-7.6 pawns</div>
+            </div>
+            <div class="meta">delayed tactic -- Queens Pawn Opening Accelerated London System</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Ke2</span>
+              (+6.13 -> -1.45)
+              -- best was <span class="green">Bd4</span>
+            </div>
+            <div class="fen">r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP2b/1P3Pq1/RN1QKR2 w Qq - 0 14</div>
+            <button class="reveal-btn" onclick="toggleSolution(19)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP2b/1P3Pq1/RN1QKR2%20w%20Qq%20-%200%2014" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP2b/1P3Pq1/RN1QKR2%20w%20Qq%20-%200%2014" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168621709244" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-20">
+          <div class="board">
+            <img class="position-img" src="positions/167461424250_43.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/167461424250_43_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs gabekutner  (Black to move, move 22...)</div>
+              <div class="loss">-7.5 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Ruy Lopez Opening Morphy Defense Neo Arkhangelsk V</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">a5</span>
+              (-0.37 -> -7.84)
+              -- best was <span class="green">Qf8</span>
+            </div>
+            <div class="fen">r3r1k1/2p3p1/p2q1p1p/1p1n4/3PN3/2P2Q1P/PP4P1/3RR1K1 b - - 3 22</div>
+            <button class="reveal-btn" onclick="toggleSolution(20)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r3r1k1/2p3p1/p2q1p1p/1p1n4/3PN3/2P2Q1P/PP4P1/3RR1K1%20b%20-%20-%203%2022" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r3r1k1/2p3p1/p2q1p1p/1p1n4/3PN3/2P2Q1P/PP4P1/3RR1K1%20b%20-%20-%203%2022" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/167461424250" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-21">
+          <div class="board">
+            <img class="position-img" src="positions/168340286054_45.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168340286054_45_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs chesso111  (Black to move, move 23...)</div>
+              <div class="loss">-7.4 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Italian Game</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Nxb6</span>
+              (+3.71 -> -3.72)
+              -- best was <span class="green">Nxd5</span>
+            </div>
+            <div class="fen">5rk1/Q2nqpp1/1B1p1n1p/3Pp3/PP6/7P/2r2PP1/R3R1K1 b - - 0 23</div>
+            <button class="reveal-btn" onclick="toggleSolution(21)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=5rk1/Q2nqpp1/1B1p1n1p/3Pp3/PP6/7P/2r2PP1/R3R1K1%20b%20-%20-%200%2023" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=5rk1/Q2nqpp1/1B1p1n1p/3Pp3/PP6/7P/2r2PP1/R3R1K1%20b%20-%20-%200%2023" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168340286054" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-22">
+          <div class="board">
+            <img class="position-img" src="positions/167461424250_41.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/167461424250_41_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs gabekutner  (Black to move, move 21...)</div>
+              <div class="loss">-7.4 pawns</div>
+            </div>
+            <div class="meta">delayed tactic -- Ruy Lopez Opening Morphy Defense Neo Arkhangelsk V</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Qd6</span>
+              (-0.30 -> -7.69)
+              -- best was <span class="green">a5</span>
+            </div>
+            <div class="fen">r3r1k1/2pq2p1/p4p1p/1p1n4/3PN3/2P2Q1P/PP4P1/R3R1K1 b - - 1 21</div>
+            <button class="reveal-btn" onclick="toggleSolution(22)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r3r1k1/2pq2p1/p4p1p/1p1n4/3PN3/2P2Q1P/PP4P1/R3R1K1%20b%20-%20-%201%2021" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r3r1k1/2pq2p1/p4p1p/1p1n4/3PN3/2P2Q1P/PP4P1/R3R1K1%20b%20-%20-%201%2021" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/167461424250" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-23">
+          <div class="board">
+            <img class="position-img" src="positions/168565973018_42.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/168565973018_42_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs Emris_Merlin  (White to move, move 22.)</div>
+              <div class="loss">-7.3 pawns</div>
+            </div>
+            <div class="meta">direct hang -- Queens Pawn Opening Zukertort Chigorin Variation 3</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Qg3</span>
+              (+4.73 -> -2.54)
+              -- best was <span class="green">fxe3</span>
+            </div>
+            <div class="fen">1r3rk1/pBp1np2/6pp/6q1/3P4/P3pQ1P/1P1N1PPK/1R3R2 w - - 0 22</div>
+            <button class="reveal-btn" onclick="toggleSolution(23)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=1r3rk1/pBp1np2/6pp/6q1/3P4/P3pQ1P/1P1N1PPK/1R3R2%20w%20-%20-%200%2022" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=1r3rk1/pBp1np2/6pp/6q1/3P4/P3pQ1P/1P1N1PPK/1R3R2%20w%20-%20-%200%2022" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/168565973018" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
     </section>
 
     <section id="trends">
@@ -242,795 +1022,58 @@ canvas { max-height: 320px; }
       </div>
     </section>
 
-    <section id="puzzles">
-      <h2>Personal Puzzles (30 worst blunders to drill)</h2>
-      <p style="color:#a0aec0;font-size:14px;margin-bottom: 12px;">Study each position, mentally find the best move, then click "Show solution" to reveal your actual move (red) and the engine's best (green).</p>
-      <button class="reveal-btn" onclick="toggleAllSolutions()" style="margin-bottom: 16px;">Toggle all solutions</button>
+    <section id="data">
+      <h2>Full Data</h2>
       
-        <div class="puzzle" id="puzzle-0">
-          <div class="board">
-            <img class="position-img" src="positions/167692237906_45.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167692237906_45_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Rios8396  (Black to move, move 23...)</div>
-              <div class="loss">-104.5 pawns</div>
-            </div>
-            <div class="meta">positional -- Colle System Anti Colle Variation 4.c4 e6 5.Nc3</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Rc1</span>
-              (+4.53 -> -99.99)
-              -- best was <span class="green">h6</span>
-            </div>
-            <div class="fen">2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K b - - 1 23</div>
-            <button class="reveal-btn" onclick="toggleSolution(0)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K%20b%20-%20-%201%2023" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=2r3k1/pp3ppp/4p3/3b4/7Q/3B1P2/Pq4PP/5R1K%20b%20-%20-%201%2023" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167692237906" target="_blank">Original game</a>
-            </div>
-          </div>
+    <div class="kpi">
+      <div class="item"><div class="lbl">Games</div><div class="num">50</div></div>
+      <div class="item"><div class="lbl">Win rate</div><div class="num">32%</div></div>
+      <div class="item"><div class="lbl">Rating</div><div class="num">437 -> 353</div></div>
+      <div class="item"><div class="lbl">Throw rate</div><div class="num">62%</div></div>
+    </div>
+      <h3 style="margin-top:24px;">Skill scores (for reference)</h3>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <h3>Tactics</h3>
+          <div class="score score-green">70</div>
+          <div class="explain">139 blunders (2.8/game) and 92 missed gifts from opponents (1.8/game). Top blunder motif: positional.</div>
         </div>
-        <div class="puzzle" id="puzzle-1">
-          <div class="board">
-            <img class="position-img" src="positions/167922685266_55.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167922685266_55_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs luisM91023  (Black to move, move 28...)</div>
-              <div class="loss">-103.6 pawns</div>
-            </div>
-            <div class="meta">positional -- Bishops Opening 2...Nc6</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Qxh2</span>
-              (+3.58 -> -99.99)
-              -- best was <span class="green">Rg8</span>
-            </div>
-            <div class="fen">r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q b - - 3 28</div>
-            <button class="reveal-btn" onclick="toggleSolution(1)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q%20b%20-%20-%203%2028" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r6k/p2Q2p1/1pN4p/8/8/1KP3R1/PP3r1P/7q%20b%20-%20-%203%2028" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167922685266" target="_blank">Original game</a>
-            </div>
-          </div>
+        <div class="skill-card">
+          <h3>Opening</h3>
+          <div class="score score-yellow">62</div>
+          <div class="explain">Average centipawn loss in opening (moves 1-10): 57. Lower is better; 30+ = repertoire problems.</div>
         </div>
-        <div class="puzzle" id="puzzle-2">
-          <div class="board">
-            <img class="position-img" src="positions/167970389530_34.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167970389530_34_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Shahariar696  (White to move, move 18.)</div>
-              <div class="loss">-102.7 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Kf1</span>
-              (+2.68 -> -99.99)
-              -- best was <span class="green">Qg4+</span>
-            </div>
-            <div class="fen">2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1 w - - 0 18</div>
-            <button class="reveal-btn" onclick="toggleSolution(2)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1%20w%20-%20-%200%2018" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=2kr2n1/1pp3p1/3b1pp1/p2p4/1P1n4/P2P4/3N1PPr/R2QR1K1%20w%20-%20-%200%2018" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167970389530" target="_blank">Original game</a>
-            </div>
-          </div>
+        <div class="skill-card">
+          <h3>Middlegame</h3>
+          <div class="score score-red">0</div>
+          <div class="explain">Avg cp loss in middlegame (moves 11-25): 290. 71 blunders in this phase.</div>
         </div>
-        <div class="puzzle" id="puzzle-3">
-          <div class="board">
-            <img class="position-img" src="positions/168481457496_25.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168481457496_25_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Sabo_D7  (Black to move, move 13...)</div>
-              <div class="loss">-100.5 pawns</div>
-            </div>
-            <div class="meta">positional -- Kings Pawn Opening 1...e5</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Nxg3</span>
-              (+0.47 -> -99.99)
-              -- best was <span class="green">O-O</span>
-            </div>
-            <div class="fen">r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R b KQkq - 2 13</div>
-            <button class="reveal-btn" onclick="toggleSolution(3)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R%20b%20KQkq%20-%202%2013" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r1bqk2r/3pbp1p/p5p1/1pp3Pn/3pP3/1B1P1QB1/PPP2P1P/RN2K2R%20b%20KQkq%20-%202%2013" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168481457496" target="_blank">Original game</a>
-            </div>
-          </div>
+        <div class="skill-card">
+          <h3>Endgame</h3>
+          <div class="score score-red">0</div>
+          <div class="explain">Avg cp loss in endgame (move 26+): 512. 50 blunders. Endgame conversion is where most rating leaks.</div>
         </div>
-        <div class="puzzle" id="puzzle-4">
-          <div class="board">
-            <img class="position-img" src="positions/168481542908_44.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168481542908_44_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs flipp3543  (White to move, move 23.)</div>
-              <div class="loss">-99.2 pawns</div>
-            </div>
-            <div class="meta">positional -- London System...4.e3 Bf5 5.c4 e6</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Ke2</span>
-              (-0.77 -> -99.98)
-              -- best was <span class="green">Ke1</span>
-            </div>
-            <div class="fen">3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R w - - 2 23</div>
-            <button class="reveal-btn" onclick="toggleSolution(4)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R%20w%20-%20-%202%2023" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=3r2k1/p1r2ppp/p7/3nN3/1P2p3/P3P1P1/3K1PP1/3R3R%20w%20-%20-%202%2023" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168481542908" target="_blank">Original game</a>
-            </div>
-          </div>
+        <div class="skill-card">
+          <h3>Time Management</h3>
+          <div class="score score-yellow">57</div>
+          <div class="explain">28% of your blunders happened with <=30s left (39/139). >40% means you're burning time too early.</div>
         </div>
-        <div class="puzzle" id="puzzle-5">
-          <div class="board">
-            <img class="position-img" src="positions/168565973018_64.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168565973018_64_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Emris_Merlin  (White to move, move 33.)</div>
-              <div class="loss">-97.9 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Zukertort Chigorin Variation 3</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Ne4</span>
-              (-2.06 -> -99.98)
-              -- best was <span class="green">Rfe1</span>
-            </div>
-            <div class="fen">7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2 w - - 8 33</div>
-            <button class="reveal-btn" onclick="toggleSolution(5)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2%20w%20-%20-%208%2033" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=7r/p1p3k1/5p2/6p1/5nP1/PrN4P/1P3P1K/1R3R2%20w%20-%20-%208%2033" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168565973018" target="_blank">Original game</a>
-            </div>
-          </div>
+        <div class="skill-card">
+          <h3>Conversion</h3>
+          <div class="score score-orange">37</div>
+          <div class="explain">You reached a winning position (+2.00) in 37/50 games and converted 14 of them. Throw rate: 62%.</div>
         </div>
-        <div class="puzzle" id="puzzle-6">
-          <div class="board">
-            <img class="position-img" src="positions/167692110840_44.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167692110840_44_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs PlayingPug22  (White to move, move 23.)</div>
-              <div class="loss">-97.5 pawns</div>
-            </div>
-            <div class="meta">positional -- Reti Opening 1...d5</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Qxh8</span>
-              (-2.49 -> -99.99)
-              -- best was <span class="green">Qxa7+</span>
-            </div>
-            <div class="fen">1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2 w Q - 2 23</div>
-            <button class="reveal-btn" onclick="toggleSolution(6)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2%20w%20Q%20-%202%2023" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=1Q5r/p4kp1/2p3p1/4p3/3rPp2/P4P2/1Pq4P/R3KR2%20w%20Q%20-%202%2023" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167692110840" target="_blank">Original game</a>
-            </div>
-          </div>
+        <div class="skill-card">
+          <h3>Defense</h3>
+          <div class="score score-red">29</div>
+          <div class="explain">You were down -2.00 or worse at some point in 41 games and recovered to win/draw in 12 of them (29%).</div>
         </div>
-        <div class="puzzle" id="puzzle-7">
-          <div class="board">
-            <img class="position-img" src="positions/168296312436_53.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168296312436_53_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs 420blazeitchessmasta  (Black to move, move 27...)</div>
-              <div class="loss">-97.4 pawns</div>
-            </div>
-            <div class="meta">positional -- Three Knights Opening 3...Bc5</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Qa2</span>
-              (-2.56 -> -99.99)
-              -- best was <span class="green">Rb3</span>
-            </div>
-            <div class="fen">5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4 b - - 2 27</div>
-            <button class="reveal-btn" onclick="toggleSolution(7)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4%20b%20-%20-%202%2027" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=5rk1/5p1p/3p3R/p1pP4/2P5/3QKPP1/1r6/q2R4%20b%20-%20-%202%2027" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168296312436" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-8">
-          <div class="board">
-            <img class="position-img" src="positions/168340523238_85.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168340523238_85_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs hacker234892  (Black to move, move 43...)</div>
-              <div class="loss">-96.9 pawns</div>
-            </div>
-            <div class="meta">positional -- Kings Pawn Opening Kings Knight Variation 2...Nc6</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Ka3</span>
-              (-3.08 -> -99.96)
-              -- best was <span class="green">Kc4</span>
-            </div>
-            <div class="fen">1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8 b - - 4 43</div>
-            <button class="reveal-btn" onclick="toggleSolution(8)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8%20b%20-%20-%204%2043" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=1Q6/8/3p4/7p/1k6/1p1p4/2bK4/8%20b%20-%20-%204%2043" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168340523238" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-9">
-          <div class="board">
-            <img class="position-img" src="positions/168296625888_72.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168296625888_72_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Gallotl666  (White to move, move 37.)</div>
-              <div class="loss">-94.5 pawns</div>
-            </div>
-            <div class="meta">direct hang -- Queens Pawn Opening Mikenas Defense</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Qf6+</span>
-              (+99.97 -> +5.43)
-              -- best was <span class="green">Ne3</span>
-            </div>
-            <div class="fen">8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1 w - - 1 37</div>
-            <button class="reveal-btn" onclick="toggleSolution(9)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1%20w%20-%20-%201%2037" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=8/6k1/p1p3P1/1p4Q1/8/7P/P5P1/3N2K1%20w%20-%20-%201%2037" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-10">
-          <div class="board">
-            <img class="position-img" src="positions/167692110840_40.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167692110840_40_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs PlayingPug22  (White to move, move 21.)</div>
-              <div class="loss">-93.7 pawns</div>
-            </div>
-            <div class="meta">positional -- Reti Opening 1...d5</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Rf1</span>
-              (-6.26 -> -99.99)
-              -- best was <span class="green">h3</span>
-            </div>
-            <div class="fen">4k2r/pQ4p1/2p3p1/4p3/3rPp2/P4P2/1PP3qP/R3K2R w KQk - 0 21</div>
-            <button class="reveal-btn" onclick="toggleSolution(10)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=4k2r/pQ4p1/2p3p1/4p3/3rPp2/P4P2/1PP3qP/R3K2R%20w%20KQk%20-%200%2021" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=4k2r/pQ4p1/2p3p1/4p3/3rPp2/P4P2/1PP3qP/R3K2R%20w%20KQk%20-%200%2021" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167692110840" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-11">
-          <div class="board">
-            <img class="position-img" src="positions/167756876774_34.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167756876774_34_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs BloodLifex  (White to move, move 18.)</div>
-              <div class="loss">-93.0 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Qf7+</span>
-              (+99.99 -> +6.96)
-              -- best was <span class="green">Qe6#</span>
-            </div>
-            <div class="fen">r1bq4/2pk4/p1p3Q1/3p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3 w Q - 0 18</div>
-            <button class="reveal-btn" onclick="toggleSolution(11)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r1bq4/2pk4/p1p3Q1/3p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3%20w%20Q%20-%200%2018" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r1bq4/2pk4/p1p3Q1/3p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3%20w%20Q%20-%200%2018" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167756876774" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-12">
-          <div class="board">
-            <img class="position-img" src="positions/168296625888_130.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168296625888_130_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Gallotl666  (White to move, move 66.)</div>
-              <div class="loss">-92.9 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Mikenas Defense</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Ke8</span>
-              (-7.04 -> -99.96)
-              -- best was <span class="green">Kf8</span>
-            </div>
-            <div class="fen">8/4K3/8/3qk3/8/8/8/8 w - - 10 66</div>
-            <button class="reveal-btn" onclick="toggleSolution(12)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=8/4K3/8/3qk3/8/8/8/8%20w%20-%20-%2010%2066" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=8/4K3/8/3qk3/8/8/8/8%20w%20-%20-%2010%2066" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-13">
-          <div class="board">
-            <img class="position-img" src="positions/167756876774_30.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167756876774_30_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs BloodLifex  (White to move, move 16.)</div>
-              <div class="loss">-92.2 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Bb5</span>
-              (+99.99 -> +7.77)
-              -- best was <span class="green">Qe6#</span>
-            </div>
-            <div class="fen">r1bq4/pppk4/2n3Q1/3p2N1/3Pp3/P2BP1P1/1PP2PP1/RN2K3 w Q - 1 16</div>
-            <button class="reveal-btn" onclick="toggleSolution(13)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r1bq4/pppk4/2n3Q1/3p2N1/3Pp3/P2BP1P1/1PP2PP1/RN2K3%20w%20Q%20-%201%2016" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r1bq4/pppk4/2n3Q1/3p2N1/3Pp3/P2BP1P1/1PP2PP1/RN2K3%20w%20Q%20-%201%2016" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167756876774" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-14">
-          <div class="board">
-            <img class="position-img" src="positions/168182645906_72.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168182645906_72_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs LassanB  (White to move, move 37.)</div>
-              <div class="loss">-92.2 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Kf5</span>
-              (+99.95 -> +7.75)
-              -- best was <span class="green">Bc3+</span>
-            </div>
-            <div class="fen">2Q5/6kp/7b/B7/4K3/P7/8/8 w - - 1 37</div>
-            <button class="reveal-btn" onclick="toggleSolution(14)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=2Q5/6kp/7b/B7/4K3/P7/8/8%20w%20-%20-%201%2037" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=2Q5/6kp/7b/B7/4K3/P7/8/8%20w%20-%20-%201%2037" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168182645906" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-15">
-          <div class="board">
-            <img class="position-img" src="positions/167737669480_56.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167737669480_56_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs vedant0140  (White to move, move 29.)</div>
-              <div class="loss">-92.0 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Qxb7</span>
-              (-7.93 -> -99.97)
-              -- best was <span class="green">Qh2</span>
-            </div>
-            <div class="fen">8/ppp2rk1/6p1/n4q2/3P4/P1P1P3/3K1PQ1/8 w - - 1 29</div>
-            <button class="reveal-btn" onclick="toggleSolution(15)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=8/ppp2rk1/6p1/n4q2/3P4/P1P1P3/3K1PQ1/8%20w%20-%20-%201%2029" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=8/ppp2rk1/6p1/n4q2/3P4/P1P1P3/3K1PQ1/8%20w%20-%20-%201%2029" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167737669480" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-16">
-          <div class="board">
-            <img class="position-img" src="positions/168296625888_68.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168296625888_68_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Gallotl666  (White to move, move 35.)</div>
-              <div class="loss">-91.5 pawns</div>
-            </div>
-            <div class="meta">direct hang -- Queens Pawn Opening Mikenas Defense</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">f5</span>
-              (+99.98 -> +8.49)
-              -- best was <span class="green">Qf6+</span>
-            </div>
-            <div class="fen">5R2/6k1/p1p3p1/1p4Q1/5P2/7P/P5P1/3N2K1 w - - 5 35</div>
-            <button class="reveal-btn" onclick="toggleSolution(16)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=5R2/6k1/p1p3p1/1p4Q1/5P2/7P/P5P1/3N2K1%20w%20-%20-%205%2035" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=5R2/6k1/p1p3p1/1p4Q1/5P2/7P/P5P1/3N2K1%20w%20-%20-%205%2035" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-17">
-          <div class="board">
-            <img class="position-img" src="positions/168622719330_72.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168622719330_72_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs papalopez813  (White to move, move 37.)</div>
-              <div class="loss">-91.5 pawns</div>
-            </div>
-            <div class="meta">delayed tactic -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Rg4</span>
-              (+99.98 -> +8.53)
-              -- best was <span class="green">Rh7+</span>
-            </div>
-            <div class="fen">8/2p1k3/p3r3/1p4p1/7R/P1P1PQP1/1P4P1/2KR4 w - - 0 37</div>
-            <button class="reveal-btn" onclick="toggleSolution(17)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=8/2p1k3/p3r3/1p4p1/7R/P1P1PQP1/1P4P1/2KR4%20w%20-%20-%200%2037" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=8/2p1k3/p3r3/1p4p1/7R/P1P1PQP1/1P4P1/2KR4%20w%20-%20-%200%2037" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168622719330" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-18">
-          <div class="board">
-            <img class="position-img" src="positions/168143021030_62.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168143021030_62_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs RDBEAST94  (White to move, move 32.)</div>
-              <div class="loss">-90.8 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System 2...</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">h6</span>
-              (+99.99 -> +9.14)
-              -- best was <span class="green">Qf4#</span>
-            </div>
-            <div class="fen">2b5/p7/8/2pp1nQP/2p1k3/2r1P3/P3BPP1/R4K2 w - - 1 32</div>
-            <button class="reveal-btn" onclick="toggleSolution(18)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=2b5/p7/8/2pp1nQP/2p1k3/2r1P3/P3BPP1/R4K2%20w%20-%20-%201%2032" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=2b5/p7/8/2pp1nQP/2p1k3/2r1P3/P3BPP1/R4K2%20w%20-%20-%201%2032" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168143021030" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-19">
-          <div class="board">
-            <img class="position-img" src="positions/168621487660_48.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168621487660_48_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs pawndisastermaster  (White to move, move 25.)</div>
-              <div class="loss">-90.7 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Zukertort Chigorin Variation 3</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Rf1</span>
-              (-9.24 -> -99.98)
-              -- best was <span class="green">g4</span>
-            </div>
-            <div class="fen">2k3r1/ppp1pp2/8/4P3/P4b1p/7P/1P1r2P1/4R1K1 w - - 4 25</div>
-            <button class="reveal-btn" onclick="toggleSolution(19)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=2k3r1/ppp1pp2/8/4P3/P4b1p/7P/1P1r2P1/4R1K1%20w%20-%20-%204%2025" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=2k3r1/ppp1pp2/8/4P3/P4b1p/7P/1P1r2P1/4R1K1%20w%20-%20-%204%2025" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168621487660" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-20">
-          <div class="board">
-            <img class="position-img" src="positions/168296625888_40.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168296625888_40_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Gallotl666  (White to move, move 21.)</div>
-              <div class="loss">-90.5 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Mikenas Defense</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Qxh7+</span>
-              (+99.91 -> +9.42)
-              -- best was <span class="green">exf8=Q+</span>
-            </div>
-            <div class="fen">r4b1Q/4Pk1p/p1p3p1/1p6/8/2N1P3/Pq3PPP/3R1RK1 w - - 1 21</div>
-            <button class="reveal-btn" onclick="toggleSolution(20)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r4b1Q/4Pk1p/p1p3p1/1p6/8/2N1P3/Pq3PPP/3R1RK1%20w%20-%20-%201%2021" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r4b1Q/4Pk1p/p1p3p1/1p6/8/2N1P3/Pq3PPP/3R1RK1%20w%20-%20-%201%2021" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-21">
-          <div class="board">
-            <img class="position-img" src="positions/168622719330_48.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168622719330_48_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs papalopez813  (White to move, move 25.)</div>
-              <div class="loss">-90.3 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Qd7</span>
-              (+99.92 -> +9.63)
-              -- best was <span class="green">f4</span>
-            </div>
-            <div class="fen">r7/2p4R/p4kp1/1p2r3/3Qn3/P1P1P1P1/1P3PP1/2K2R2 w - - 0 25</div>
-            <button class="reveal-btn" onclick="toggleSolution(21)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r7/2p4R/p4kp1/1p2r3/3Qn3/P1P1P1P1/1P3PP1/2K2R2%20w%20-%20-%200%2025" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r7/2p4R/p4kp1/1p2r3/3Qn3/P1P1P1P1/1P3PP1/2K2R2%20w%20-%20-%200%2025" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168622719330" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-22">
-          <div class="board">
-            <img class="position-img" src="positions/168296625888_38.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168296625888_38_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Gallotl666  (White to move, move 20.)</div>
-              <div class="loss">-90.0 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Mikenas Defense</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">e7</span>
-              (+99.96 -> +9.94)
-              -- best was <span class="green">Qxh7</span>
-            </div>
-            <div class="fen">r3kb1Q/7p/p1p1P1p1/1p6/8/2N1P3/Pq3PPP/3R1RK1 w q - 0 20</div>
-            <button class="reveal-btn" onclick="toggleSolution(22)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r3kb1Q/7p/p1p1P1p1/1p6/8/2N1P3/Pq3PPP/3R1RK1%20w%20q%20-%200%2020" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r3kb1Q/7p/p1p1P1p1/1p6/8/2N1P3/Pq3PPP/3R1RK1%20w%20q%20-%200%2020" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-23">
-          <div class="board">
-            <img class="position-img" src="positions/167692057672_67.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167692057672_67_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Bhoror97  (Black to move, move 34...)</div>
-              <div class="loss">-90.0 pawns</div>
-            </div>
-            <div class="meta">positional -- Scotch Game 3...d6</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Kf5</span>
-              (-9.93 -> -99.93)
-              -- best was <span class="green">hxg3+</span>
-            </div>
-            <div class="fen">8/7R/6p1/8/5k1p/B1N2PPP/PPP2K2/8 b - - 0 34</div>
-            <button class="reveal-btn" onclick="toggleSolution(23)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=8/7R/6p1/8/5k1p/B1N2PPP/PPP2K2/8%20b%20-%20-%200%2034" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=8/7R/6p1/8/5k1p/B1N2PPP/PPP2K2/8%20b%20-%20-%200%2034" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167692057672" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-24">
-          <div class="board">
-            <img class="position-img" src="positions/167756876774_32.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167756876774_32_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs BloodLifex  (White to move, move 17.)</div>
-              <div class="loss">-89.5 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Bxc6+</span>
-              (+99.99 -> +10.50)
-              -- best was <span class="green">Qe6#</span>
-            </div>
-            <div class="fen">r1bq4/1ppk4/p1n3Q1/1B1p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3 w Q - 0 17</div>
-            <button class="reveal-btn" onclick="toggleSolution(24)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r1bq4/1ppk4/p1n3Q1/1B1p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3%20w%20Q%20-%200%2017" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r1bq4/1ppk4/p1n3Q1/1B1p2N1/3Pp3/P3P1P1/1PP2PP1/RN2K3%20w%20Q%20-%200%2017" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167756876774" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-25">
-          <div class="board">
-            <img class="position-img" src="positions/168296625888_52.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168296625888_52_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Gallotl666  (White to move, move 27.)</div>
-              <div class="loss">-89.5 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Mikenas Defense</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">h3</span>
-              (+99.96 -> +10.47)
-              -- best was <span class="green">Re8+</span>
-            </div>
-            <div class="fen">3R4/6Q1/p1p1k1p1/1p6/8/4P3/P1q2PPP/3N2K1 w - - 3 27</div>
-            <button class="reveal-btn" onclick="toggleSolution(25)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=3R4/6Q1/p1p1k1p1/1p6/8/4P3/P1q2PPP/3N2K1%20w%20-%20-%203%2027" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=3R4/6Q1/p1p1k1p1/1p6/8/4P3/P1q2PPP/3N2K1%20w%20-%20-%203%2027" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168296625888" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-26">
-          <div class="board">
-            <img class="position-img" src="positions/167692057672_73.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167692057672_73_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs Bhoror97  (Black to move, move 37...)</div>
-              <div class="loss">-89.1 pawns</div>
-            </div>
-            <div class="meta">positional -- Scotch Game 3...d6</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Kf6</span>
-              (-10.82 -> -99.93)
-              -- best was <span class="green">g5</span>
-            </div>
-            <div class="fen">8/6R1/6p1/5k2/7P/B1N2P1P/PPP3K1/8 b - - 2 37</div>
-            <button class="reveal-btn" onclick="toggleSolution(26)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=8/6R1/6p1/5k2/7P/B1N2P1P/PPP3K1/8%20b%20-%20-%202%2037" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=8/6R1/6p1/5k2/7P/B1N2P1P/PPP3K1/8%20b%20-%20-%202%2037" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167692057672" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-27">
-          <div class="board">
-            <img class="position-img" src="positions/167970166846_55.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167970166846_55_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs NaderOsman  (Black to move, move 28...)</div>
-              <div class="loss">-88.7 pawns</div>
-            </div>
-            <div class="meta">positional -- Kings Pawn Opening Kings Knight Variation 2...Nc6</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Bb8</span>
-              (-11.29 -> -99.99)
-              -- best was <span class="green">Qxh2+</span>
-            </div>
-            <div class="fen">5rk1/b1q2b1p/5Q2/p1p5/2P3P1/P7/1B3P1P/3RR1K1 b - - 0 28</div>
-            <button class="reveal-btn" onclick="toggleSolution(27)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=5rk1/b1q2b1p/5Q2/p1p5/2P3P1/P7/1B3P1P/3RR1K1%20b%20-%20-%200%2028" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=5rk1/b1q2b1p/5Q2/p1p5/2P3P1/P7/1B3P1P/3RR1K1%20b%20-%20-%200%2028" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167970166846" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-28">
-          <div class="board">
-            <img class="position-img" src="positions/168622719330_64.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168622719330_64_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs papalopez813  (White to move, move 33.)</div>
-              <div class="loss">-87.5 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">fxg5</span>
-              (+99.94 -> +12.47)
-              -- best was <span class="green">g4+</span>
-            </div>
-            <div class="fen">Q7/2p5/p3r1p1/1p3kn1/5P2/P1P1P1P1/1P4P1/2KR3R w - - 1 33</div>
-            <button class="reveal-btn" onclick="toggleSolution(28)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=Q7/2p5/p3r1p1/1p3kn1/5P2/P1P1P1P1/1P4P1/2KR3R%20w%20-%20-%201%2033" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=Q7/2p5/p3r1p1/1p3kn1/5P2/P1P1P1P1/1P4P1/2KR3R%20w%20-%20-%201%2033" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168622719330" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-29">
-          <div class="board">
-            <img class="position-img" src="positions/168622719330_62.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/168622719330_62_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs papalopez813  (White to move, move 32.)</div>
-              <div class="loss">-86.9 pawns</div>
-            </div>
-            <div class="meta">positional -- Queens Pawn Opening Accelerated London System</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">f4+</span>
-              (+99.93 -> +12.99)
-              -- best was <span class="green">Qh8+</span>
-            </div>
-            <div class="fen">Q7/2p5/p3r1p1/1p2k1n1/8/P1P1P1P1/1P3PP1/2KR3R w - - 1 32</div>
-            <button class="reveal-btn" onclick="toggleSolution(29)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=Q7/2p5/p3r1p1/1p2k1n1/8/P1P1P1P1/1P3PP1/2KR3R%20w%20-%20-%201%2032" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=Q7/2p5/p3r1p1/1p2k1n1/8/P1P1P1P1/1P3PP1/2KR3R%20w%20-%20-%201%2032" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/168622719330" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-    </section>
-
-    <section id="games">
-      <h2>All Games (50)</h2>
+        <div class="skill-card">
+          <h3>King Safety</h3>
+          <div class="score score-red">4</div>
+          <div class="explain">Castled in 58% of games. 9/50 losses ended in checkmate (18%). Below 60% castling rate is a problem.</div>
+        </div></div>
+      <h3 style="margin-top:24px;">All games in window (50)</h3>
       <div class="card">
         <table>
           <thead><tr><th>Date</th><th>Side</th><th>Opponent</th><th>Rating</th><th>Result</th><th>Opening</th></tr></thead>
