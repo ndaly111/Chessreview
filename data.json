@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-13T23:35:23.775017+00:00",
-  "n_games": 55,
+  "generated": "2026-05-14T02:05:53.125622+00:00",
+  "n_games": 56,
   "scores": {
     "tactics": {
       "score": 69,
-      "explain": "157 blunders (2.9/game) and 106 missed gifts from opponents (1.9/game). Top blunder motif: positional."
+      "explain": "160 blunders (2.9/game) and 107 missed gifts from opponents (1.9/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 62,
@@ -14,27 +14,27 @@
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 281. 75 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 277. 76 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 495. 62 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 475. 64 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
-      "score": 58,
-      "explain": "27% of your blunders happened with <=30s left (43/157). >40% means you're burning time too early."
+      "score": 59,
+      "explain": "27% of your blunders happened with <=30s left (43/160). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 45,
-      "explain": "You reached a winning position (+2.00) in 42/55 games and converted 19 of them. Throw rate: 55%."
+      "score": 46,
+      "explain": "You reached a winning position (+2.00) in 43/56 games and converted 20 of them. Throw rate: 53%."
     },
     "defense": {
       "score": 35,
       "explain": "You were down -2.00 or worse at some point in 45 games and recovered to win/draw in 16 of them (35%)."
     },
     "king_safety": {
-      "score": 12,
-      "explain": "Castled in 62% of games. 9/55 losses ended in checkmate (16%). Below 60% castling rate is a problem."
+      "score": 14,
+      "explain": "Castled in 62% of games. 9/56 losses ended in checkmate (16%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "62%",
     "focus_goal": "90%",
-    "castle_rate": 61.81818181818182,
-    "throw_rate": 54.76190476190476,
+    "castle_rate": 62.5,
+    "throw_rate": 53.48837209302326,
     "bullet_n": 12,
-    "true_strength_low": 472,
-    "true_strength_high": 553
+    "true_strength_low": 481,
+    "true_strength_high": 562
   },
   "trends": [
     {
@@ -75,11 +75,11 @@
     },
     {
       "start_ts": 1778285605,
-      "n": 22,
-      "win_rate": 31.818181818181817,
-      "rating": 401.5,
-      "blunders_per_game": 2.772727272727273,
-      "throw_rate": 61.111111111111114
+      "n": 23,
+      "win_rate": 34.78260869565217,
+      "rating": 401.4782608695652,
+      "blunders_per_game": 2.782608695652174,
+      "throw_rate": 57.89473684210526
     }
   ],
   "openings": [
@@ -150,6 +150,16 @@
       "win_rate": 50.0,
       "avg_eval_at_move10": 0,
       "first_slip_move": 8.5,
+      "as_white": 2,
+      "as_black": 0
+    },
+    {
+      "name": "Queens Pawn Opening Horwitz Defense 2.Bf4",
+      "games": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "avg_eval_at_move10": 0,
+      "first_slip_move": null,
       "as_white": 2,
       "as_black": 0
     },
