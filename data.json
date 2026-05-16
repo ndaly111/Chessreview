@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-15T01:43:27.888999+00:00",
-  "n_games": 58,
+  "generated": "2026-05-16T01:35:50.107668+00:00",
+  "n_games": 59,
   "scores": {
     "tactics": {
       "score": 68,
-      "explain": "169 blunders (2.9/game) and 114 missed gifts from opponents (2.0/game). Top blunder motif: positional."
+      "explain": "173 blunders (2.9/game) and 114 missed gifts from opponents (1.9/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 63,
@@ -14,27 +14,27 @@
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 269. 78 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 267. 79 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 470. 70 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 483. 72 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
-      "score": 61,
-      "explain": "25% of your blunders happened with <=30s left (43/169). >40% means you're burning time too early."
+      "score": 62,
+      "explain": "25% of your blunders happened with <=30s left (43/173). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 48,
-      "explain": "You reached a winning position (+2.00) in 45/58 games and converted 22 of them. Throw rate: 51%."
+      "score": 47,
+      "explain": "You reached a winning position (+2.00) in 46/59 games and converted 22 of them. Throw rate: 52%."
     },
     "defense": {
       "score": 36,
-      "explain": "You were down -2.00 or worse at some point in 46 games and recovered to win/draw in 17 of them (36%)."
+      "explain": "You were down -2.00 or worse at some point in 47 games and recovered to win/draw in 17 of them (36%)."
     },
     "king_safety": {
-      "score": 17,
-      "explain": "Castled in 64% of games. 9/58 losses ended in checkmate (16%). Below 60% castling rate is a problem."
+      "score": 13,
+      "explain": "Castled in 64% of games. 10/59 losses ended in checkmate (17%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "64%",
     "focus_goal": "90%",
-    "castle_rate": 63.793103448275865,
-    "throw_rate": 51.111111111111114,
+    "castle_rate": 64.40677966101696,
+    "throw_rate": 52.17391304347826,
     "bullet_n": 12,
-    "true_strength_low": 496,
-    "true_strength_high": 577
+    "true_strength_low": 492,
+    "true_strength_high": 576
   },
   "trends": [
     {
@@ -80,6 +80,14 @@
       "rating": 402.32,
       "blunders_per_game": 2.92,
       "throw_rate": 52.38095238095238
+    },
+    {
+      "start_ts": 1778890405,
+      "n": 1,
+      "win_rate": 0.0,
+      "rating": 408.0,
+      "blunders_per_game": 4.0,
+      "throw_rate": 100.0
     }
   ],
   "openings": [
@@ -102,6 +110,16 @@
       "first_slip_move": 8.0,
       "as_white": 3,
       "as_black": 0
+    },
+    {
+      "name": "Kings Pawn Opening 1...e5",
+      "games": 3,
+      "wins": 0,
+      "win_rate": 0.0,
+      "avg_eval_at_move10": -138.0,
+      "first_slip_move": 5.166666666666667,
+      "as_white": 0,
+      "as_black": 3
     },
     {
       "name": "Reti Opening 1...d5",
@@ -174,16 +192,6 @@
       "as_black": 0
     },
     {
-      "name": "Kings Pawn Opening 1...e5",
-      "games": 2,
-      "wins": 0,
-      "win_rate": 0.0,
-      "avg_eval_at_move10": 95.0,
-      "first_slip_move": 4.5,
-      "as_white": 0,
-      "as_black": 2
-    },
-    {
       "name": "Queens Pawn Opening Chigorin Variation 2...Nf6",
       "games": 2,
       "wins": 2,
@@ -214,6 +222,26 @@
       "chesscom_url": "https://www.chess.com/analysis?fen=8/8/8/8/1k5P/1p6/2Q4K/8%20w%20-%20-%200%2055",
       "board_img": "positions/168296625888_108.svg",
       "solution_img": "positions/168296625888_108_sol.svg"
+    },
+    {
+      "url": "https://www.chess.com/game/live/168769169386",
+      "opp": "iqbalarveda",
+      "ply": 43,
+      "move_played": "Re8",
+      "best": "Bxe2",
+      "uci": "a8e8",
+      "best_uci": "f3e2",
+      "eval_before": 757,
+      "eval_after": -448,
+      "loss": 1205,
+      "fen": "r4bk1/p4p1p/6p1/2p3B1/8/N1PP1bPq/PP2Q2P/R5K1 b - - 1 22",
+      "motif": "direct_hang",
+      "user_color": "black",
+      "opening": "Kings Pawn Opening 1...e5",
+      "lichess_url": "https://lichess.org/analysis?fen=r4bk1/p4p1p/6p1/2p3B1/8/N1PP1bPq/PP2Q2P/R5K1%20b%20-%20-%201%2022",
+      "chesscom_url": "https://www.chess.com/analysis?fen=r4bk1/p4p1p/6p1/2p3B1/8/N1PP1bPq/PP2Q2P/R5K1%20b%20-%20-%201%2022",
+      "board_img": "positions/168769169386_43.svg",
+      "solution_img": "positions/168769169386_43_sol.svg"
     },
     {
       "url": "https://www.chess.com/game/live/168623316470",
@@ -374,26 +402,6 @@
       "chesscom_url": "https://www.chess.com/analysis?fen=8/6P1/3p4/7p/1p6/3p4/k1bK4/8%20b%20-%20-%200%2040",
       "board_img": "positions/168340523238_79.svg",
       "solution_img": "positions/168340523238_79_sol.svg"
-    },
-    {
-      "url": "https://www.chess.com/game/live/168143021030",
-      "opp": "RDBEAST94",
-      "ply": 22,
-      "move_played": "Bd6",
-      "best": "Qd4",
-      "uci": "f4d6",
-      "best_uci": "d1d4",
-      "eval_before": 602,
-      "eval_after": -397,
-      "loss": 999,
-      "fen": "r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R w KQkq - 0 12",
-      "motif": "direct_hang",
-      "user_color": "white",
-      "opening": "Queens Pawn Opening Accelerated London System 2...c6 3.e3",
-      "lichess_url": "https://lichess.org/analysis?fen=r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R%20w%20KQkq%20-%200%2012",
-      "chesscom_url": "https://www.chess.com/analysis?fen=r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R%20w%20KQkq%20-%200%2012",
-      "board_img": "positions/168143021030_22.svg",
-      "solution_img": "positions/168143021030_22_sol.svg"
     }
   ]
 }
