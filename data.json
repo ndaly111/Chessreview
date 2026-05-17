@@ -1,40 +1,40 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-16T15:27:30.751475+00:00",
-  "n_games": 61,
+  "generated": "2026-05-17T03:54:02.721337+00:00",
+  "n_games": 62,
   "scores": {
     "tactics": {
       "score": 69,
-      "explain": "176 blunders (2.9/game) and 115 missed gifts from opponents (1.9/game). Top blunder motif: positional."
+      "explain": "179 blunders (2.9/game) and 117 missed gifts from opponents (1.9/game). Top blunder motif: positional."
     },
     "opening": {
-      "score": 63,
-      "explain": "Average centipawn loss in opening (moves 1-10): 55. Lower is better; 30+ = repertoire problems."
+      "score": 52,
+      "explain": "Average centipawn loss in opening (moves 1-10): 71. Lower is better; 30+ = repertoire problems."
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 261. 80 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 257. 81 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 483. 72 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 468. 73 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
       "score": 63,
-      "explain": "24% of your blunders happened with <=30s left (43/176). >40% means you're burning time too early."
+      "explain": "24% of your blunders happened with <=30s left (43/179). >40% means you're burning time too early."
     },
     "conversion": {
       "score": 47,
-      "explain": "You reached a winning position (+2.00) in 48/61 games and converted 23 of them. Throw rate: 52%."
+      "explain": "You reached a winning position (+2.00) in 48/62 games and converted 23 of them. Throw rate: 52%."
     },
     "defense": {
-      "score": 37,
-      "explain": "You were down -2.00 or worse at some point in 48 games and recovered to win/draw in 18 of them (37%)."
+      "score": 38,
+      "explain": "You were down -2.00 or worse at some point in 49 games and recovered to win/draw in 19 of them (38%)."
     },
     "king_safety": {
-      "score": 16,
-      "explain": "Castled in 66% of games. 10/61 losses ended in checkmate (16%). Below 60% castling rate is a problem."
+      "score": 17,
+      "explain": "Castled in 66% of games. 10/62 losses ended in checkmate (16%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "66%",
     "focus_goal": "90%",
-    "castle_rate": 65.57377049180327,
+    "castle_rate": 66.12903225806451,
     "throw_rate": 52.083333333333336,
     "bullet_n": 13,
-    "true_strength_low": 613,
-    "true_strength_high": 701
+    "true_strength_low": 487,
+    "true_strength_high": 575
   },
   "trends": [
     {
@@ -83,10 +83,10 @@
     },
     {
       "start_ts": 1778890405,
-      "n": 3,
-      "win_rate": 33.333333333333336,
-      "rating": 444.6666666666667,
-      "blunders_per_game": 2.3333333333333335,
+      "n": 4,
+      "win_rate": 25.0,
+      "rating": 433.5,
+      "blunders_per_game": 2.5,
       "throw_rate": 66.66666666666667
     }
   ],
@@ -110,6 +110,16 @@
       "first_slip_move": 8.0,
       "as_white": 3,
       "as_black": 0
+    },
+    {
+      "name": "Three Knights Opening 3...Bc5",
+      "games": 3,
+      "wins": 1,
+      "win_rate": 33.333333333333336,
+      "avg_eval_at_move10": -314.0,
+      "first_slip_move": 5.833333333333333,
+      "as_white": 0,
+      "as_black": 3
     },
     {
       "name": "Kings Pawn Opening 1...e5",
@@ -158,16 +168,6 @@
       "win_rate": 50.0,
       "avg_eval_at_move10": 29.0,
       "first_slip_move": 6.5,
-      "as_white": 0,
-      "as_black": 2
-    },
-    {
-      "name": "Three Knights Opening 3...Bc5",
-      "games": 2,
-      "wins": 1,
-      "win_rate": 50.0,
-      "avg_eval_at_move10": -358.5,
-      "first_slip_move": 5.5,
       "as_white": 0,
       "as_black": 2
     },
