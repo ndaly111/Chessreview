@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-17T16:45:32.917146+00:00",
+  "generated": "2026-05-18T01:22:00.259909+00:00",
   "n_games": 63,
   "scores": {
     "tactics": {
       "score": 69,
-      "explain": "182 blunders (2.9/game) and 117 missed gifts from opponents (1.9/game). Top blunder motif: positional."
+      "explain": "181 blunders (2.9/game) and 116 missed gifts from opponents (1.8/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 53,
@@ -14,19 +14,19 @@
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 254. 82 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 254. 81 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 461. 74 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 439. 74 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
       "score": 64,
-      "explain": "24% of your blunders happened with <=30s left (43/182). >40% means you're burning time too early."
+      "explain": "24% of your blunders happened with <=30s left (43/181). >40% means you're burning time too early."
     },
     "conversion": {
       "score": 46,
-      "explain": "You reached a winning position (+2.00) in 49/63 games and converted 23 of them. Throw rate: 53%."
+      "explain": "You reached a winning position (+2.00) in 50/63 games and converted 23 of them. Throw rate: 54%."
     },
     "defense": {
       "score": 38,
@@ -43,22 +43,22 @@
     "focus_current": "67%",
     "focus_goal": "90%",
     "castle_rate": 66.66666666666667,
-    "throw_rate": 53.06122448979592,
+    "throw_rate": 54.0,
     "bullet_n": 13,
-    "true_strength_low": 483,
-    "true_strength_high": 574
+    "true_strength_low": 478,
+    "true_strength_high": 573
   },
   "trends": [
     {
-      "start_ts": 1776471205,
-      "n": 14,
-      "win_rate": 42.857142857142854,
-      "rating": 477.7857142857143,
-      "blunders_per_game": 2.2857142857142856,
+      "start_ts": 1776480437,
+      "n": 13,
+      "win_rate": 46.15384615384615,
+      "rating": 480.9230769230769,
+      "blunders_per_game": 2.3076923076923075,
       "throw_rate": 28.571428571428573
     },
     {
-      "start_ts": 1777076005,
+      "start_ts": 1777085237,
       "n": 3,
       "win_rate": 0.0,
       "rating": 421.0,
@@ -66,28 +66,28 @@
       "throw_rate": 100.0
     },
     {
-      "start_ts": 1777680805,
-      "n": 16,
-      "win_rate": 50.0,
-      "rating": 488.4375,
-      "blunders_per_game": 3.4375,
+      "start_ts": 1777690037,
+      "n": 17,
+      "win_rate": 47.05882352941177,
+      "rating": 485.8235294117647,
+      "blunders_per_game": 3.2941176470588234,
       "throw_rate": 50.0
     },
     {
-      "start_ts": 1778285605,
-      "n": 25,
-      "win_rate": 40.0,
-      "rating": 402.32,
-      "blunders_per_game": 2.92,
-      "throw_rate": 52.38095238095238
+      "start_ts": 1778294837,
+      "n": 26,
+      "win_rate": 38.46153846153846,
+      "rating": 400.84615384615387,
+      "blunders_per_game": 2.9615384615384617,
+      "throw_rate": 56.52173913043478
     },
     {
-      "start_ts": 1778890405,
-      "n": 5,
-      "win_rate": 20.0,
-      "rating": 425.2,
-      "blunders_per_game": 2.6,
-      "throw_rate": 75.0
+      "start_ts": 1778899637,
+      "n": 4,
+      "win_rate": 25.0,
+      "rating": 425.5,
+      "blunders_per_game": 2.25,
+      "throw_rate": 66.66666666666667
     }
   ],
   "openings": [
