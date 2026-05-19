@@ -1,40 +1,40 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-19T00:34:47.689827+00:00",
-  "n_games": 65,
+  "generated": "2026-05-19T00:45:06.601698+00:00",
+  "n_games": 66,
   "scores": {
     "tactics": {
-      "score": 69,
-      "explain": "186 blunders (2.9/game) and 119 missed gifts from opponents (1.8/game). Top blunder motif: positional."
+      "score": 70,
+      "explain": "187 blunders (2.8/game) and 120 missed gifts from opponents (1.8/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 53,
-      "explain": "Average centipawn loss in opening (moves 1-10): 70. Lower is better; 30+ = repertoire problems."
+      "explain": "Average centipawn loss in opening (moves 1-10): 69. Lower is better; 30+ = repertoire problems."
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 279. 86 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 275. 87 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 451. 74 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 443. 74 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
       "score": 65,
-      "explain": "23% of your blunders happened with <=30s left (43/186). >40% means you're burning time too early."
+      "explain": "23% of your blunders happened with <=30s left (43/187). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 47,
-      "explain": "You reached a winning position (+2.00) in 53/65 games and converted 25 of them. Throw rate: 53%."
+      "score": 46,
+      "explain": "You reached a winning position (+2.00) in 54/66 games and converted 25 of them. Throw rate: 54%."
     },
     "defense": {
-      "score": 38,
-      "explain": "You were down -2.00 or worse at some point in 50 games and recovered to win/draw in 19 of them (38%)."
+      "score": 37,
+      "explain": "You were down -2.00 or worse at some point in 51 games and recovered to win/draw in 19 of them (37%)."
     },
     "king_safety": {
-      "score": 18,
-      "explain": "Castled in 65% of games. 10/65 losses ended in checkmate (15%). Below 60% castling rate is a problem."
+      "score": 19,
+      "explain": "Castled in 65% of games. 10/66 losses ended in checkmate (15%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "65%",
     "focus_goal": "90%",
-    "castle_rate": 64.61538461538461,
-    "throw_rate": 52.83018867924528,
+    "castle_rate": 65.15151515151516,
+    "throw_rate": 53.7037037037037,
     "bullet_n": 13,
-    "true_strength_low": 490,
-    "true_strength_high": 588
+    "true_strength_low": 485,
+    "true_strength_high": 587
   },
   "trends": [
     {
@@ -83,11 +83,11 @@
     },
     {
       "start_ts": 1779021892,
-      "n": 5,
-      "win_rate": 40.0,
-      "rating": 388.8,
-      "blunders_per_game": 2.0,
-      "throw_rate": 60.0
+      "n": 6,
+      "win_rate": 33.333333333333336,
+      "rating": 388.0,
+      "blunders_per_game": 1.8333333333333333,
+      "throw_rate": 66.66666666666667
     }
   ],
   "openings": [
@@ -208,6 +208,16 @@
       "win_rate": 100.0,
       "avg_eval_at_move10": 198.0,
       "first_slip_move": 6.0,
+      "as_white": 0,
+      "as_black": 2
+    },
+    {
+      "name": "Giuoco Piano Game Giuoco Pianissimo Variation",
+      "games": 2,
+      "wins": 0,
+      "win_rate": 0.0,
+      "avg_eval_at_move10": -11.0,
+      "first_slip_move": 8.5,
       "as_white": 0,
       "as_black": 2
     }
