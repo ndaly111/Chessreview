@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-19T23:52:44.542973+00:00",
-  "n_games": 66,
+  "generated": "2026-05-20T01:23:02.094175+00:00",
+  "n_games": 67,
   "scores": {
     "tactics": {
       "score": 70,
-      "explain": "184 blunders (2.8/game) and 118 missed gifts from opponents (1.8/game). Top blunder motif: positional."
+      "explain": "184 blunders (2.7/game) and 118 missed gifts from opponents (1.8/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 53,
@@ -25,28 +25,28 @@
       "explain": "21% of your blunders happened with <=30s left (38/184). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 46,
-      "explain": "You reached a winning position (+2.00) in 54/66 games and converted 25 of them. Throw rate: 54%."
+      "score": 47,
+      "explain": "You reached a winning position (+2.00) in 55/67 games and converted 26 of them. Throw rate: 53%."
     },
     "defense": {
       "score": 37,
       "explain": "You were down -2.00 or worse at some point in 51 games and recovered to win/draw in 19 of them (37%)."
     },
     "king_safety": {
-      "score": 18,
-      "explain": "Castled in 64% of games. 10/66 losses ended in checkmate (15%). Below 60% castling rate is a problem."
+      "score": 17,
+      "explain": "Castled in 63% of games. 10/67 losses ended in checkmate (15%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
     "focus_metric": "castle_rate",
     "focus_label": "Castle by move 10 in every game",
-    "focus_current": "64%",
+    "focus_current": "63%",
     "focus_goal": "90%",
-    "castle_rate": 63.63636363636363,
-    "throw_rate": 53.7037037037037,
+    "castle_rate": 62.6865671641791,
+    "throw_rate": 52.72727272727273,
     "bullet_n": 12,
-    "true_strength_low": 494,
-    "true_strength_high": 596
+    "true_strength_low": 504,
+    "true_strength_high": 606
   },
   "trends": [
     {
@@ -83,11 +83,11 @@
     },
     {
       "start_ts": 1779071269,
-      "n": 5,
-      "win_rate": 60.0,
-      "rating": 389.0,
-      "blunders_per_game": 1.8,
-      "throw_rate": 40.0
+      "n": 6,
+      "win_rate": 66.66666666666667,
+      "rating": 391.3333333333333,
+      "blunders_per_game": 1.5,
+      "throw_rate": 33.333333333333336
     }
   ],
   "openings": [
@@ -198,6 +198,16 @@
       "win_rate": 100.0,
       "avg_eval_at_move10": 0,
       "first_slip_move": 9.0,
+      "as_white": 2,
+      "as_black": 0
+    },
+    {
+      "name": "Queens Pawn Opening 1...d6 2.Bf4",
+      "games": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "avg_eval_at_move10": 0,
+      "first_slip_move": 6.0,
       "as_white": 2,
       "as_black": 0
     },
