@@ -1,40 +1,40 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-20T21:13:26.469861+00:00",
-  "n_games": 68,
+  "generated": "2026-05-20T23:48:15.845246+00:00",
+  "n_games": 69,
   "scores": {
     "tactics": {
       "score": 71,
-      "explain": "187 blunders (2.8/game) and 115 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "explain": "189 blunders (2.7/game) and 117 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
-      "score": 54,
-      "explain": "Average centipawn loss in opening (moves 1-10): 68. Lower is better; 30+ = repertoire problems."
+      "score": 55,
+      "explain": "Average centipawn loss in opening (moves 1-10): 67. Lower is better; 30+ = repertoire problems."
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 273. 87 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 271. 88 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 441. 74 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 451. 75 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
-      "score": 68,
-      "explain": "21% of your blunders happened with <=30s left (39/187). >40% means you're burning time too early."
+      "score": 67,
+      "explain": "22% of your blunders happened with <=30s left (41/189). >40% means you're burning time too early."
     },
     "conversion": {
       "score": 49,
-      "explain": "You reached a winning position (+2.00) in 57/68 games and converted 28 of them. Throw rate: 51%."
+      "explain": "You reached a winning position (+2.00) in 57/69 games and converted 28 of them. Throw rate: 51%."
     },
     "defense": {
-      "score": 40,
-      "explain": "You were down -2.00 or worse at some point in 50 games and recovered to win/draw in 20 of them (40%)."
+      "score": 39,
+      "explain": "You were down -2.00 or worse at some point in 51 games and recovered to win/draw in 20 of them (39%)."
     },
     "king_safety": {
-      "score": 20,
-      "explain": "Castled in 65% of games. 10/68 losses ended in checkmate (15%). Below 60% castling rate is a problem."
+      "score": 17,
+      "explain": "Castled in 65% of games. 11/69 losses ended in checkmate (16%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "65%",
     "focus_goal": "90%",
-    "castle_rate": 64.70588235294117,
+    "castle_rate": 65.21739130434783,
     "throw_rate": 50.87719298245614,
-    "bullet_n": 11,
-    "true_strength_low": 520,
-    "true_strength_high": 622
+    "bullet_n": 12,
+    "true_strength_low": 629,
+    "true_strength_high": 731
   },
   "trends": [
     {
@@ -75,10 +75,10 @@
     },
     {
       "start_ts": 1778721363,
-      "n": 18,
-      "win_rate": 61.111111111111114,
-      "rating": 414.22222222222223,
-      "blunders_per_game": 2.1666666666666665,
+      "n": 19,
+      "win_rate": 57.89473684210526,
+      "rating": 420.2105263157895,
+      "blunders_per_game": 2.1578947368421053,
       "throw_rate": 37.5
     }
   ],
@@ -210,6 +210,16 @@
       "win_rate": 100.0,
       "avg_eval_at_move10": 198.0,
       "first_slip_move": 6.0,
+      "as_white": 0,
+      "as_black": 2
+    },
+    {
+      "name": "Mieses Opening 1...d5",
+      "games": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "avg_eval_at_move10": 115.0,
+      "first_slip_move": 8.5,
       "as_white": 0,
       "as_black": 2
     },
