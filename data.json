@@ -1,11 +1,11 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-24T00:36:36.097278+00:00",
-  "n_games": 66,
+  "generated": "2026-05-24T02:21:55.474298+00:00",
+  "n_games": 67,
   "scores": {
     "tactics": {
-      "score": 71,
+      "score": 72,
       "explain": "178 blunders (2.7/game) and 111 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
@@ -26,7 +26,7 @@
     },
     "conversion": {
       "score": 50,
-      "explain": "You reached a winning position (+2.00) in 57/66 games and converted 29 of them. Throw rate: 49%."
+      "explain": "You reached a winning position (+2.00) in 57/67 games and converted 29 of them. Throw rate: 49%."
     },
     "defense": {
       "score": 41,
@@ -34,19 +34,19 @@
     },
     "king_safety": {
       "score": 25,
-      "explain": "Castled in 67% of games. 9/66 losses ended in checkmate (14%). Below 60% castling rate is a problem."
+      "explain": "Castled in 66% of games. 9/67 losses ended in checkmate (13%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
     "focus_metric": "castle_rate",
     "focus_label": "Castle by move 10 in every game",
-    "focus_current": "67%",
+    "focus_current": "66%",
     "focus_goal": "90%",
-    "castle_rate": 66.66666666666667,
+    "castle_rate": 65.67164179104478,
     "throw_rate": 49.12280701754386,
     "bullet_n": 12,
-    "true_strength_low": 642,
-    "true_strength_high": 740
+    "true_strength_low": 525,
+    "true_strength_high": 623
   },
   "trends": [
     {
@@ -83,9 +83,9 @@
     },
     {
       "start_ts": 1779419497,
-      "n": 1,
+      "n": 2,
       "win_rate": 100.0,
-      "rating": 544.0,
+      "rating": 485.5,
       "blunders_per_game": 0.0,
       "throw_rate": 0.0
     }
@@ -152,6 +152,16 @@
       "as_black": 3
     },
     {
+      "name": "Queens Pawn Opening Chigorin Variation 2...Nf6",
+      "games": 3,
+      "wins": 3,
+      "win_rate": 100.0,
+      "avg_eval_at_move10": 198.0,
+      "first_slip_move": 6.0,
+      "as_white": 0,
+      "as_black": 3
+    },
+    {
       "name": "Kings Pawn Opening Kings Knight Variation 2...Nc6",
       "games": 2,
       "wins": 0,
@@ -200,16 +210,6 @@
       "first_slip_move": 9.0,
       "as_white": 2,
       "as_black": 0
-    },
-    {
-      "name": "Queens Pawn Opening Chigorin Variation 2...Nf6",
-      "games": 2,
-      "wins": 2,
-      "win_rate": 100.0,
-      "avg_eval_at_move10": 198.0,
-      "first_slip_move": 6.0,
-      "as_white": 0,
-      "as_black": 2
     },
     {
       "name": "Mieses Opening 1...d5",
