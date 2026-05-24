@@ -1,40 +1,40 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-24T14:18:59.389718+00:00",
-  "n_games": 68,
+  "generated": "2026-05-24T15:39:19.080765+00:00",
+  "n_games": 69,
   "scores": {
     "tactics": {
       "score": 71,
-      "explain": "185 blunders (2.7/game) and 115 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "explain": "187 blunders (2.7/game) and 115 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 57,
-      "explain": "Average centipawn loss in opening (moves 1-10): 64. Lower is better; 30+ = repertoire problems."
+      "explain": "Average centipawn loss in opening (moves 1-10): 63. Lower is better; 30+ = repertoire problems."
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 231. 85 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 240. 87 blunders in this phase."
     },
     "endgame": {
       "score": 0,
       "explain": "Avg cp loss in endgame (move 26+): 406. 75 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
-      "score": 65,
-      "explain": "23% of your blunders happened with <=30s left (42/185). >40% means you're burning time too early."
+      "score": 66,
+      "explain": "22% of your blunders happened with <=30s left (42/187). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 50,
-      "explain": "You reached a winning position (+2.00) in 58/68 games and converted 29 of them. Throw rate: 50%."
+      "score": 49,
+      "explain": "You reached a winning position (+2.00) in 59/69 games and converted 29 of them. Throw rate: 51%."
     },
     "defense": {
-      "score": 39,
-      "explain": "You were down -2.00 or worse at some point in 46 games and recovered to win/draw in 18 of them (39%)."
+      "score": 38,
+      "explain": "You were down -2.00 or worse at some point in 47 games and recovered to win/draw in 18 of them (38%)."
     },
     "king_safety": {
-      "score": 27,
-      "explain": "Castled in 68% of games. 9/68 losses ended in checkmate (13%). Below 60% castling rate is a problem."
+      "score": 24,
+      "explain": "Castled in 68% of games. 10/69 losses ended in checkmate (14%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "68%",
     "focus_goal": "90%",
-    "castle_rate": 67.6470588235294,
-    "throw_rate": 50.0,
+    "castle_rate": 68.1159420289855,
+    "throw_rate": 50.847457627118644,
     "bullet_n": 13,
-    "true_strength_low": 544,
-    "true_strength_high": 646
+    "true_strength_low": 540,
+    "true_strength_high": 645
   },
   "trends": [
     {
@@ -83,11 +83,11 @@
     },
     {
       "start_ts": 1779482792,
-      "n": 5,
-      "win_rate": 80.0,
-      "rating": 475.8,
+      "n": 6,
+      "win_rate": 66.66666666666667,
+      "rating": 469.0,
       "blunders_per_game": 2.0,
-      "throw_rate": 25.0
+      "throw_rate": 40.0
     }
   ],
   "openings": [
@@ -243,6 +243,26 @@
     }
   ],
   "puzzles": [
+    {
+      "url": "https://www.chess.com/game/live/169173748398",
+      "opp": "qFis",
+      "ply": 31,
+      "move_played": "Qxh3+",
+      "best": "exf4",
+      "uci": "h4h3",
+      "best_uci": "e5f4",
+      "eval_before": 593,
+      "eval_after": -778,
+      "loss": 1371,
+      "fen": "r4rk1/ppp2pp1/3p3p/3Bp2b/4PP1q/3PR2P/PPPQ1P2/R4K2 b - - 2 16",
+      "motif": "direct_hang",
+      "user_color": "black",
+      "opening": "Giuoco Piano Game 4.Nc3 d6",
+      "lichess_url": "https://lichess.org/analysis?fen=r4rk1/ppp2pp1/3p3p/3Bp2b/4PP1q/3PR2P/PPPQ1P2/R4K2%20b%20-%20-%202%2016",
+      "chesscom_url": "https://www.chess.com/analysis?fen=r4rk1/ppp2pp1/3p3p/3Bp2b/4PP1q/3PR2P/PPPQ1P2/R4K2%20b%20-%20-%202%2016",
+      "board_img": "positions/169173748398_31.svg",
+      "solution_img": "positions/169173748398_31_sol.svg"
+    },
     {
       "url": "https://www.chess.com/game/live/168296625888",
       "opp": "Gallotl666",
@@ -422,26 +442,6 @@
       "chesscom_url": "https://www.chess.com/analysis?fen=2kr3r/pp2qppp/2p2n2/8/2P1B3/1P3Q1P/P2N1PP1/b3R1K1%20w%20-%20-%200%2017",
       "board_img": "positions/168902034574_32.svg",
       "solution_img": "positions/168902034574_32_sol.svg"
-    },
-    {
-      "url": "https://www.chess.com/game/live/168523105244",
-      "opp": "SUCESSFULLYWDOFF",
-      "ply": 57,
-      "move_played": "c5",
-      "best": "Bxd4",
-      "uci": "c6c5",
-      "best_uci": "a1d4",
-      "eval_before": 408,
-      "eval_after": -615,
-      "loss": 1023,
-      "fen": "8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7 b - - 1 29",
-      "motif": "direct_hang",
-      "user_color": "black",
-      "opening": "Giuoco Piano Game 4.O O d6",
-      "lichess_url": "https://lichess.org/analysis?fen=8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7%20b%20-%20-%201%2029",
-      "chesscom_url": "https://www.chess.com/analysis?fen=8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7%20b%20-%20-%201%2029",
-      "board_img": "positions/168523105244_57.svg",
-      "solution_img": "positions/168523105244_57_sol.svg"
     }
   ]
 }
