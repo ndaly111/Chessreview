@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-24T12:28:16.825564+00:00",
-  "n_games": 66,
+  "generated": "2026-05-24T14:08:43.995001+00:00",
+  "n_games": 67,
   "scores": {
     "tactics": {
       "score": 71,
-      "explain": "180 blunders (2.7/game) and 111 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "explain": "182 blunders (2.7/game) and 111 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 56,
@@ -14,7 +14,7 @@
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 215. 80 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 233. 82 blunders in this phase."
     },
     "endgame": {
       "score": 0,
@@ -22,19 +22,19 @@
     },
     "time_management": {
       "score": 65,
-      "explain": "23% of your blunders happened with <=30s left (42/180). >40% means you're burning time too early."
+      "explain": "23% of your blunders happened with <=30s left (42/182). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 48,
-      "explain": "You reached a winning position (+2.00) in 56/66 games and converted 27 of them. Throw rate: 52%."
+      "score": 49,
+      "explain": "You reached a winning position (+2.00) in 57/67 games and converted 28 of them. Throw rate: 51%."
     },
     "defense": {
       "score": 39,
       "explain": "You were down -2.00 or worse at some point in 46 games and recovered to win/draw in 18 of them (39%)."
     },
     "king_safety": {
-      "score": 25,
-      "explain": "Castled in 67% of games. 9/66 losses ended in checkmate (14%). Below 60% castling rate is a problem."
+      "score": 26,
+      "explain": "Castled in 67% of games. 9/67 losses ended in checkmate (13%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "67%",
     "focus_goal": "90%",
-    "castle_rate": 66.66666666666667,
-    "throw_rate": 51.785714285714285,
+    "castle_rate": 67.16417910447761,
+    "throw_rate": 50.87719298245614,
     "bullet_n": 13,
-    "true_strength_low": 631,
-    "true_strength_high": 733
+    "true_strength_low": 536,
+    "true_strength_high": 638
   },
   "trends": [
     {
@@ -83,22 +83,22 @@
     },
     {
       "start_ts": 1779482792,
-      "n": 3,
-      "win_rate": 66.66666666666667,
-      "rating": 500.3333333333333,
-      "blunders_per_game": 1.6666666666666667,
-      "throw_rate": 50.0
+      "n": 4,
+      "win_rate": 75.0,
+      "rating": 484.0,
+      "blunders_per_game": 1.75,
+      "throw_rate": 33.333333333333336
     }
   ],
   "openings": [
     {
       "name": "Queens Pawn Opening Accelerated London System",
-      "games": 7,
-      "wins": 3,
-      "win_rate": 42.857142857142854,
+      "games": 8,
+      "wins": 4,
+      "win_rate": 50.0,
       "avg_eval_at_move10": 0,
-      "first_slip_move": 5.666666666666667,
-      "as_white": 7,
+      "first_slip_move": 5.25,
+      "as_white": 8,
       "as_black": 0
     },
     {
