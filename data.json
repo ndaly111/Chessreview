@@ -1,28 +1,28 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-24T15:39:19.080765+00:00",
+  "generated": "2026-05-25T00:40:42.103464+00:00",
   "n_games": 69,
   "scores": {
     "tactics": {
-      "score": 71,
-      "explain": "187 blunders (2.7/game) and 115 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "score": 70,
+      "explain": "197 blunders (2.9/game) and 121 missed gifts from opponents (1.8/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 57,
-      "explain": "Average centipawn loss in opening (moves 1-10): 63. Lower is better; 30+ = repertoire problems."
+      "explain": "Average centipawn loss in opening (moves 1-10): 64. Lower is better; 30+ = repertoire problems."
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 240. 87 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 239. 87 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 406. 75 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 490. 85 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
-      "score": 66,
-      "explain": "22% of your blunders happened with <=30s left (42/187). >40% means you're burning time too early."
+      "score": 63,
+      "explain": "24% of your blunders happened with <=30s left (48/197). >40% means you're burning time too early."
     },
     "conversion": {
       "score": 49,
@@ -33,61 +33,53 @@
       "explain": "You were down -2.00 or worse at some point in 47 games and recovered to win/draw in 18 of them (38%)."
     },
     "king_safety": {
-      "score": 24,
-      "explain": "Castled in 68% of games. 10/69 losses ended in checkmate (14%). Below 60% castling rate is a problem."
+      "score": 23,
+      "explain": "Castled in 67% of games. 10/69 losses ended in checkmate (14%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
     "focus_metric": "castle_rate",
     "focus_label": "Castle by move 10 in every game",
-    "focus_current": "68%",
+    "focus_current": "67%",
     "focus_goal": "90%",
-    "castle_rate": 68.1159420289855,
+    "castle_rate": 66.66666666666667,
     "throw_rate": 50.847457627118644,
     "bullet_n": 13,
-    "true_strength_low": 540,
-    "true_strength_high": 645
+    "true_strength_low": 548,
+    "true_strength_high": 653
   },
   "trends": [
     {
-      "start_ts": 1777063592,
-      "n": 4,
-      "win_rate": 25.0,
-      "rating": 427.25,
-      "blunders_per_game": 2.75,
-      "throw_rate": 75.0
-    },
-    {
-      "start_ts": 1777668392,
-      "n": 14,
+      "start_ts": 1777338024,
+      "n": 6,
       "win_rate": 50.0,
-      "rating": 488.07142857142856,
-      "blunders_per_game": 3.4285714285714284,
+      "rating": 426.0,
+      "blunders_per_game": 3.1666666666666665,
       "throw_rate": 50.0
     },
     {
-      "start_ts": 1778273192,
-      "n": 27,
-      "win_rate": 40.74074074074074,
-      "rating": 408.8888888888889,
-      "blunders_per_game": 2.962962962962963,
-      "throw_rate": 52.17391304347826
+      "start_ts": 1777942824,
+      "n": 23,
+      "win_rate": 26.08695652173913,
+      "rating": 466.3478260869565,
+      "blunders_per_game": 3.0434782608695654,
+      "throw_rate": 73.6842105263158
     },
     {
-      "start_ts": 1778877992,
-      "n": 18,
-      "win_rate": 50.0,
-      "rating": 421.6111111111111,
-      "blunders_per_game": 2.0,
-      "throw_rate": 46.666666666666664
+      "start_ts": 1778547624,
+      "n": 25,
+      "win_rate": 48.0,
+      "rating": 396.64,
+      "blunders_per_game": 2.76,
+      "throw_rate": 45.45454545454545
     },
     {
-      "start_ts": 1779482792,
-      "n": 6,
-      "win_rate": 66.66666666666667,
-      "rating": 469.0,
-      "blunders_per_game": 2.0,
-      "throw_rate": 40.0
+      "start_ts": 1779152424,
+      "n": 15,
+      "win_rate": 73.33333333333333,
+      "rating": 452.26666666666665,
+      "blunders_per_game": 2.6,
+      "throw_rate": 25.0
     }
   ],
   "openings": [
