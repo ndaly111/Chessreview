@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-28T00:15:18.783982+00:00",
-  "n_games": 77,
+  "generated": "2026-05-28T00:25:34.326179+00:00",
+  "n_games": 78,
   "scores": {
     "tactics": {
       "score": 71,
-      "explain": "211 blunders (2.7/game) and 129 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "explain": "213 blunders (2.7/game) and 131 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 58,
@@ -14,27 +14,27 @@
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 236. 92 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 234. 93 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 545. 92 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 543. 92 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
-      "score": 63,
-      "explain": "24% of your blunders happened with <=30s left (51/211). >40% means you're burning time too early."
+      "score": 64,
+      "explain": "24% of your blunders happened with <=30s left (51/213). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 49,
-      "explain": "You reached a winning position (+2.00) in 65/77 games and converted 32 of them. Throw rate: 51%."
+      "score": 50,
+      "explain": "You reached a winning position (+2.00) in 66/78 games and converted 33 of them. Throw rate: 50%."
     },
     "defense": {
       "score": 35,
       "explain": "You were down -2.00 or worse at some point in 51 games and recovered to win/draw in 18 of them (35%)."
     },
     "king_safety": {
-      "score": 22,
-      "explain": "Castled in 65% of games. 11/77 losses ended in checkmate (14%). Below 60% castling rate is a problem."
+      "score": 23,
+      "explain": "Castled in 65% of games. 11/78 losses ended in checkmate (14%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "65%",
     "focus_goal": "90%",
-    "castle_rate": 64.93506493506493,
-    "throw_rate": 50.76923076923077,
+    "castle_rate": 65.38461538461539,
+    "throw_rate": 50.0,
     "bullet_n": 14,
-    "true_strength_low": 550,
-    "true_strength_high": 666
+    "true_strength_low": 558,
+    "true_strength_high": 674
   },
   "trends": [
     {
@@ -83,11 +83,11 @@
     },
     {
       "start_ts": 1779757224,
-      "n": 2,
-      "win_rate": 50.0,
-      "rating": 431.0,
-      "blunders_per_game": 2.5,
-      "throw_rate": 50.0
+      "n": 3,
+      "win_rate": 66.66666666666667,
+      "rating": 435.0,
+      "blunders_per_game": 2.3333333333333335,
+      "throw_rate": 33.333333333333336
     }
   ],
   "openings": [
@@ -172,6 +172,16 @@
       "as_black": 3
     },
     {
+      "name": "Mieses Opening 1...d5",
+      "games": 3,
+      "wins": 2,
+      "win_rate": 66.66666666666667,
+      "avg_eval_at_move10": 121.0,
+      "first_slip_move": 7.5,
+      "as_white": 0,
+      "as_black": 3
+    },
+    {
       "name": "Kings Pawn Opening Kings Knight Variation 2...Nc6",
       "games": 2,
       "wins": 0,
@@ -220,16 +230,6 @@
       "first_slip_move": null,
       "as_white": 2,
       "as_black": 0
-    },
-    {
-      "name": "Mieses Opening 1...d5",
-      "games": 2,
-      "wins": 1,
-      "win_rate": 50.0,
-      "avg_eval_at_move10": 115.0,
-      "first_slip_move": 8.5,
-      "as_white": 0,
-      "as_black": 2
     },
     {
       "name": "Giuoco Piano Game Giuoco Pianissimo Variation",
