@@ -119,7 +119,7 @@ canvas { max-height: 320px; }
 <body>
   <header>
     <h1>Chess Analysis -- lordnickolaz</h1>
-    <div class="sub">Last 30 days -- 79 games -- generated 2026-05-28 21:33 UTC</div>
+    <div class="sub">Last 30 days -- 78 games -- generated 2026-05-29 01:24 UTC</div>
   </header>
   <nav>
     <a href="#plan">This Week</a>
@@ -138,11 +138,11 @@ canvas { max-height: 320px; }
         <div class="diag-label">DIAGNOSIS</div>
         <div class="diag-main">You're a rusty player, not a 400-strength player.</div>
         <div class="diag-detail">
-          Current rating: <b>504</b>. Estimated true strength: <b>~616-728</b>.
-          You reached winning positions in <b>66/79</b> games
-          (84%) -- that's not a low-rated player's
-          profile. You're throwing <b>32</b> of them away
-          (48% throw rate). Fix the conversion, the rating
+          Current rating: <b>459</b>. Estimated true strength: <b>~564-669</b>.
+          You reached winning positions in <b>65/78</b> games
+          (83%) -- that's not a low-rated player's
+          profile. You're throwing <b>30</b> of them away
+          (46% throw rate). Fix the conversion, the rating
           comes back fast.
         </div>
       </div>
@@ -151,10 +151,10 @@ canvas { max-height: 320px; }
         <div class="focus-label">THIS WEEK -- ONE FOCUS</div>
         <div class="focus-title">Castle by move 10 in every game</div>
         <div class="focus-numbers">
-          <div><span class="lbl">Current</span><span class="val">66%</span></div>
+          <div><span class="lbl">Current</span><span class="val">64%</span></div>
           <div><span class="lbl">Goal</span><span class="val">90%</span></div>
         </div>
-        <div class="focus-why">You don't castle in 27/79 games. An uncastled king is your top loss pattern (48% of losses end on the kingside, 10 ended in mate). Castling is the most fixable habit you have.</div>
+        <div class="focus-why">You don't castle in 28/78 games. An uncastled king is your top loss pattern (48% of losses end on the kingside, 8 ended in mate). Castling is the most fixable habit you have.</div>
       </div>
     </div>
 
@@ -185,7 +185,7 @@ canvas { max-height: 320px; }
           <div class="plan-num">4</div>
           <div class="plan-body">
             <div class="plan-title">When you're winning, switch to 'trade pieces' mode</div>
-            <div class="plan-detail">This is the single mental shift that fixes your 48% throw rate. The moment the eval bar says +3, stop trying to win harder. Look at every move and ask: does this trade pieces? Reach a simpler endgame.</div>
+            <div class="plan-detail">This is the single mental shift that fixes your 46% throw rate. The moment the eval bar says +3, stop trying to win harder. Look at every move and ask: does this trade pieces? Reach a simpler endgame.</div>
           </div>
         </div></div>
 
@@ -193,12 +193,12 @@ canvas { max-height: 320px; }
       <div class="watch-grid">
         <div class="watch-item">
           <div class="watch-label">Castle rate</div>
-          <div class="watch-current">66%</div>
+          <div class="watch-current">64%</div>
           <div class="watch-goal">target: 90%</div>
         </div>
         <div class="watch-item">
           <div class="watch-label">Throw rate</div>
-          <div class="watch-current">48%</div>
+          <div class="watch-current">46%</div>
           <div class="watch-goal">target: below 30%</div>
         </div>
         <div class="watch-item">
@@ -217,6 +217,14 @@ canvas { max-height: 320px; }
       <h2>Last 10 Games</h2>
       <p style="color:#a0aec0;font-size:14px;">One-line summary per game. Click opponent name to open on chess.com.</p>
       <div class="recent-list">
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-win">win</span>
+            <a href="https://www.chess.com/game/live/169388619522" target="_blank">vs montasser93</a>
+            <span class="recent-meta">blitz B</span>
+          </div>
+          <div class="recent-body">reached +100.0 and converted -- never castled -- 3 blunders</div>
+        </div>
         <div class="recent-item">
           <div class="recent-head">
             <span class="tag tag-loss">loss</span>
@@ -288,14 +296,6 @@ canvas { max-height: 320px; }
             <span class="recent-meta">blitz B</span>
           </div>
           <div class="recent-body">peaked +100.0, threw with 41... Qxb5 -- castle move 14 -- 4 blunders</div>
-        </div>
-        <div class="recent-item">
-          <div class="recent-head">
-            <span class="tag tag-win">win</span>
-            <a href="https://www.chess.com/game/live/169216352288" target="_blank">vs TURBOZANUSSI</a>
-            <span class="recent-meta">blitz B</span>
-          </div>
-          <div class="recent-body">reached +11.7 and converted -- never castled -- 1 blunders</div>
         </div></div>
     </section>
 
@@ -436,6 +436,32 @@ canvas { max-height: 320px; }
         </div>
         <div class="puzzle" id="puzzle-5">
           <div class="board">
+            <img class="position-img" src="positions/169388619522_37.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/169388619522_37_sol.svg" alt="solution" loading="lazy">
+          </div>
+          <div class="puzzle-info">
+            <div class="head">
+              <div class="title">vs montasser93  (Black to move, move 19...)</div>
+              <div class="loss">-11.6 pawns</div>
+            </div>
+            <div class="meta">positional -- Giuoco Piano Game 4.Nc3 d6</div>
+            <div class="hint">Position before your move. What's the best move?</div>
+            <div class="answer">
+              You played <span class="red">Rf8</span>
+              (+7.03 -> -4.56)
+              -- best was <span class="green">Bc5</span>
+            </div>
+            <div class="fen">r2k3r/ppp1q2p/3p3n/4p2B/6Pp/b7/PpP2QPP/1R3RK1 b - - 9 19</div>
+            <button class="reveal-btn" onclick="toggleSolution(5)">Show solution</button>
+            <div class="links">
+              <a href="https://lichess.org/analysis?fen=r2k3r/ppp1q2p/3p3n/4p2B/6Pp/b7/PpP2QPP/1R3RK1%20b%20-%20-%209%2019" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r2k3r/ppp1q2p/3p3n/4p2B/6Pp/b7/PpP2QPP/1R3RK1%20b%20-%20-%209%2019" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/169388619522" target="_blank">Original game</a>
+            </div>
+          </div>
+        </div>
+        <div class="puzzle" id="puzzle-6">
+          <div class="board">
             <img class="position-img" src="positions/168296312436_49.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168296312436_49_sol.svg" alt="solution" loading="lazy">
           </div>
@@ -452,7 +478,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Qa2+</span>
             </div>
             <div class="fen">1r3rk1/5ppp/3p3P/p1pP4/2P5/3Q1PP1/3K4/q2R3R b - - 0 25</div>
-            <button class="reveal-btn" onclick="toggleSolution(5)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(6)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=1r3rk1/5ppp/3p3P/p1pP4/2P5/3Q1PP1/3K4/q2R3R%20b%20-%20-%200%2025" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=1r3rk1/5ppp/3p3P/p1pP4/2P5/3Q1PP1/3K4/q2R3R%20b%20-%20-%200%2025" target="_blank">Chess.com analysis</a>
@@ -460,7 +486,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-6">
+        <div class="puzzle" id="puzzle-7">
           <div class="board">
             <img class="position-img" src="positions/169005786340_30.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/169005786340_30_sol.svg" alt="solution" loading="lazy">
@@ -478,7 +504,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Bxb7</span>
             </div>
             <div class="fen">r4rk1/pbp1ppb1/1p4p1/7p/2nPBB2/4PN2/PP3PPP/1K1R3R w - - 0 16</div>
-            <button class="reveal-btn" onclick="toggleSolution(6)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(7)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=r4rk1/pbp1ppb1/1p4p1/7p/2nPBB2/4PN2/PP3PPP/1K1R3R%20w%20-%20-%200%2016" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=r4rk1/pbp1ppb1/1p4p1/7p/2nPBB2/4PN2/PP3PPP/1K1R3R%20w%20-%20-%200%2016" target="_blank">Chess.com analysis</a>
@@ -486,7 +512,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-7">
+        <div class="puzzle" id="puzzle-8">
           <div class="board">
             <img class="position-img" src="positions/168621709244_32.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168621709244_32_sol.svg" alt="solution" loading="lazy">
@@ -504,7 +530,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Bxf1</span>
             </div>
             <div class="fen">r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2 w q - 0 17</div>
-            <button class="reveal-btn" onclick="toggleSolution(7)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(8)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2%20w%20q%20-%200%2017" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2%20w%20q%20-%200%2017" target="_blank">Chess.com analysis</a>
@@ -512,7 +538,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-8">
+        <div class="puzzle" id="puzzle-9">
           <div class="board">
             <img class="position-img" src="positions/168340523238_7.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168340523238_7_sol.svg" alt="solution" loading="lazy">
@@ -530,7 +556,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Qh4</span>
             </div>
             <div class="fen">r1b1kbnr/pppp1ppp/2n5/4p1q1/3PP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4</div>
-            <button class="reveal-btn" onclick="toggleSolution(8)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(9)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=r1b1kbnr/pppp1ppp/2n5/4p1q1/3PP3/8/PPP2PPP/RNBQKB1R%20b%20KQkq%20-%200%204" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=r1b1kbnr/pppp1ppp/2n5/4p1q1/3PP3/8/PPP2PPP/RNBQKB1R%20b%20KQkq%20-%200%204" target="_blank">Chess.com analysis</a>
@@ -538,7 +564,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-9">
+        <div class="puzzle" id="puzzle-10">
           <div class="board">
             <img class="position-img" src="positions/168902034574_32.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168902034574_32_sol.svg" alt="solution" loading="lazy">
@@ -556,7 +582,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Bf5+</span>
             </div>
             <div class="fen">2kr3r/pp2qppp/2p2n2/8/2P1B3/1P3Q1P/P2N1PP1/b3R1K1 w - - 0 17</div>
-            <button class="reveal-btn" onclick="toggleSolution(9)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(10)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=2kr3r/pp2qppp/2p2n2/8/2P1B3/1P3Q1P/P2N1PP1/b3R1K1%20w%20-%20-%200%2017" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=2kr3r/pp2qppp/2p2n2/8/2P1B3/1P3Q1P/P2N1PP1/b3R1K1%20w%20-%20-%200%2017" target="_blank">Chess.com analysis</a>
@@ -564,7 +590,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-10">
+        <div class="puzzle" id="puzzle-11">
           <div class="board">
             <img class="position-img" src="positions/168523105244_57.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168523105244_57_sol.svg" alt="solution" loading="lazy">
@@ -582,7 +608,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Bxd4</span>
             </div>
             <div class="fen">8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7 b - - 1 29</div>
-            <button class="reveal-btn" onclick="toggleSolution(10)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(11)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7%20b%20-%20-%201%2029" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=8/1k6/p1p3R1/5rp1/3N2p1/1P6/P1P1K1P1/b7%20b%20-%20-%201%2029" target="_blank">Chess.com analysis</a>
@@ -590,7 +616,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-11">
+        <div class="puzzle" id="puzzle-12">
           <div class="board">
             <img class="position-img" src="positions/168340523238_79.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168340523238_79_sol.svg" alt="solution" loading="lazy">
@@ -608,7 +634,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Bb3</span>
             </div>
             <div class="fen">8/6P1/3p4/7p/1p6/3p4/k1bK4/8 b - - 0 40</div>
-            <button class="reveal-btn" onclick="toggleSolution(11)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(12)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=8/6P1/3p4/7p/1p6/3p4/k1bK4/8%20b%20-%20-%200%2040" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=8/6P1/3p4/7p/1p6/3p4/k1bK4/8%20b%20-%20-%200%2040" target="_blank">Chess.com analysis</a>
@@ -616,7 +642,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-12">
+        <div class="puzzle" id="puzzle-13">
           <div class="board">
             <img class="position-img" src="positions/168143021030_22.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168143021030_22_sol.svg" alt="solution" loading="lazy">
@@ -634,7 +660,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Qd4</span>
             </div>
             <div class="fen">r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R w KQkq - 0 12</div>
-            <button class="reveal-btn" onclick="toggleSolution(12)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(13)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R%20w%20KQkq%20-%200%2012" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=r1bqk2r/pp2n2p/2p5/2np1p2/5B2/2P1PN2/PP2BPPP/R2QK2R%20w%20KQkq%20-%200%2012" target="_blank">Chess.com analysis</a>
@@ -642,7 +668,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-13">
+        <div class="puzzle" id="puzzle-14">
           <div class="board">
             <img class="position-img" src="positions/168434516558_72.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168434516558_72_sol.svg" alt="solution" loading="lazy">
@@ -660,7 +686,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">a5</span>
             </div>
             <div class="fen">6k1/R6p/1K3P2/3bp3/P5p1/4P1P1/5P2/8 w - - 0 37</div>
-            <button class="reveal-btn" onclick="toggleSolution(13)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(14)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=6k1/R6p/1K3P2/3bp3/P5p1/4P1P1/5P2/8%20w%20-%20-%200%2037" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=6k1/R6p/1K3P2/3bp3/P5p1/4P1P1/5P2/8%20w%20-%20-%200%2037" target="_blank">Chess.com analysis</a>
@@ -668,7 +694,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-14">
+        <div class="puzzle" id="puzzle-15">
           <div class="board">
             <img class="position-img" src="positions/168523251862_23.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168523251862_23_sol.svg" alt="solution" loading="lazy">
@@ -686,7 +712,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Qe7</span>
             </div>
             <div class="fen">r2qk2r/ppp2p2/1bn1b2p/1N2p1PQ/8/3P4/PPP2PP1/R3KB1R b KQkq - 0 12</div>
-            <button class="reveal-btn" onclick="toggleSolution(14)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(15)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=r2qk2r/ppp2p2/1bn1b2p/1N2p1PQ/8/3P4/PPP2PP1/R3KB1R%20b%20KQkq%20-%200%2012" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=r2qk2r/ppp2p2/1bn1b2p/1N2p1PQ/8/3P4/PPP2PP1/R3KB1R%20b%20KQkq%20-%200%2012" target="_blank">Chess.com analysis</a>
@@ -694,7 +720,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-15">
+        <div class="puzzle" id="puzzle-16">
           <div class="board">
             <img class="position-img" src="positions/168769581580_48.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168769581580_48_sol.svg" alt="solution" loading="lazy">
@@ -712,7 +738,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Qc4</span>
             </div>
             <div class="fen">1r3r1k/4qp1n/4p1pp/1QP5/p2R4/7P/PPB2PP1/5RK1 w - - 1 25</div>
-            <button class="reveal-btn" onclick="toggleSolution(15)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(16)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=1r3r1k/4qp1n/4p1pp/1QP5/p2R4/7P/PPB2PP1/5RK1%20w%20-%20-%201%2025" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=1r3r1k/4qp1n/4p1pp/1QP5/p2R4/7P/PPB2PP1/5RK1%20w%20-%20-%201%2025" target="_blank">Chess.com analysis</a>
@@ -720,7 +746,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-16">
+        <div class="puzzle" id="puzzle-17">
           <div class="board">
             <img class="position-img" src="positions/168438433354_65.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168438433354_65_sol.svg" alt="solution" loading="lazy">
@@ -738,7 +764,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Qd6</span>
             </div>
             <div class="fen">1r6/bpp1q1k1/p4r1p/P2Bn3/7Q/3P4/5PPP/4RRK1 b - - 14 33</div>
-            <button class="reveal-btn" onclick="toggleSolution(16)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(17)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=1r6/bpp1q1k1/p4r1p/P2Bn3/7Q/3P4/5PPP/4RRK1%20b%20-%20-%2014%2033" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=1r6/bpp1q1k1/p4r1p/P2Bn3/7Q/3P4/5PPP/4RRK1%20b%20-%20-%2014%2033" target="_blank">Chess.com analysis</a>
@@ -746,7 +772,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-17">
+        <div class="puzzle" id="puzzle-18">
           <div class="board">
             <img class="position-img" src="positions/168565973018_100.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168565973018_100_sol.svg" alt="solution" loading="lazy">
@@ -764,7 +790,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Rxf4</span>
             </div>
             <div class="fen">8/R7/P4pk1/8/5rp1/6r1/4K3/5R2 w - - 0 51</div>
-            <button class="reveal-btn" onclick="toggleSolution(17)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(18)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=8/R7/P4pk1/8/5rp1/6r1/4K3/5R2%20w%20-%20-%200%2051" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=8/R7/P4pk1/8/5rp1/6r1/4K3/5R2%20w%20-%20-%200%2051" target="_blank">Chess.com analysis</a>
@@ -772,7 +798,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-18">
+        <div class="puzzle" id="puzzle-19">
           <div class="board">
             <img class="position-img" src="positions/168712005138_45.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168712005138_45_sol.svg" alt="solution" loading="lazy">
@@ -790,7 +816,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Bxg3+</span>
             </div>
             <div class="fen">2k1r1r1/pp1q1p2/2pp1p2/7p/1P2P2P/P1N3PB/5b1K/R2Q4 b - - 1 23</div>
-            <button class="reveal-btn" onclick="toggleSolution(18)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(19)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=2k1r1r1/pp1q1p2/2pp1p2/7p/1P2P2P/P1N3PB/5b1K/R2Q4%20b%20-%20-%201%2023" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=2k1r1r1/pp1q1p2/2pp1p2/7p/1P2P2P/P1N3PB/5b1K/R2Q4%20b%20-%20-%201%2023" target="_blank">Chess.com analysis</a>
@@ -798,33 +824,33 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-19">
+        <div class="puzzle" id="puzzle-20">
           <div class="board">
-            <img class="position-img" src="positions/167970166846_37.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167970166846_37_sol.svg" alt="solution" loading="lazy">
+            <img class="position-img" src="positions/169388619522_23.svg" alt="position" loading="lazy">
+            <img class="solution-img" src="positions/169388619522_23_sol.svg" alt="solution" loading="lazy">
           </div>
           <div class="puzzle-info">
             <div class="head">
-              <div class="title">vs NaderOsman  (Black to move, move 19...)</div>
-              <div class="loss">-8.4 pawns</div>
+              <div class="title">vs montasser93  (Black to move, move 12...)</div>
+              <div class="loss">-8.5 pawns</div>
             </div>
-            <div class="meta">positional -- Kings Pawn Opening Kings Knight Variation 2...Nc6</div>
+            <div class="meta">positional -- Giuoco Piano Game 4.Nc3 d6</div>
             <div class="hint">Position before your move. What's the best move?</div>
             <div class="answer">
-              You played <span class="red">f6</span>
-              (+3.19 -> -5.19)
-              -- best was <span class="green">Re8</span>
+              You played <span class="red">fxe5</span>
+              (+4.02 -> -4.46)
+              -- best was <span class="green">dxe5</span>
             </div>
-            <div class="fen">3q1rk1/b1p2ppp/3p4/p4b1N/2P5/P7/1B1PQPPP/R3K2R b KQ - 4 19</div>
-            <button class="reveal-btn" onclick="toggleSolution(19)">Show solution</button>
+            <div class="fen">r2qk1nr/ppp3pp/3p1p2/4N3/2B3bB/b7/PpP2PPP/1R2QRK1 b kq - 0 12</div>
+            <button class="reveal-btn" onclick="toggleSolution(20)">Show solution</button>
             <div class="links">
-              <a href="https://lichess.org/analysis?fen=3q1rk1/b1p2ppp/3p4/p4b1N/2P5/P7/1B1PQPPP/R3K2R%20b%20KQ%20-%204%2019" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=3q1rk1/b1p2ppp/3p4/p4b1N/2P5/P7/1B1PQPPP/R3K2R%20b%20KQ%20-%204%2019" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167970166846" target="_blank">Original game</a>
+              <a href="https://lichess.org/analysis?fen=r2qk1nr/ppp3pp/3p1p2/4N3/2B3bB/b7/PpP2PPP/1R2QRK1%20b%20kq%20-%200%2012" target="_blank">Lichess</a>
+              <a href="https://www.chess.com/analysis?fen=r2qk1nr/ppp3pp/3p1p2/4N3/2B3bB/b7/PpP2PPP/1R2QRK1%20b%20kq%20-%200%2012" target="_blank">Chess.com analysis</a>
+              <a href="https://www.chess.com/game/live/169388619522" target="_blank">Original game</a>
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-20">
+        <div class="puzzle" id="puzzle-21">
           <div class="board">
             <img class="position-img" src="positions/168721227358_101.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168721227358_101_sol.svg" alt="solution" loading="lazy">
@@ -842,7 +868,7 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Qd7</span>
             </div>
             <div class="fen">8/8/4R3/p4K2/q1pk4/8/8/8 b - - 3 51</div>
-            <button class="reveal-btn" onclick="toggleSolution(20)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(21)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=8/8/4R3/p4K2/q1pk4/8/8/8%20b%20-%20-%203%2051" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=8/8/4R3/p4K2/q1pk4/8/8/8%20b%20-%20-%203%2051" target="_blank">Chess.com analysis</a>
@@ -850,7 +876,7 @@ canvas { max-height: 320px; }
             </div>
           </div>
         </div>
-        <div class="puzzle" id="puzzle-21">
+        <div class="puzzle" id="puzzle-22">
           <div class="board">
             <img class="position-img" src="positions/168368939092_47.svg" alt="position" loading="lazy">
             <img class="solution-img" src="positions/168368939092_47_sol.svg" alt="solution" loading="lazy">
@@ -868,37 +894,11 @@ canvas { max-height: 320px; }
               -- best was <span class="green">Nxe7</span>
             </div>
             <div class="fen">r7/p1p1R1pp/1b4k1/1P3n2/5B2/P7/2P2PPP/3R2K1 b - - 1 24</div>
-            <button class="reveal-btn" onclick="toggleSolution(21)">Show solution</button>
+            <button class="reveal-btn" onclick="toggleSolution(22)">Show solution</button>
             <div class="links">
               <a href="https://lichess.org/analysis?fen=r7/p1p1R1pp/1b4k1/1P3n2/5B2/P7/2P2PPP/3R2K1%20b%20-%20-%201%2024" target="_blank">Lichess</a>
               <a href="https://www.chess.com/analysis?fen=r7/p1p1R1pp/1b4k1/1P3n2/5B2/P7/2P2PPP/3R2K1%20b%20-%20-%201%2024" target="_blank">Chess.com analysis</a>
               <a href="https://www.chess.com/game/live/168368939092" target="_blank">Original game</a>
-            </div>
-          </div>
-        </div>
-        <div class="puzzle" id="puzzle-22">
-          <div class="board">
-            <img class="position-img" src="positions/167970166846_27.svg" alt="position" loading="lazy">
-            <img class="solution-img" src="positions/167970166846_27_sol.svg" alt="solution" loading="lazy">
-          </div>
-          <div class="puzzle-info">
-            <div class="head">
-              <div class="title">vs NaderOsman  (Black to move, move 14...)</div>
-              <div class="loss">-8.0 pawns</div>
-            </div>
-            <div class="meta">direct hang -- Kings Pawn Opening Kings Knight Variation 2...Nc6</div>
-            <div class="hint">Position before your move. What's the best move?</div>
-            <div class="answer">
-              You played <span class="red">Bd7</span>
-              (+3.69 -> -4.29)
-              -- best was <span class="green">Kd8</span>
-            </div>
-            <div class="fen">r1b1k2r/b1p1qppp/2Qp4/p7/2P5/P2N4/1B1PnPPP/R3K2R b KQkq - 0 14</div>
-            <button class="reveal-btn" onclick="toggleSolution(22)">Show solution</button>
-            <div class="links">
-              <a href="https://lichess.org/analysis?fen=r1b1k2r/b1p1qppp/2Qp4/p7/2P5/P2N4/1B1PnPPP/R3K2R%20b%20KQkq%20-%200%2014" target="_blank">Lichess</a>
-              <a href="https://www.chess.com/analysis?fen=r1b1k2r/b1p1qppp/2Qp4/p7/2P5/P2N4/1B1PnPPP/R3K2R%20b%20KQkq%20-%200%2014" target="_blank">Chess.com analysis</a>
-              <a href="https://www.chess.com/game/live/167970166846" target="_blank">Original game</a>
             </div>
           </div>
         </div>
@@ -931,7 +931,7 @@ canvas { max-height: 320px; }
     </section>
 
     <section id="trends">
-      <h2>Trends (5 weeks)</h2>
+      <h2>Trends (4 weeks)</h2>
       <div class="chart-container"><canvas id="ratingChart"></canvas></div>
       <div class="chart-container"><canvas id="blunderChart"></canvas></div>
       <div class="chart-container"><canvas id="throwChart"></canvas></div>
@@ -948,12 +948,12 @@ canvas { max-height: 320px; }
           <tbody>
         <tr>
           <td>Queens Pawn Opening Accelerated London System</td>
-          <td>9</td>
+          <td>8</td>
           <td>4</td>
-          <td>44%</td>
+          <td>50%</td>
           <td>+0.00</td>
           <td>move 5</td>
-          <td>9/0</td>
+          <td>8/0</td>
         </tr>
         <tr>
           <td>Queens Pawn Opening Zukertort Chigorin Variation 3.Bf4 Nf6 4.e3</td>
@@ -1028,15 +1028,6 @@ canvas { max-height: 320px; }
           <td>0/3</td>
         </tr>
         <tr>
-          <td>Kings Pawn Opening Kings Knight Variation 2...Nc6</td>
-          <td>2</td>
-          <td>0</td>
-          <td>0%</td>
-          <td>-1.75</td>
-          <td>move 5</td>
-          <td>0/2</td>
-        </tr>
-        <tr>
           <td>Queens Pawn Opening Accelerated London System 2...c6 3.e3</td>
           <td>2</td>
           <td>2</td>
@@ -1089,6 +1080,15 @@ canvas { max-height: 320px; }
           <td>+0.00</td>
           <td>move 7</td>
           <td>2/0</td>
+        </tr>
+        <tr>
+          <td>Giuoco Piano Game 4.Nc3 d6</td>
+          <td>2</td>
+          <td>1</td>
+          <td>50%</td>
+          <td>+3.25</td>
+          <td>move 6</td>
+          <td>0/2</td>
         </tr></tbody>
         </table>
       </div>
@@ -1098,58 +1098,66 @@ canvas { max-height: 320px; }
       <h2>Full Data</h2>
       
     <div class="kpi">
-      <div class="item"><div class="lbl">Games</div><div class="num">79</div></div>
-      <div class="item"><div class="lbl">Win rate</div><div class="num">47%</div></div>
-      <div class="item"><div class="lbl">Rating</div><div class="num">421 -> 504</div></div>
-      <div class="item"><div class="lbl">Throw rate</div><div class="num">48%</div></div>
+      <div class="item"><div class="lbl">Games</div><div class="num">78</div></div>
+      <div class="item"><div class="lbl">Win rate</div><div class="num">49%</div></div>
+      <div class="item"><div class="lbl">Rating</div><div class="num">420 -> 459</div></div>
+      <div class="item"><div class="lbl">Throw rate</div><div class="num">46%</div></div>
     </div>
       <h3 style="margin-top:24px;">Skill scores (for reference)</h3>
       <div class="skill-grid">
         <div class="skill-card">
           <h3>Tactics</h3>
           <div class="score score-green">71</div>
-          <div class="explain">217 blunders (2.7/game) and 136 missed gifts from opponents (1.7/game). Top blunder motif: positional.</div>
+          <div class="explain">214 blunders (2.7/game) and 136 missed gifts from opponents (1.7/game). Top blunder motif: positional.</div>
         </div>
         <div class="skill-card">
           <h3>Opening</h3>
-          <div class="score score-yellow">58</div>
-          <div class="explain">Average centipawn loss in opening (moves 1-10): 62. Lower is better; 30+ = repertoire problems.</div>
+          <div class="score score-yellow">59</div>
+          <div class="explain">Average centipawn loss in opening (moves 1-10): 61. Lower is better; 30+ = repertoire problems.</div>
         </div>
         <div class="skill-card">
           <h3>Middlegame</h3>
           <div class="score score-red">0</div>
-          <div class="explain">Avg cp loss in middlegame (moves 11-25): 233. 96 blunders in this phase.</div>
+          <div class="explain">Avg cp loss in middlegame (moves 11-25): 225. 95 blunders in this phase.</div>
         </div>
         <div class="skill-card">
           <h3>Endgame</h3>
           <div class="score score-red">0</div>
-          <div class="explain">Avg cp loss in endgame (move 26+): 527. 93 blunders. Endgame conversion is where most rating leaks.</div>
+          <div class="explain">Avg cp loss in endgame (move 26+): 512. 92 blunders. Endgame conversion is where most rating leaks.</div>
         </div>
         <div class="skill-card">
           <h3>Time Management</h3>
           <div class="score score-yellow">64</div>
-          <div class="explain">24% of your blunders happened with <=30s left (51/217). >40% means you're burning time too early.</div>
+          <div class="explain">24% of your blunders happened with <=30s left (51/214). >40% means you're burning time too early.</div>
         </div>
         <div class="skill-card">
           <h3>Conversion</h3>
-          <div class="score score-yellow">51</div>
-          <div class="explain">You reached a winning position (+2.00) in 66/79 games and converted 34 of them. Throw rate: 48%.</div>
+          <div class="score score-yellow">53</div>
+          <div class="explain">You reached a winning position (+2.00) in 65/78 games and converted 35 of them. Throw rate: 46%.</div>
         </div>
         <div class="skill-card">
           <h3>Defense</h3>
-          <div class="score score-orange">36</div>
-          <div class="explain">You were down -2.00 or worse at some point in 52 games and recovered to win/draw in 19 of them (36%).</div>
+          <div class="score score-orange">37</div>
+          <div class="explain">You were down -2.00 or worse at some point in 51 games and recovered to win/draw in 19 of them (37%).</div>
         </div>
         <div class="skill-card">
           <h3>King Safety</h3>
-          <div class="score score-red">27</div>
-          <div class="explain">Castled in 66% of games. 10/79 losses ended in checkmate (13%). Below 60% castling rate is a problem.</div>
+          <div class="score score-orange">33</div>
+          <div class="explain">Castled in 64% of games. 8/78 losses ended in checkmate (10%). Below 60% castling rate is a problem.</div>
         </div></div>
-      <h3 style="margin-top:24px;">All games in window (79)</h3>
+      <h3 style="margin-top:24px;">All games in window (78)</h3>
       <div class="card">
         <table>
           <thead><tr><th>Date</th><th>Side</th><th>Opponent</th><th>Rating</th><th>Result</th><th>Opening</th></tr></thead>
           <tbody>
+        <tr>
+          <td>May 29</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/169388619522" target="_blank" style="color:#63b3ed">montasser93</a></td>
+          <td>423</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Giuoco Piano Game 4.Nc3 d6</td>
+        </tr>
         <tr>
           <td>May 28</td>
           <td>B</td>
@@ -1765,22 +1773,6 @@ canvas { max-height: 320px; }
           <td>388</td>
           <td><span class="tag tag-win">win</span> </td>
           <td>Queens Pawn Opening Accelerated London System 2...</td>
-        </tr>
-        <tr>
-          <td>Apr 29</td>
-          <td>W</td>
-          <td><a href="https://www.chess.com/game/live/167970389530" target="_blank" style="color:#63b3ed">Shahariar696</a></td>
-          <td>407</td>
-          <td><span class="tag tag-loss">loss</span> (threw)</td>
-          <td>Queens Pawn Opening Accelerated London System</td>
-        </tr>
-        <tr>
-          <td>Apr 29</td>
-          <td>B</td>
-          <td><a href="https://www.chess.com/game/live/167970166846" target="_blank" style="color:#63b3ed">NaderOsman</a></td>
-          <td>421</td>
-          <td><span class="tag tag-loss">loss</span> (threw)</td>
-          <td>Kings Pawn Opening Kings Knight Variation 2...Nc6</td>
         </tr></tbody>
         </table>
       </div>
@@ -1817,7 +1809,7 @@ canvas { max-height: 320px; }
         labels: ["Tactics", "Opening", "Middlegame", "Endgame", "Time Management", "Conversion", "Defense", "King Safety"],
         datasets: [{
           label: 'Skill score (0-100)',
-          data: [71, 58, 0, 0, 64, 51, 36, 27],
+          data: [71, 59, 0, 0, 64, 53, 37, 33],
           backgroundColor: 'rgba(99, 179, 237, 0.2)',
           borderColor: '#63b3ed',
           pointBackgroundColor: '#63b3ed',
@@ -1833,8 +1825,8 @@ canvas { max-height: 320px; }
 
     new Chart(document.getElementById('ratingChart'), {
       type: 'line',
-      data: { labels: ["Apr 29", "May 06", "May 13", "May 20", "May 27"],
-               datasets: [{ label: 'Rating', data: [425, 449, 398, 456, 458],
+      data: { labels: ["May 02", "May 09", "May 16", "May 23"],
+               datasets: [{ label: 'Rating', data: [484, 404, 417, 459],
                               borderColor: '#63b3ed', backgroundColor: 'rgba(99,179,237,0.1)',
                               tension: 0.3, fill: true }] },
       options: { plugins: { title: { display: true, text: 'Rating over time' } },
@@ -1843,8 +1835,8 @@ canvas { max-height: 320px; }
 
     new Chart(document.getElementById('blunderChart'), {
       type: 'line',
-      data: { labels: ["Apr 29", "May 06", "May 13", "May 20", "May 27"],
-               datasets: [{ label: 'Blunders / game', data: [3.2, 2.93, 2.79, 2.43, 2.25],
+      data: { labels: ["May 02", "May 09", "May 16", "May 23"],
+               datasets: [{ label: 'Blunders / game', data: [3.28, 2.92, 1.93, 2.63],
                               borderColor: '#fc8181', backgroundColor: 'rgba(252,129,129,0.1)',
                               tension: 0.3, fill: true }] },
       options: { plugins: { title: { display: true, text: 'Blunders per game (lower = better)' } } }
@@ -1852,8 +1844,8 @@ canvas { max-height: 320px; }
 
     new Chart(document.getElementById('throwChart'), {
       type: 'line',
-      data: { labels: ["Apr 29", "May 06", "May 13", "May 20", "May 27"],
-               datasets: [{ label: 'Throw rate %', data: [40.0, 75.0, 33.3, 37.5, 0.0],
+      data: { labels: ["May 02", "May 09", "May 16", "May 23"],
+               datasets: [{ label: 'Throw rate %', data: [46.7, 56.5, 41.7, 33.3],
                               borderColor: '#f6ad55', backgroundColor: 'rgba(246,173,85,0.1)',
                               tension: 0.3, fill: true }] },
       options: { plugins: { title: { display: true, text: 'Throw rate over time (% of winning positions lost)' } },
