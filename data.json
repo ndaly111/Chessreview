@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-30T13:44:26.602884+00:00",
-  "n_games": 81,
+  "generated": "2026-05-30T14:29:44.811266+00:00",
+  "n_games": 82,
   "scores": {
     "tactics": {
       "score": 71,
-      "explain": "223 blunders (2.8/game) and 139 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "explain": "225 blunders (2.7/game) and 139 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 60,
@@ -14,39 +14,39 @@
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 220. 100 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 218. 101 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 477. 96 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 488. 97 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
-      "score": 63,
-      "explain": "24% of your blunders happened with <=30s left (54/223). >40% means you're burning time too early."
+      "score": 64,
+      "explain": "24% of your blunders happened with <=30s left (54/225). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 54,
-      "explain": "You reached a winning position (+2.00) in 68/81 games and converted 37 of them. Throw rate: 46%."
+      "score": 53,
+      "explain": "You reached a winning position (+2.00) in 69/82 games and converted 37 of them. Throw rate: 46%."
     },
     "defense": {
       "score": 38,
-      "explain": "You were down -2.00 or worse at some point in 54 games and recovered to win/draw in 21 of them (38%)."
+      "explain": "You were down -2.00 or worse at some point in 55 games and recovered to win/draw in 21 of them (38%)."
     },
     "king_safety": {
-      "score": 34,
-      "explain": "Castled in 64% of games. 8/81 losses ended in checkmate (10%). Below 60% castling rate is a problem."
+      "score": 31,
+      "explain": "Castled in 65% of games. 9/82 losses ended in checkmate (11%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
     "focus_metric": "castle_rate",
     "focus_label": "Castle by move 10 in every game",
-    "focus_current": "64%",
+    "focus_current": "65%",
     "focus_goal": "90%",
-    "castle_rate": 64.19753086419753,
-    "throw_rate": 45.588235294117645,
+    "castle_rate": 64.63414634146342,
+    "throw_rate": 46.3768115942029,
     "bullet_n": 15,
-    "true_strength_low": 583,
-    "true_strength_high": 692
+    "true_strength_low": 579,
+    "true_strength_high": 691
   },
   "trends": [
     {
@@ -75,11 +75,11 @@
     },
     {
       "start_ts": 1779559417,
-      "n": 22,
-      "win_rate": 59.09090909090909,
-      "rating": 460.8181818181818,
-      "blunders_per_game": 2.6818181818181817,
-      "throw_rate": 33.333333333333336
+      "n": 23,
+      "win_rate": 56.52173913043478,
+      "rating": 461.0869565217391,
+      "blunders_per_game": 2.652173913043478,
+      "throw_rate": 36.8421052631579
     }
   ],
   "openings": [
@@ -242,6 +242,16 @@
       "first_slip_move": 6.5,
       "as_white": 0,
       "as_black": 2
+    },
+    {
+      "name": "Queens Pawn Opening Accelerated London System 2...Nf6 3.e3",
+      "games": 2,
+      "wins": 0,
+      "win_rate": 0.0,
+      "avg_eval_at_move10": 0,
+      "first_slip_move": 8.0,
+      "as_white": 2,
+      "as_black": 0
     }
   ],
   "puzzles": [
