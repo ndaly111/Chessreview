@@ -1,20 +1,20 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-06-01T20:27:39.697905+00:00",
-  "n_games": 90,
+  "generated": "2026-06-01T20:32:51.300033+00:00",
+  "n_games": 91,
   "scores": {
     "tactics": {
-      "score": 70,
-      "explain": "251 blunders (2.8/game) and 152 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "score": 71,
+      "explain": "252 blunders (2.8/game) and 152 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 62,
-      "explain": "Average centipawn loss in opening (moves 1-10): 57. Lower is better; 30+ = repertoire problems."
+      "explain": "Average centipawn loss in opening (moves 1-10): 56. Lower is better; 30+ = repertoire problems."
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 232. 116 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 232. 117 blunders in this phase."
     },
     "endgame": {
       "score": 0,
@@ -22,31 +22,31 @@
     },
     "time_management": {
       "score": 60,
-      "explain": "26% of your blunders happened with <=30s left (66/251). >40% means you're burning time too early."
+      "explain": "26% of your blunders happened with <=30s left (66/252). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 54,
-      "explain": "You reached a winning position (+2.00) in 77/90 games and converted 42 of them. Throw rate: 45%."
+      "score": 53,
+      "explain": "You reached a winning position (+2.00) in 78/91 games and converted 42 of them. Throw rate: 46%."
     },
     "defense": {
-      "score": 38,
-      "explain": "You were down -2.00 or worse at some point in 60 games and recovered to win/draw in 23 of them (38%)."
+      "score": 37,
+      "explain": "You were down -2.00 or worse at some point in 61 games and recovered to win/draw in 23 of them (37%)."
     },
     "king_safety": {
       "score": 28,
-      "explain": "Castled in 66% of games. 11/90 losses ended in checkmate (12%). Below 60% castling rate is a problem."
+      "explain": "Castled in 65% of games. 11/91 losses ended in checkmate (12%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
     "focus_metric": "castle_rate",
     "focus_label": "Castle by move 10 in every game",
-    "focus_current": "66%",
+    "focus_current": "65%",
     "focus_goal": "90%",
-    "castle_rate": 65.55555555555556,
-    "throw_rate": 45.45454545454545,
+    "castle_rate": 64.83516483516483,
+    "throw_rate": 46.15384615384615,
     "bullet_n": 20,
-    "true_strength_low": 605,
-    "true_strength_high": 728
+    "true_strength_low": 601,
+    "true_strength_high": 727
   },
   "trends": [
     {
@@ -83,11 +83,11 @@
     },
     {
       "start_ts": 1780241830,
-      "n": 3,
-      "win_rate": 66.66666666666667,
-      "rating": 480.3333333333333,
-      "blunders_per_game": 1.3333333333333333,
-      "throw_rate": 33.333333333333336
+      "n": 4,
+      "win_rate": 50.0,
+      "rating": 479.0,
+      "blunders_per_game": 1.25,
+      "throw_rate": 50.0
     }
   ],
   "openings": [
@@ -374,6 +374,26 @@
       "solution_img": "positions/168296585508_14_sol.svg"
     },
     {
+      "url": "https://www.chess.com/game/live/169570622032",
+      "opp": "tapjaaa",
+      "ply": 25,
+      "move_played": "Qxg4",
+      "best": "Qh1+",
+      "uci": "e4g4",
+      "best_uci": "e4h1",
+      "eval_before": 408,
+      "eval_after": -782,
+      "loss": 1190,
+      "fen": "rn2kbn1/pp2p1pN/2p3p1/8/4q1P1/8/PP1P1P2/RNBQ1K2 b q - 2 13",
+      "motif": "direct_hang",
+      "user_color": "black",
+      "opening": "Caro Kann Defense 2.Nf3 d5",
+      "lichess_url": "https://lichess.org/analysis?fen=rn2kbn1/pp2p1pN/2p3p1/8/4q1P1/8/PP1P1P2/RNBQ1K2%20b%20q%20-%202%2013",
+      "chesscom_url": "https://www.chess.com/analysis?fen=rn2kbn1/pp2p1pN/2p3p1/8/4q1P1/8/PP1P1P2/RNBQ1K2%20b%20q%20-%202%2013",
+      "board_img": "positions/169570622032_25.svg",
+      "solution_img": "positions/169570622032_25_sol.svg"
+    },
+    {
       "url": "https://www.chess.com/game/live/169388619522",
       "opp": "montasser93",
       "ply": 37,
@@ -452,26 +472,6 @@
       "chesscom_url": "https://www.chess.com/analysis?fen=r4rk1/pbp1ppb1/1p4p1/7p/2nPBB2/4PN2/PP3PPP/1K1R3R%20w%20-%20-%200%2016",
       "board_img": "positions/169005786340_30.svg",
       "solution_img": "positions/169005786340_30_sol.svg"
-    },
-    {
-      "url": "https://www.chess.com/game/live/168621709244",
-      "opp": "hungsolo1969",
-      "ply": 32,
-      "move_played": "Kc2",
-      "best": "Bxf1",
-      "uci": "d1c2",
-      "best_uci": "d3f1",
-      "eval_before": 491,
-      "eval_after": -569,
-      "loss": 1060,
-      "fen": "r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2 w q - 0 17",
-      "motif": "delayed_tactic",
-      "user_color": "white",
-      "opening": "Queens Pawn Opening Accelerated London System",
-      "lichess_url": "https://lichess.org/analysis?fen=r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2%20w%20q%20-%200%2017",
-      "chesscom_url": "https://www.chess.com/analysis?fen=r3k1nB/ppp2p1p/6p1/3p4/8/P1PBP3/1P3P2/RN1K1q2%20w%20q%20-%200%2017",
-      "board_img": "positions/168621709244_32.svg",
-      "solution_img": "positions/168621709244_32_sol.svg"
     }
   ]
 }
