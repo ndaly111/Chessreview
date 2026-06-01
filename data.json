@@ -1,20 +1,20 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-06-01T19:57:25.975863+00:00",
-  "n_games": 89,
+  "generated": "2026-06-01T20:27:39.697905+00:00",
+  "n_games": 90,
   "scores": {
     "tactics": {
       "score": 70,
       "explain": "251 blunders (2.8/game) and 152 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
-      "score": 61,
+      "score": 62,
       "explain": "Average centipawn loss in opening (moves 1-10): 57. Lower is better; 30+ = repertoire problems."
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 233. 116 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 232. 116 blunders in this phase."
     },
     "endgame": {
       "score": 0,
@@ -25,16 +25,16 @@
       "explain": "26% of your blunders happened with <=30s left (66/251). >40% means you're burning time too early."
     },
     "conversion": {
-      "score": 53,
-      "explain": "You reached a winning position (+2.00) in 76/89 games and converted 41 of them. Throw rate: 46%."
+      "score": 54,
+      "explain": "You reached a winning position (+2.00) in 77/90 games and converted 42 of them. Throw rate: 45%."
     },
     "defense": {
       "score": 38,
       "explain": "You were down -2.00 or worse at some point in 60 games and recovered to win/draw in 23 of them (38%)."
     },
     "king_safety": {
-      "score": 29,
-      "explain": "Castled in 66% of games. 11/89 losses ended in checkmate (12%). Below 60% castling rate is a problem."
+      "score": 28,
+      "explain": "Castled in 66% of games. 11/90 losses ended in checkmate (12%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
@@ -42,11 +42,11 @@
     "focus_label": "Castle by move 10 in every game",
     "focus_current": "66%",
     "focus_goal": "90%",
-    "castle_rate": 66.29213483146067,
-    "throw_rate": 46.05263157894737,
+    "castle_rate": 65.55555555555556,
+    "throw_rate": 45.45454545454545,
     "bullet_n": 20,
-    "true_strength_low": 597,
-    "true_strength_high": 720
+    "true_strength_low": 605,
+    "true_strength_high": 728
   },
   "trends": [
     {
@@ -83,11 +83,11 @@
     },
     {
       "start_ts": 1780241830,
-      "n": 2,
-      "win_rate": 50.0,
-      "rating": 479.0,
-      "blunders_per_game": 2.0,
-      "throw_rate": 50.0
+      "n": 3,
+      "win_rate": 66.66666666666667,
+      "rating": 480.3333333333333,
+      "blunders_per_game": 1.3333333333333333,
+      "throw_rate": 33.333333333333336
     }
   ],
   "openings": [
@@ -228,6 +228,16 @@
       "win_rate": 0.0,
       "avg_eval_at_move10": 0,
       "first_slip_move": 8.5,
+      "as_white": 2,
+      "as_black": 0
+    },
+    {
+      "name": "Queens Pawn Opening Zukertort Chigorin Variation 3.Bf4 Bf5 4.e3",
+      "games": 2,
+      "wins": 1,
+      "win_rate": 50.0,
+      "avg_eval_at_move10": 0,
+      "first_slip_move": 7.0,
       "as_white": 2,
       "as_black": 0
     },
