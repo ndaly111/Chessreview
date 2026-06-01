@@ -1,36 +1,36 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-05-31T02:12:22.569477+00:00",
+  "generated": "2026-06-01T19:37:00.731914+00:00",
   "n_games": 88,
   "scores": {
     "tactics": {
       "score": 70,
-      "explain": "250 blunders (2.8/game) and 151 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "explain": "247 blunders (2.8/game) and 149 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 61,
-      "explain": "Average centipawn loss in opening (moves 1-10): 57. Lower is better; 30+ = repertoire problems."
+      "explain": "Average centipawn loss in opening (moves 1-10): 58. Lower is better; 30+ = repertoire problems."
     },
     "middlegame": {
       "score": 0,
-      "explain": "Avg cp loss in middlegame (moves 11-25): 236. 117 blunders in this phase."
+      "explain": "Avg cp loss in middlegame (moves 11-25): 236. 116 blunders in this phase."
     },
     "endgame": {
       "score": 0,
-      "explain": "Avg cp loss in endgame (move 26+): 503. 105 blunders. Endgame conversion is where most rating leaks."
+      "explain": "Avg cp loss in endgame (move 26+): 496. 103 blunders. Endgame conversion is where most rating leaks."
     },
     "time_management": {
-      "score": 60,
-      "explain": "26% of your blunders happened with <=30s left (66/250). >40% means you're burning time too early."
+      "score": 59,
+      "explain": "27% of your blunders happened with <=30s left (66/247). >40% means you're burning time too early."
     },
     "conversion": {
       "score": 54,
       "explain": "You reached a winning position (+2.00) in 75/88 games and converted 41 of them. Throw rate: 45%."
     },
     "defense": {
-      "score": 40,
-      "explain": "You were down -2.00 or worse at some point in 60 games and recovered to win/draw in 24 of them (40%)."
+      "score": 38,
+      "explain": "You were down -2.00 or worse at some point in 59 games and recovered to win/draw in 23 of them (38%)."
     },
     "king_safety": {
       "score": 31,
@@ -45,49 +45,49 @@
     "castle_rate": 65.9090909090909,
     "throw_rate": 45.333333333333336,
     "bullet_n": 20,
-    "true_strength_low": 635,
-    "true_strength_high": 754
+    "true_strength_low": 602,
+    "true_strength_high": 721
   },
   "trends": [
     {
-      "start_ts": 1777745017,
-      "n": 18,
-      "win_rate": 50.0,
-      "rating": 483.94444444444446,
-      "blunders_per_game": 3.2777777777777777,
-      "throw_rate": 46.666666666666664
+      "start_ts": 1777822630,
+      "n": 20,
+      "win_rate": 40.0,
+      "rating": 479.7,
+      "blunders_per_game": 3.05,
+      "throw_rate": 56.25
     },
     {
-      "start_ts": 1778349817,
-      "n": 26,
-      "win_rate": 38.46153846153846,
-      "rating": 403.6923076923077,
-      "blunders_per_game": 2.923076923076923,
-      "throw_rate": 56.52173913043478
+      "start_ts": 1778427430,
+      "n": 24,
+      "win_rate": 41.666666666666664,
+      "rating": 399.7083333333333,
+      "blunders_per_game": 3.0833333333333335,
+      "throw_rate": 52.38095238095238
     },
     {
-      "start_ts": 1778954617,
-      "n": 15,
-      "win_rate": 53.333333333333336,
-      "rating": 417.0,
-      "blunders_per_game": 1.9333333333333333,
-      "throw_rate": 41.666666666666664
+      "start_ts": 1779032230,
+      "n": 20,
+      "win_rate": 60.0,
+      "rating": 433.45,
+      "blunders_per_game": 1.9,
+      "throw_rate": 41.1764705882353
     },
     {
-      "start_ts": 1779559417,
+      "start_ts": 1779637030,
       "n": 23,
       "win_rate": 56.52173913043478,
-      "rating": 461.0869565217391,
-      "blunders_per_game": 2.652173913043478,
-      "throw_rate": 36.8421052631579
+      "rating": 469.30434782608694,
+      "blunders_per_game": 3.217391304347826,
+      "throw_rate": 35.0
     },
     {
-      "start_ts": 1780164217,
-      "n": 6,
-      "win_rate": 66.66666666666667,
-      "rating": 500.5,
-      "blunders_per_game": 4.166666666666667,
-      "throw_rate": 33.333333333333336
+      "start_ts": 1780241830,
+      "n": 1,
+      "win_rate": 100.0,
+      "rating": 483.0,
+      "blunders_per_game": 0.0,
+      "throw_rate": 0.0
     }
   ],
   "openings": [
@@ -202,14 +202,14 @@
       "as_black": 0
     },
     {
-      "name": "Queens Pawn Opening Accelerated London System 2...c6 3.e3",
-      "games": 2,
+      "name": "Giuoco Piano Game 4.Nc3 d6",
+      "games": 3,
       "wins": 2,
-      "win_rate": 100.0,
-      "avg_eval_at_move10": 0,
-      "first_slip_move": 9.0,
-      "as_white": 2,
-      "as_black": 0
+      "win_rate": 66.66666666666667,
+      "avg_eval_at_move10": 211.66666666666666,
+      "first_slip_move": 6.5,
+      "as_white": 0,
+      "as_black": 3
     },
     {
       "name": "Kings Pawn Opening Leonardis Variation",
@@ -250,16 +250,6 @@
       "first_slip_move": 7.5,
       "as_white": 2,
       "as_black": 0
-    },
-    {
-      "name": "Giuoco Piano Game 4.Nc3 d6",
-      "games": 2,
-      "wins": 1,
-      "win_rate": 50.0,
-      "avg_eval_at_move10": 325.5,
-      "first_slip_move": 6.5,
-      "as_white": 0,
-      "as_black": 2
     },
     {
       "name": "Queens Pawn Opening Accelerated London System 2...Nf6 3.e3",
