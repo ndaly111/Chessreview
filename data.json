@@ -1,12 +1,12 @@
 {
   "username": "lordnickolaz",
   "window": "Last 30 days",
-  "generated": "2026-06-02T01:03:51.487972+00:00",
-  "n_games": 94,
+  "generated": "2026-06-02T15:23:08.676302+00:00",
+  "n_games": 95,
   "scores": {
     "tactics": {
       "score": 71,
-      "explain": "261 blunders (2.8/game) and 158 missed gifts from opponents (1.7/game). Top blunder motif: positional."
+      "explain": "261 blunders (2.7/game) and 159 missed gifts from opponents (1.7/game). Top blunder motif: positional."
     },
     "opening": {
       "score": 62,
@@ -26,7 +26,7 @@
     },
     "conversion": {
       "score": 55,
-      "explain": "You reached a winning position (+2.00) in 80/94 games and converted 44 of them. Throw rate: 45%."
+      "explain": "You reached a winning position (+2.00) in 81/95 games and converted 45 of them. Throw rate: 44%."
     },
     "defense": {
       "score": 38,
@@ -34,19 +34,19 @@
     },
     "king_safety": {
       "score": 29,
-      "explain": "Castled in 65% of games. 11/94 losses ended in checkmate (12%). Below 60% castling rate is a problem."
+      "explain": "Castled in 64% of games. 11/95 losses ended in checkmate (12%). Below 60% castling rate is a problem."
     }
   },
   "action_plan": {
     "focus_metric": "castle_rate",
     "focus_label": "Castle by move 10 in every game",
-    "focus_current": "65%",
+    "focus_current": "64%",
     "focus_goal": "90%",
-    "castle_rate": 64.8936170212766,
-    "throw_rate": 45.0,
+    "castle_rate": 64.21052631578948,
+    "throw_rate": 44.44444444444444,
     "bullet_n": 20,
-    "true_strength_low": 625,
-    "true_strength_high": 751
+    "true_strength_low": 1079,
+    "true_strength_high": 1205
   },
   "trends": [
     {
@@ -83,11 +83,11 @@
     },
     {
       "start_ts": 1780241830,
-      "n": 7,
-      "win_rate": 71.42857142857143,
-      "rating": 484.14285714285717,
-      "blunders_per_game": 2.0,
-      "throw_rate": 33.333333333333336
+      "n": 8,
+      "win_rate": 75.0,
+      "rating": 542.75,
+      "blunders_per_game": 1.75,
+      "throw_rate": 28.571428571428573
     }
   ],
   "openings": [
