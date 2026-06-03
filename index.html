@@ -119,7 +119,7 @@ canvas { max-height: 320px; }
 <body>
   <header>
     <h1>Chess Analysis -- lordnickolaz</h1>
-    <div class="sub">Last 30 days -- 99 games -- generated 2026-06-03 11:31 UTC</div>
+    <div class="sub">Last 30 days -- 100 games -- generated 2026-06-03 20:48 UTC</div>
   </header>
   <nav>
     <a href="#plan">This Week</a>
@@ -138,11 +138,11 @@ canvas { max-height: 320px; }
         <div class="diag-label">DIAGNOSIS</div>
         <div class="diag-main">You're a rusty player, not a 400-strength player.</div>
         <div class="diag-detail">
-          Current rating: <b>507</b>. Estimated true strength: <b>~633-759</b>.
-          You reached winning positions in <b>82/99</b> games
+          Current rating: <b>515</b>. Estimated true strength: <b>~641-767</b>.
+          You reached winning positions in <b>83/100</b> games
           (83%) -- that's not a low-rated player's
           profile. You're throwing <b>36</b> of them away
-          (44% throw rate). Fix the conversion, the rating
+          (43% throw rate). Fix the conversion, the rating
           comes back fast.
         </div>
       </div>
@@ -154,7 +154,7 @@ canvas { max-height: 320px; }
           <div><span class="lbl">Current</span><span class="val">64%</span></div>
           <div><span class="lbl">Goal</span><span class="val">90%</span></div>
         </div>
-        <div class="focus-why">You don't castle in 36/99 games. An uncastled king is your top loss pattern (48% of losses end on the kingside, 12 ended in mate). Castling is the most fixable habit you have.</div>
+        <div class="focus-why">You don't castle in 36/100 games. An uncastled king is your top loss pattern (48% of losses end on the kingside, 12 ended in mate). Castling is the most fixable habit you have.</div>
       </div>
     </div>
 
@@ -185,7 +185,7 @@ canvas { max-height: 320px; }
           <div class="plan-num">4</div>
           <div class="plan-body">
             <div class="plan-title">When you're winning, switch to 'trade pieces' mode</div>
-            <div class="plan-detail">This is the single mental shift that fixes your 44% throw rate. The moment the eval bar says +3, stop trying to win harder. Look at every move and ask: does this trade pieces? Reach a simpler endgame.</div>
+            <div class="plan-detail">This is the single mental shift that fixes your 43% throw rate. The moment the eval bar says +3, stop trying to win harder. Look at every move and ask: does this trade pieces? Reach a simpler endgame.</div>
           </div>
         </div></div>
 
@@ -198,7 +198,7 @@ canvas { max-height: 320px; }
         </div>
         <div class="watch-item">
           <div class="watch-label">Throw rate</div>
-          <div class="watch-current">44%</div>
+          <div class="watch-current">43%</div>
           <div class="watch-goal">target: below 30%</div>
         </div>
         <div class="watch-item">
@@ -217,6 +217,14 @@ canvas { max-height: 320px; }
       <h2>Last 10 Games</h2>
       <p style="color:#a0aec0;font-size:14px;">One-line summary per game. Click opponent name to open on chess.com.</p>
       <div class="recent-list">
+        <div class="recent-item">
+          <div class="recent-head">
+            <span class="tag tag-win">win</span>
+            <a href="https://www.chess.com/game/live/169669953956" target="_blank">vs Aushilfe</a>
+            <span class="recent-meta">blitz B</span>
+          </div>
+          <div class="recent-body">reached +6.4 and converted -- castle move 9 -- 1 blunders</div>
+        </div>
         <div class="recent-item">
           <div class="recent-head">
             <span class="tag tag-loss">loss</span>
@@ -288,14 +296,6 @@ canvas { max-height: 320px; }
             <span class="recent-meta">blitz W</span>
           </div>
           <div class="recent-body">reached +5.8 and converted -- castle move 12 -- 2 blunders</div>
-        </div>
-        <div class="recent-item">
-          <div class="recent-head">
-            <span class="tag tag-win">win</span>
-            <a href="https://www.chess.com/game/live/169571928230" target="_blank">vs MyLittleButtercup</a>
-            <span class="recent-meta">blitz B</span>
-          </div>
-          <div class="recent-body">won -- never castled -- 1 blunders</div>
         </div></div>
     </section>
 
@@ -1125,17 +1125,17 @@ canvas { max-height: 320px; }
       <h2>Full Data</h2>
       
     <div class="kpi">
-      <div class="item"><div class="lbl">Games</div><div class="num">99</div></div>
+      <div class="item"><div class="lbl">Games</div><div class="num">100</div></div>
       <div class="item"><div class="lbl">Win rate</div><div class="num">52%</div></div>
-      <div class="item"><div class="lbl">Rating</div><div class="num">453 -> 507</div></div>
-      <div class="item"><div class="lbl">Throw rate</div><div class="num">44%</div></div>
+      <div class="item"><div class="lbl">Rating</div><div class="num">453 -> 515</div></div>
+      <div class="item"><div class="lbl">Throw rate</div><div class="num">43%</div></div>
     </div>
       <h3 style="margin-top:24px;">Skill scores (for reference)</h3>
       <div class="skill-grid">
         <div class="skill-card">
           <h3>Tactics</h3>
           <div class="score score-green">72</div>
-          <div class="explain">264 blunders (2.7/game) and 161 missed gifts from opponents (1.6/game). Top blunder motif: positional.</div>
+          <div class="explain">265 blunders (2.6/game) and 162 missed gifts from opponents (1.6/game). Top blunder motif: positional.</div>
         </div>
         <div class="skill-card">
           <h3>Opening</h3>
@@ -1145,38 +1145,46 @@ canvas { max-height: 320px; }
         <div class="skill-card">
           <h3>Middlegame</h3>
           <div class="score score-red">0</div>
-          <div class="explain">Avg cp loss in middlegame (moves 11-25): 244. 125 blunders in this phase.</div>
+          <div class="explain">Avg cp loss in middlegame (moves 11-25): 242. 125 blunders in this phase.</div>
         </div>
         <div class="skill-card">
           <h3>Endgame</h3>
           <div class="score score-red">0</div>
-          <div class="explain">Avg cp loss in endgame (move 26+): 529. 108 blunders. Endgame conversion is where most rating leaks.</div>
+          <div class="explain">Avg cp loss in endgame (move 26+): 516. 109 blunders. Endgame conversion is where most rating leaks.</div>
         </div>
         <div class="skill-card">
           <h3>Time Management</h3>
           <div class="score score-yellow">60</div>
-          <div class="explain">26% of your blunders happened with <=30s left (69/264). >40% means you're burning time too early.</div>
+          <div class="explain">26% of your blunders happened with <=30s left (69/265). >40% means you're burning time too early.</div>
         </div>
         <div class="skill-card">
           <h3>Conversion</h3>
           <div class="score score-yellow">56</div>
-          <div class="explain">You reached a winning position (+2.00) in 82/99 games and converted 46 of them. Throw rate: 44%.</div>
+          <div class="explain">You reached a winning position (+2.00) in 83/100 games and converted 47 of them. Throw rate: 43%.</div>
         </div>
         <div class="skill-card">
           <h3>Defense</h3>
-          <div class="score score-orange">39</div>
-          <div class="explain">You were down -2.00 or worse at some point in 66 games and recovered to win/draw in 26 of them (39%).</div>
+          <div class="score score-orange">40</div>
+          <div class="explain">You were down -2.00 or worse at some point in 67 games and recovered to win/draw in 27 of them (40%).</div>
         </div>
         <div class="skill-card">
           <h3>King Safety</h3>
-          <div class="score score-red">27</div>
-          <div class="explain">Castled in 64% of games. 12/99 losses ended in checkmate (12%). Below 60% castling rate is a problem.</div>
+          <div class="score score-red">28</div>
+          <div class="explain">Castled in 64% of games. 12/100 losses ended in checkmate (12%). Below 60% castling rate is a problem.</div>
         </div></div>
-      <h3 style="margin-top:24px;">All games in window (99)</h3>
+      <h3 style="margin-top:24px;">All games in window (100)</h3>
       <div class="card">
         <table>
           <thead><tr><th>Date</th><th>Side</th><th>Opponent</th><th>Rating</th><th>Result</th><th>Opening</th></tr></thead>
           <tbody>
+        <tr>
+          <td>Jun 03</td>
+          <td>B</td>
+          <td><a href="https://www.chess.com/game/live/169669953956" target="_blank" style="color:#63b3ed">Aushilfe</a></td>
+          <td>516</td>
+          <td><span class="tag tag-win">win</span> </td>
+          <td>Queens Pawn Opening 1...d5 2.e3</td>
+        </tr>
         <tr>
           <td>Jun 03</td>
           <td>W</td>
@@ -2004,7 +2012,7 @@ canvas { max-height: 320px; }
         labels: ["Tactics", "Opening", "Middlegame", "Endgame", "Time Management", "Conversion", "Defense", "King Safety"],
         datasets: [{
           label: 'Skill score (0-100)',
-          data: [72, 62, 0, 0, 60, 56, 39, 27],
+          data: [72, 62, 0, 0, 60, 56, 40, 28],
           backgroundColor: 'rgba(99, 179, 237, 0.2)',
           borderColor: '#63b3ed',
           pointBackgroundColor: '#63b3ed',
@@ -2031,7 +2039,7 @@ canvas { max-height: 320px; }
     new Chart(document.getElementById('blunderChart'), {
       type: 'line',
       data: { labels: ["May 06", "May 13", "May 20", "May 27", "Jun 03"],
-               datasets: [{ label: 'Blunders / game', data: [2.93, 2.79, 2.43, 2.7, 1.67],
+               datasets: [{ label: 'Blunders / game', data: [2.93, 2.79, 2.43, 2.7, 1.57],
                               borderColor: '#fc8181', backgroundColor: 'rgba(252,129,129,0.1)',
                               tension: 0.3, fill: true }] },
       options: { plugins: { title: { display: true, text: 'Blunders per game (lower = better)' } } }
